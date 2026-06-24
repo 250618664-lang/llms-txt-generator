@@ -1,0 +1,20 @@
+# Free LLMs.txt Generator
+
+> A free, mobile-friendly online tool that helps website owners create an AI-readable llms.txt file for improved visibility in ChatGPT, Claude, Perplexity, Gemini, and other AI search tools.
+
+Website: https://example.com
+Audience: Website owners, SEO operators, Indie SaaS founders, Small business owners, Agencies
+Language: English
+
+## Key Pages
+- Home / Tool: https://example.com/
+  The main tool page where users generate llms.txt files instantly. It includes the generator, an explanation of llms.txt, upload guidance, best practices, and FAQ content.
+
+## Recommended Reading
+- Tool guide: https://example.com/
+  The public page includes the complete user guide and FAQ.
+- GitHub Repository: (to be added after first deployment)
+  Source code and release history
+
+## Contact
+https://example.com/#faq

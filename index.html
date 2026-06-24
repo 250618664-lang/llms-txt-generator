@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLMs.txt Generator — Create AI-Readable Website Files</title>
+  <meta name="description" content="Free online LLMs.txt generator. Create an AI-readable llms.txt file for improved visibility in ChatGPT, Claude, Perplexity, Gemini, and other AI search tools.">
+  <meta name="keywords" content="llms.txt, AI search visibility, ChatGPT, Claude, Perplexity, Gemini, AI SEO, website structure">
+  <link rel="canonical" href="#TO-BE-REPLACED-WITH-REAL-URL">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LLMs.txt Generator — Create AI-Readable Website Files">
+  <meta property="og:description" content="Generate an llms.txt file to help AI systems understand your website structure.">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LLMs.txt Generator",
+    "description": "Free online tool to generate AI-readable llms.txt files for websites",
+    "url": "#TO-BE-REPLACED-WITH-REAL-URL",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "No special requirements"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an llms.txt file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An llms.txt is a plain text file that helps AI systems like ChatGPT, Claude, Perplexity, and Gemini understand your website's structure, key pages, and content hierarchy. It is an emerging experimental practice inspired by robots.txt and sitemap.xml."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is llms.txt different from robots.txt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "robots.txt tells crawlers what to index; llms.txt provides AI systems with a human-written summary of your site's purpose, key pages, and audience. It supplements crawler directives with context that AI models can use to better understand and reference your content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where should I upload my llms.txt file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upload your llms.txt file to your website's root directory, same level as your robots.txt file. For example: example.com/llms.txt"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will having an llms.txt file improve my SEO ranking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We cannot guarantee specific ranking improvements. An llms.txt file helps AI systems understand your website structure, which may improve how your content is referenced in AI-generated responses. This is an emerging practice and results vary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is llms.txt an official standard?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "llms.txt is currently an experimental, community-driven practice. There is no official IETF or W3C standard, though several AI companies and SEO professionals have adopted it as a way to improve AI search visibility."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-border: #e5e7eb;
+      --color-text: #1f2937;
+      --color-text-muted: #6b7280;
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-success: #059669;
+      --color-radius: 8px;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 32px 16px 24px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Tool Section */
+    .tool-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .tool-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    input, textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Pages List */
+    .pages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .page-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 12px;
+    }
+
+    .page-item .form-row {
+      margin-bottom: 8px;
+    }
+
+    .page-item textarea {
+      min-height: 60px;
+    }
+
+    .btn-remove {
+      background: none;
+      border: none;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+    }
+
+    .btn-remove:hover {
+      text-decoration: underline;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: var(--color-radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      font-family: inherit;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-bg);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn-group-left {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-group-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Output */
+    .output-section {
+      margin-top: 24px;
+      display: none;
+    }
+
+    .output-section.visible {
+      display: block;
+    }
+
+    .output-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .output-header h3 {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .output-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .output-preview {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 16px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 400px;
+      overflow-y: auto;
+      line-height: 1.7;
+    }
+
+    /* Content Sections */
+    .content-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .content-section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+
+    .content-section h3 {
+      font-size: 1.1rem;
+      margin: 20px 0 10px;
+      color: var(--color-text);
+    }
+
+    .content-section p {
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .content-section ul {
+      color: var(--color-text-muted);
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .content-section li {
+      margin-bottom: 6px;
+    }
+
+    .content-section code {
+      background: var(--color-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    .content-section pre {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 16px;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    .content-section pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-item h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .faq-item p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: 32px;
+    }
+
+    footer a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: var(--color-radius);
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      color: #92400e;
+      margin: 16px 0;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-text);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--color-radius);
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Free LLMs.txt Generator</h1>
+    <p>Create an AI-readable file to help ChatGPT, Claude, Perplexity, and Gemini understand your website</p>
+  </header>
+
+  <main class="container">
+    <!-- Tool Section -->
+    <section class="tool-section" id="tool">
+      <h2>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Generate Your llms.txt
+      </h2>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="siteName">Website Name</label>
+            <input type="text" id="siteName" placeholder="My Awesome Site">
+          </div>
+          <div class="form-group">
+            <label for="siteUrl">Website URL</label>
+            <input type="url" id="siteUrl" placeholder="https://example.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="siteDescription">Short Website Description</label>
+          <textarea id="siteDescription" placeholder="A brief description of what your website offers (1-3 sentences)"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="audience">Main Audience</label>
+            <input type="text" id="audience" placeholder="e.g., Small business owners, Developers">
+          </div>
+          <div class="form-group">
+            <label for="language">Primary Language</label>
+            <input type="text" id="language" placeholder="e.g., English, Chinese, Spanish" value="English">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Important Pages</label>
+          <div class="pages-list" id="pagesList">
+            <div class="page-item">
+              <div class="form-row">
+                <input type="text" class="pageTitle" placeholder="Page Title">
+                <input type="url" class="pageUrl" placeholder="https://example.com/page">
+              </div>
+              <textarea class="pageDesc" placeholder="Brief description of this page"></textarea>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" id="addPage" style="margin-top: 10px;">
+            + Add Another Page
+          </button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="docsUrl">Documentation URL <span class="optional">(optional)</span></label>
+            <input type="url" id="docsUrl" placeholder="https://example.com/docs">
+          </div>
+          <div class="form-group">
+            <label for="blogUrl">Blog URL <span class="optional">(optional)</span></label>
+            <input type="url" id="blogUrl" placeholder="https://example.com/blog">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricingUrl">Pricing URL <span class="optional">(optional)</span></label>
+            <input type="url" id="pricingUrl" placeholder="https://example.com/pricing">
+          </div>
+          <div class="form-group">
+            <label for="apiDocsUrl">API Docs URL <span class="optional">(optional)</span></label>
+            <input type="url" id="apiDocsUrl" placeholder="https://example.com/api">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactUrl">Contact URL <span class="optional">(optional)</span></label>
+          <input type="url" id="contactUrl" placeholder="https://example.com/contact">
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <div class="btn-group-left">
+          <button type="button" class="btn btn-primary" id="generateBtn">Generate llms.txt</button>
+        </div>
+        <div class="btn-group-right">
+          <button type="button" class="btn btn-secondary" id="loadSampleBtn">Load Sample</button>
+          <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+        </div>
+      </div>
+
+      <div class="output-section" id="outputSection">
+        <div class="output-header">
+          <h3>Your llms.txt file</h3>
+          <div class="output-actions">
+            <button type="button" class="btn btn-secondary" id="copyBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+            <button type="button" class="btn btn-secondary" id="downloadBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download
+            </button>
+          </div>
+        </div>
+        <pre class="output-preview" id="outputPreview"></pre>
+      </div>
+    </section>
+
+    <!-- What is llms.txt -->
+    <section class="content-section" id="what-is-llms">
+      <h2>What is an llms.txt File?</h2>
+      <p>An llms.txt is a plain text file placed at the root of your website (e.g., <code>example.com/llms.txt</code>) that helps AI systems understand your website's structure, purpose, and key content. Inspired by <code>robots.txt</code> and <code>sitemap.xml</code>, this emerging format was created to give AI chatbots and AI search engines like ChatGPT, Claude, Perplexity, and Gemini a clear, human-readable summary of your website.</p>
+
+      <div class="disclaimer">
+        <strong>⚠️ Experimental Practice:</strong> The llms.txt format is an emerging, community-driven practice—not an official web standard. It is not endorsed by W3C, IETF, or any major AI company. Use it as an additional way to improve AI visibility, but do not rely on it as a replacement for proper SEO fundamentals.
+      </div>
+
+      <p>Unlike traditional SEO sitemaps that focus on search engine crawlers, llms.txt is specifically designed for AI systems that may reference your website in generated responses. It provides context that helps these AI models understand:</p>
+      <ul>
+        <li>What your website is about</li>
+        <li>Who your target audience is</li>
+        <li>Which pages are most important</li>
+        <li>Where to find documentation, pricing, or support</li>
+        <li>How to contact or follow your business</li>
+      </ul>
+    </section>
+
+    <!-- Why it matters -->
+    <section class="content-section" id="why-matters">
+      <h2>Why LLMs.txt Matters for AI Search Visibility</h2>
+      <p>As AI-powered search becomes more prevalent, websites need new ways to communicate their content and purpose to AI systems. When Perplexity, ChatGPT, or other AI tools generate responses, they often need to reference reliable sources. An llms.txt file helps by:</p>
+
+      <h3>1. Improved Content Context</h3>
+      <p>AI models can struggle to understand the full context of a website from just its pages. A well-written llms.txt provides immediate context about your site's purpose, making it easier for AI to accurately reference your content.</p>
+
+      <h3>2. Better AI Citations</h3>
+      <p>When AI systems understand your website structure, they can provide more accurate citations and links to your content in their responses, potentially driving targeted referral traffic.</p>
+
+      <h3>3. Differentiation from Competitors</h3>
+      <p>Few websites currently use llms.txt. Implementing one early shows AI-forward thinking and may give you an edge as AI search evolves.</p>
+
+      <h3>4. No Downside Risk</h3>
+      <p>Unlike some SEO tactics that can result in penalties, an llms.txt file is purely informational and cannot harm your search rankings. The worst case is that AI systems don't use it.</p>
+    </section>
+
+    <!-- How to create -->
+    <section class="content-section" id="how-to-create">
+      <h2>How to Create an llms.txt File</h2>
+      <p>Creating an llms.txt file is straightforward. Use the generator above to create your file, or manually create a file with the following structure:</p>
+
+      <pre><code># [Your Website Name]
+
+> [Short description of your website]
+
+Website: [Your website URL]
+Audience: [Your target audience]
+Language: [Primary language]
+
+## Key Pages
+- [Page Title]: [URL]
+  [Description]
+
+## Recommended Reading
+- [Documentation URL]
+- [Blog URL]
+- [Pricing URL]
+
+## Contact
+[Contact URL]</code></pre>
+
+      <h3>Best Practices for Your llms.txt</h3>
+      <ul>
+        <li><strong>Be concise:</strong> Keep descriptions brief and informative (1-3 sentences for main description)</li>
+        <li><strong>Focus on value:</strong> Highlight what makes your site valuable to visitors</li>
+        <li><strong>Include key pages:</strong> List your most important pages with accurate URLs</li>
+        <li><strong>Use proper URLs:</strong> Ensure all URLs are complete and correct</li>
+        <li><strong>Keep it updated:</strong> Refresh your llms.txt when your site structure changes</li>
+        <li><strong>Match your brand:</strong> Write in a tone consistent with your website</li>
+      </ul>
+    </section>
+
+    <!-- Where to upload -->
+    <section class="content-section" id="where-upload">
+      <h2>Where to Upload Your llms.txt File</h2>
+      <p>After generating your llms.txt file, upload it to your web server following these steps:</p>
+
+      <h3>1. File Location</h3>
+      <p>Place your <code>llms.txt</code> file in the root directory of your website, at the same level as your <code>robots.txt</code> file:</p>
+      <ul>
+        <li>Correct: <code>https://example.com/llms.txt</code></li>
+        <li>Incorrect: <code>https://example.com/blog/llms.txt</code></li>
+      </ul>
+
+      <h3>2. Server Configuration</h3>
+      <p>Ensure your web server serves the file with the correct MIME type (<code>text/plain</code>). Most servers handle this automatically for <code>.txt</code> files.</p>
+
+      <h3>3. Test Your File</h3>
+      <p>After uploading, visit <code>https://yourdomain.com/llms.txt</code> in your browser to verify it's accessible.</p>
+
+      <h3>4. Common Platforms</h3>
+      <ul>
+        <li><strong>WordPress:</strong> Upload via FTP or use a custom file plugin</li>
+        <li><strong>Wix/Squarespace:</strong> Use the file upload feature in settings</li>
+        <li><strong>Netlify/Vercel:</strong> Add the file to your project root</li>
+        <li><strong>GitHub Pages:</strong> Add to your repository root</li>
+        <li><strong>Cloudflare Pages:</strong> Add to your project root before deployment</li>
+      </ul>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="content-section" id="best-practices">
+      <h2>Best Practices for LLMs.txt</h2>
+
+      <h3>Do:</h3>
+      <ul>
+        <li>Use accurate, up-to-date information about your site</li>
+        <li>Include your most valuable and popular pages</li>
+        <li>Write descriptions that clearly communicate your site's purpose</li>
+        <li>Link to documentation, pricing, and contact pages if they exist</li>
+        <li>Review and update periodically (quarterly is recommended)</li>
+        <li>Keep descriptions concise but informative</li>
+      </ul>
+
+      <h3>Don't:</h3>
+      <ul>
+        <li>Don't overstuff with keywords—write for humans, not AI</li>
+        <li>Don't include sensitive pages (admin, login, private areas)</li>
+        <li>Don't make promises about rankings or traffic improvements</li>
+        <li>Don't use misleading descriptions or fake page listings</li>
+        <li>Don't treat it as a replacement for good content and proper SEO</li>
+      </ul>
+
+      <h3>Common Mistakes to Avoid</h3>
+      <p>Many website owners make these errors when creating their llms.txt:</p>
+      <ul>
+        <li>Broken or incorrect URLs that return 404 errors</li>
+        <li>Vague descriptions that don't actually describe the site</li>
+        <li>Including too many pages (stick to the 5-10 most important)</li>
+        <li>Forgetting to update the file when the site structure changes</li>
+        <li>Writing in a corporate "SEO speak" instead of natural language</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h4>Is llms.txt an official standard?</h4>
+        <p>No, llms.txt is currently an experimental, community-driven practice. It is not an official IETF RFC or W3C recommendation. Several SEO professionals and AI companies have proposed and discussed the format, but there is no universal standard.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How is llms.txt different from robots.txt?</h4>
+        <p>robots.txt tells web crawlers what to index and what to ignore; it is a crawler directive. llms.txt provides AI systems with a human-written summary of your site's purpose, key pages, and audience. It supplements crawler directives with context that AI models can use to better understand and reference your content.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Will having an llms.txt file improve my SEO ranking?</h4>
+        <p>We cannot guarantee specific ranking improvements. An llms.txt file helps AI systems understand your website structure, which may improve how your content is referenced in AI-generated responses. This is an emerging practice, and results vary. Focus on creating quality content and proper SEO fundamentals first.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do AI systems like ChatGPT or Claude actually read llms.txt?</h4>
+        <p>Some AI systems and AI-powered search engines have begun experimenting with llms.txt files. However, there is no guarantee that any specific AI system reads or uses this file. It is a proactive step to help AI understand your site, not a guaranteed visibility solution.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Where should I upload my llms.txt file?</h4>
+        <p>Upload your llms.txt file to your website's root directory, at the same level as your robots.txt file. For example: <code>example.com/llms.txt</code></p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How often should I update my llms.txt file?</h4>
+        <p>We recommend reviewing and updating your llms.txt at least quarterly, or whenever you make significant changes to your website structure (new pages, renamed sections, changed URLs, etc.).</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I include any page in my llms.txt?</h4>
+        <p>Include pages that are publicly accessible and relevant to visitors. Avoid including admin pages, login pages, checkout flows, or pages with sensitive information. Stick to pages that genuinely help someone understand what your site offers.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 LLMs.txt Generator. A free tool for website owners.</p>
+    <p>This is an independent project, not affiliated with OpenAI, Anthropic, Google, or any AI company.</p>
+    <p style="margin-top: 8px;">
+      <a href="#tool">Use the Generator</a> · <a href="#what-is-llms">What is llms.txt</a> · <a href="#faq">FAQ</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      // Elements
+      const generateBtn = document.getElementById('generateBtn');
+      const loadSampleBtn = document.getElementById('loadSampleBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const outputSection = document.getElementById('outputSection');
+      const outputPreview = document.getElementById('outputPreview');
+      const pagesList = document.getElementById('pagesList');
+      const addPageBtn = document.getElementById('addPage');
+      const toast = document.getElementById('toast');
+
+      // Form fields
+      const fields = ['siteName', 'siteUrl', 'siteDescription', 'audience', 'language',
+                       'docsUrl', 'blogUrl', 'pricingUrl', 'apiDocsUrl', 'contactUrl'];
+
+      // Current output content for download
+      let currentOutput = '';
+
+      // Add page item
+      function addPageItem(title = '', url = '', desc = '') {
+        const div = document.createElement('div');
+        div.className = 'page-item';
+        div.innerHTML = `
+          <div class="form-row">
+            <input type="text" class="pageTitle" placeholder="Page Title" value="${escapeHtml(title)}">
+            <input type="url" class="pageUrl" placeholder="https://example.com/page" value="${escapeHtml(url)}">
+          </div>
+          <textarea class="pageDesc" placeholder="Brief description of this page">${escapeHtml(desc)}</textarea>
+          <button type="button" class="btn-remove">Remove</button>
+        `;
+
+        div.querySelector('.btn-remove').addEventListener('click', () => {
+          const items = pagesList.querySelectorAll('.page-item');
+          if (items.length > 1) {
+            div.remove();
+          } else {
+            div.querySelectorAll('input, textarea').forEach(el => el.value = '');
+          }
+        });
+
+        return div;
+      }
+
+      // Escape HTML
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Show toast
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      // Generate llms.txt
+      function generate() {
+        const siteName = document.getElementById('siteName').value.trim();
+        const siteUrl = document.getElementById('siteUrl').value.trim();
+        const siteDescription = document.getElementById('siteDescription').value.trim();
+        const audience = document.getElementById('audience').value.trim();
+        const language = document.getElementById('language').value.trim();
+        const docsUrl = document.getElementById('docsUrl').value.trim();
+        const blogUrl = document.getElementById('blogUrl').value.trim();
+        const pricingUrl = document.getElementById('pricingUrl').value.trim();
+        const apiDocsUrl = document.getElementById('apiDocsUrl').value.trim();
+        const contactUrl = document.getElementById('contactUrl').value.trim();
+
+        // Validation
+        if (!siteName && !siteUrl) {
+          showToast('Please enter at least a website name or URL');
+          return;
+        }
+
+        // Collect pages
+        const pages = [];
+        pagesList.querySelectorAll('.page-item').forEach(item => {
+          const title = item.querySelector('.pageTitle').value.trim();
+          const url = item.querySelector('.pageUrl').value.trim();
+          const desc = item.querySelector('.pageDesc').value.trim();
+          if (title || url) {
+            pages.push({ title, url, desc });
+          }
+        });
+
+        // Build output
+        let output = '';
+
+        // Title
+        output += `# ${siteName || 'My Website'}\n\n`;
+
+        // Description
+        if (siteDescription) {
+          output += `> ${siteDescription}\n\n`;
+        }
+
+        // Website info
+        if (siteUrl) {
+          output += `Website: ${siteUrl}\n`;
+        }
+        if (audience) {
+          output += `Audience: ${audience}\n`;
+        }
+        if (language) {
+          output += `Language: ${language}\n`;
+        }
+
+        output += '\n';
+
+        // Key Pages
+        if (pages.length > 0) {
+          output += `## Key Pages\n`;
+          pages.forEach(page => {
+            output += `- ${page.title || 'Page'}: ${page.url || '#'}\n`;
+            if (page.desc) {
+              output += `  ${page.desc}\n`;
+            }
+          });
+          output += '\n';
+        }
+
+        // Recommended Reading
+        const recommended = [];
+        if (docsUrl) recommended.push(`Documentation: ${docsUrl}`);
+        if (blogUrl) recommended.push(`Blog: ${blogUrl}`);
+        if (pricingUrl) recommended.push(`Pricing: ${pricingUrl}`);
+        if (apiDocsUrl) recommended.push(`API Docs: ${apiDocsUrl}`);
+
+        if (recommended.length > 0) {
+          output += `## Recommended Reading\n`;
+          recommended.forEach(item => {
+            output += `- ${item}\n`;
+          });
+          output += '\n';
+        }
+
+        // Contact
+        output += `## Contact\n`;
+        output += `${contactUrl || siteUrl || '#'}\n`;
+
+        currentOutput = output;
+        outputPreview.textContent = output;
+        outputSection.classList.add('visible');
+        outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Load sample
+      function loadSample() {
+        document.getElementById('siteName').value = 'TechDocs Pro';
+        document.getElementById('siteUrl').value = 'https://techdocspro.com';
+        document.getElementById('siteDescription').value = 'A comprehensive documentation platform for developers and technical writers. Build, publish, and maintain beautiful API documentation with ease.';
+        document.getElementById('audience').value = 'Developers, Technical Writers, API Teams';
+        document.getElementById('language').value = 'English';
+        document.getElementById('docsUrl').value = 'https://techdocspro.com/docs';
+        document.getElementById('blogUrl').value = 'https://techdocspro.com/blog';
+        document.getElementById('pricingUrl').value = 'https://techdocspro.com/pricing';
+        document.getElementById('apiDocsUrl').value = 'https://techdocspro.com/api';
+        document.getElementById('contactUrl').value = 'https://techdocspro.com/contact';
+
+        // Reset pages
+        pagesList.innerHTML = '';
+        pagesList.appendChild(addPageItem('Getting Started', 'https://techdocspro.com/docs/getting-started', 'Quick start guide for new users'));
+        pagesList.appendChild(addPageItem('API Reference', 'https://techdocspro.com/docs/api', 'Complete API documentation and endpoints'));
+        pagesList.appendChild(addPageItem('Examples', 'https://techdocspro.com/docs/examples', 'Code examples and integration guides'));
+        pagesList.appendChild(addPageItem('Changelog', 'https://techdocspro.com/changelog', 'Latest updates and version history'));
+
+        showToast('Sample data loaded');
+      }
+
+      // Clear form
+      function clearForm() {
+        fields.forEach(id => document.getElementById(id).value = '');
+        pagesList.innerHTML = '';
+        pagesList.appendChild(addPageItem());
+        outputSection.classList.remove('visible');
+        currentOutput = '';
+        showToast('Form cleared');
+      }
+
+      // Copy to clipboard
+      async function copyToClipboard() {
+        if (!currentOutput) return;
+        try {
+          await navigator.clipboard.writeText(currentOutput);
+          showToast('Copied to clipboard!');
+        } catch (err) {
+          showToast('Failed to copy');
+        }
+      }
+
+      // Download file
+      function downloadFile() {
+        if (!currentOutput) return;
+        const blob = new Blob([currentOutput], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'llms.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('File downloaded!');
+      }
+
+      // Event listeners
+      generateBtn.addEventListener('click', generate);
+      loadSampleBtn.addEventListener('click', loadSample);
+      clearBtn.addEventListener('click', clearForm);
+      copyBtn.addEventListener('click', copyToClipboard);
+      downloadBtn.addEventListener('click', downloadFile);
+      addPageBtn.addEventListener('click', () => pagesList.appendChild(addPageItem()));
+
+      // Initialize with one page item
+      pagesList.appendChild(addPageItem());
+    })();
+  </script>
+</body>
+</html>
