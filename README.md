@@ -8,7 +8,7 @@ LLMs.txt Generator is a standalone website tool that creates `llms.txt` files �
 
 ## Quick Links
 
-- **Live Tool**: [https://llms-txt-generator.pages.dev](https://llms-txt-generator.pages.dev) *(placeholder — deploy to activate)*
+- **Live Tool**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 
 ## Features
 
@@ -116,11 +116,10 @@ This site is designed to be independently deployable and uploadable as a standal
 
 ### Update Canonical URL
 
-Before deploying, update the canonical URL in `index.html`:
+The canonical URL is already set to `https://webtoolkitai.com/`. If you deploy to a different domain, update these locations in `index.html`:
 
-1. Search for `#TO-BE-REPLACED-WITH-REAL-URL`
-2. Replace with your actual deployed URL
-3. Update the JSON-LD `@id` field as well
+1. `<link rel="canonical" href="...">`
+2. JSON-LD WebApplication `@id` field
 
 ### Change Branding
 
@@ -138,7 +137,7 @@ All styling uses CSS custom properties (variables) at the top of the `<style>` s
 
 - Title and meta description are already optimized for "LLMs.txt Generator" and related keywords
 - JSON-LD structured data includes WebApplication and FAQPage schemas
-- The canonical URL is set as a placeholder — update before deploying
+- The canonical URL is set to `https://webtoolkitai.com/`
 - Content includes 500+ words of explanatory text for search engines
 
 ## Related Tools
