@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Schema Examples — SaaS, Local Business, Docs, Blog Templates</title>
+  <meta name="description" content="Copy-ready FAQPage JSON-LD examples for SaaS products, local businesses, documentation sites, and blogs. Includes tab-based templates with copy buttons for each category.">
+  <meta name="keywords" content="FAQ schema examples, FAQPage JSON-LD templates, FAQ schema for SaaS, FAQ schema for local business, FAQ schema for documentation, FAQ schema for blog">
+  <link rel="canonical" href="https://webtoolkitai.com/faq-schema-examples/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+
+  <meta property="og:title" content="FAQ Schema Examples — SaaS, Local Business, Docs, Blog Templates">
+  <meta property="og:description" content="Copy-ready FAQPage JSON-LD examples for different website types. Free templates with copy buttons.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/faq-schema-examples/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "FAQ Schema Examples — SaaS, Local Business, Docs, Blog Templates",
+    "description": "Copy-ready FAQPage JSON-LD examples for SaaS products, local businesses, documentation sites, and blogs.",
+    "url": "https://webtoolkitai.com/faq-schema-examples/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of websites benefit most from FAQPage JSON-LD?",
+        "acceptedAnswer": { "@type": "Answer", "text": "FAQPage JSON-LD is useful for any site with a dedicated FAQ section: SaaS product pages, service business sites, documentation hubs, and content blogs. It makes Q&A content machine-readable for AI systems and content tooling." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these FAQ schema examples free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. All examples on this page are free to copy and use. They are community-standard schema.org markup with no license restrictions. Customize the content to match your actual FAQ." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to modify these templates before using them?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. These are starting templates. You must replace placeholder content with your actual questions, answers, and URLs. Generic templates with unrealistic content are easy for AI systems to identify and ignore." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin: 14px 0; font-family: var(--mono); font-size: 0.8rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; }
+
+    .tab-bar { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
+    .tab-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); cursor: pointer; font-size: 0.9rem; font-weight: 600; color: var(--muted); font-family: inherit; }
+    .tab-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .template-panel { display: none; }
+    .template-panel.active { display: block; }
+
+    .template-card { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; }
+    .template-card-header { background: var(--bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .template-card-header h3 { font-size: 0.95rem; }
+    .template-card-body { padding: 14px 16px; }
+    .template-card-body pre { margin: 0 0 10px; max-height: 300px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: none; border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>FAQ Schema Examples</h1>
+    <p>Copy-ready FAQPage JSON-LD templates for SaaS, local business, documentation, and blog</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>FAQPage JSON-LD Templates by Category</h2>
+      <p>Select a category below to see copy-ready FAQPage JSON-LD templates. Each template includes realistic placeholder content — replace it with your actual FAQ before using.</p>
+
+      <div class="tab-bar" id="tabBar">
+        <button type="button" class="tab-btn active" data-tab="saas">SaaS Product</button>
+        <button type="button" class="tab-btn" data-tab="local">Local Business</button>
+        <button type="button" class="tab-btn" data-tab="docs">Documentation</button>
+        <button type="button" class="tab-btn" data-tab="blog">Blog / Content</button>
+      </div>
+
+      <div class="template-panel active" id="panel-saas">
+        <div class="template-card">
+          <div class="template-card-header">
+            <h3>SaaS Product — Pricing &amp; Plans FAQ</h3>
+            <button type="button" class="btn btn-primary btn-copy" data-template="saas-pricing">Copy JSON-LD</button>
+          </div>
+          <div class="template-card-body">
+            <pre id="saas-pricing">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is your refund policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer full refunds within 30 days of purchase for any reason. No questions asked — contact our support team and we will process your refund within 5 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I upgrade or downgrade my plan at any time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can change your plan at any time from your account settings. Upgrades take effect immediately with prorated billing; downgrades apply at the start of your next billing cycle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer annual billing discounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Annual billing saves 20% compared to monthly payments. Annual plans are billed upfront once per year. You can downgrade to monthly at renewal. Partial refunds are not available for annual plans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and bank transfers for annual enterprise plans. All payments are processed securely through Stripe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All paid plans include a 14-day free trial with full feature access. No credit card required to start. At the end of the trial you can choose a plan or cancel with no charge."
+      }
+    }
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-panel" id="panel-local">
+        <div class="template-card">
+          <div class="template-card-header">
+            <h3>Local Business — Service FAQ</h3>
+            <button type="button" class="btn btn-primary btn-copy" data-template="local-service">Copy JSON-LD</button>
+          </div>
+          <div class="template-card-body">
+            <pre id="local-service">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What services do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer residential and commercial cleaning services including standard weekly cleaning, deep cleaning, move-in/move-out cleaning, and post-construction cleanup. We also provide one-time deep cleaning sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance do I need to book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard bookings require at least 48 hours notice. For weekend appointments, please book by Wednesday. We can sometimes accommodate last-minute requests — call us to check availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your cleaners insured and background-checked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All our cleaners are employees (not contractors), fully insured, and have passed background checks. They are trained in our cleaning protocols before working independently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your cancellation policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can cancel or reschedule any appointment at no charge up to 24 hours before your scheduled time. Cancellations within 24 hours incur a 50% fee. We do not charge for rescheduling."
+      }
+    }
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-panel" id="panel-docs">
+        <div class="template-card">
+          <div class="template-card-header">
+            <h3>Documentation Site — Developer FAQ</h3>
+            <button type="button" class="btn btn-primary btn-copy" data-template="docs-dev">Copy JSON-LD</button>
+          </div>
+          <div class="template-card-body">
+            <pre id="docs-dev">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I install the SDK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Install via npm: npm install @acme/sdk. For Yarn use yarn add @acme/sdk. The SDK requires Node.js 18 or later. Full installation instructions are in the Getting Started guide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What authentication methods are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SDK supports API key authentication, OAuth 2.0, and JWT tokens. Use the configure method to set your credentials: Acme.init({ apiKey: 'your-key' }). Never expose keys in client-side code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I handle rate limiting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SDK includes built-in exponential backoff for rate limit (429) responses. Configure retry behavior with: Acme.init({ retry: { maxAttempts: 5, backoff: 'exponential' } })."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I find the full API reference?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The full API reference is available at /docs/api/. Each endpoint includes request/response examples, error codes, and TypeScript definitions. Postman collections are also available for download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a bug or request a feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use our GitHub issue tracker for bug reports and feature requests. For security vulnerabilities, email security@acme.com directly. We respond to all issues within 2 business days."
+      }
+    }
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-panel" id="panel-blog">
+        <div class="template-card">
+          <div class="template-card-header">
+            <h3>Blog — Content &amp; Subscription FAQ</h3>
+            <button type="button" class="btn btn-primary btn-copy" data-template="blog-content">Copy JSON-LD</button>
+          </div>
+          <div class="template-card-body">
+            <pre id="blog-content">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often do you publish new articles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We publish 2–3 new articles per week, covering technology trends, practical tutorials, and industry analysis. Subscribe to our newsletter to get new posts delivered to your inbox every Monday morning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is your content free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our articles are free to read. If you want to republish or translate any content, contact us for permission. Short quotes with attribution are welcome. All images are licensed and require separate permission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I subscribe to the newsletter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your email address in the newsletter box at the bottom of any article page. We send one email per week with our best articles and no advertising. Unsubscribe anytime with one click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I suggest article topics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We accept topic suggestions from readers via our contact form. Popular requested topics often appear as articles within a few weeks. We do not accept sponsored post proposals through this channel."
+      }
+    }
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>⚠️ Google FAQ Rich Results Deprecated in 2026.</strong>
+        These templates produce valid FAQPage JSON-LD, but Google no longer displays FAQ rich results. This schema helps AI readability and content organization — do not expect ranking improvements or featured snippets.
+      </div>
+
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/faq-schema-generator/">FAQ Schema Generator</a> ·
+        <a href="/how-to-add-faq-schema/">How to Add FAQ Schema</a> ·
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> ·
+        <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I use multiple FAQPage schemas on one page?</h3>
+      <p>Yes. A page can contain multiple FAQPage JSON-LD blocks if it has distinct FAQ sections covering different topics. Each FAQPage should contain only questions relevant to that section.</p>
+      <h3>Do I need to display the FAQs visually on my page?</h3>
+      <p>Yes. Structured data should match visible page content. Adding FAQPage JSON-LD for questions that are not visible to users is considered schema spam and may be flagged by AI systems and search engines.</p>
+      <h3>How do I verify my FAQPage JSON-LD is correct?</h3>
+      <p>Use the <a href="/faq-schema-generator/">FAQ Schema Generator</a> to create and validate your JSON-LD. The tool checks for common issues including empty questions, short answers, and invalid JSON syntax.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const tabBar = document.getElementById('tabBar');
+      const toast = document.getElementById('toast');
+
+      function showToast(m) {
+        toast.textContent = m; toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      tabBar.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.template-panel').forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('.btn-copy').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.template;
+          const text = document.getElementById(id).textContent.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard!');
+          } catch {
+            showToast('Failed to copy');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

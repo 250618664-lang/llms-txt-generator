@@ -13,8 +13,18 @@ Language: English
   Validate an llms.txt file for structure, fields, URLs, and common publishing issues.
 - AI Robots.txt Generator: https://webtoolkitai.com/ai-robots-txt-generator/
   Generate a robots.txt file to control AI crawler access — block or allow GPTBot, ClaudeBot, PerplexityBot, and more.
+- FAQ Schema Generator: https://webtoolkitai.com/faq-schema-generator/
+  Create FAQPage JSON-LD structured data for any webpage — supports multiple Q&A pairs and generates copy-ready HTML snippets.
 
 ## Key Pages — Guides
+- How to Add FAQ Schema: https://webtoolkitai.com/how-to-add-faq-schema/
+  Step-by-step guide with an interactive implementation checklist widget.
+- FAQ Schema Examples: https://webtoolkitai.com/faq-schema-examples/
+  Copy-ready FAQPage JSON-LD templates for SaaS, local business, documentation, and blog — tab-based with copy buttons.
+- FAQ Schema JSON-LD Explained: https://webtoolkitai.com/faq-schema-json-ld/
+  Understand the JSON-LD format, schema.org vocabulary, and field structure — includes a mini JSON formatter widget.
+- FAQ Rich Results Deprecated: https://webtoolkitai.com/faq-rich-results-deprecated/
+  Explains that Google FAQ rich results are discontinued in 2026 — includes a decision guide for keeping or removing FAQ schema.
 - How to Create LLMs.txt: https://webtoolkitai.com/how-to-create-llms-txt/
   Step-by-step guide with an interactive pre-publish checklist widget.
 - How to Validate LLMs.txt: https://webtoolkitai.com/how-to-validate-llms-txt/

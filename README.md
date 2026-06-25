@@ -7,6 +7,7 @@ Free, mobile-friendly online tools that help website owners create and validate 
 - **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 - **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
 - **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
+- **FAQ Schema Generator**: [https://webtoolkitai.com/faq-schema-generator/](https://webtoolkitai.com/faq-schema-generator/)
 
 ## What is This?
 
@@ -18,6 +19,7 @@ WebToolkitAI is a static tool site focused on AI Search / GEO / website visibili
 - **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 - **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
 - **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
+- **FAQ Schema Generator**: [https://webtoolkitai.com/faq-schema-generator/](https://webtoolkitai.com/faq-schema-generator/)
 
 ## Features
 
@@ -102,6 +104,8 @@ sites/llms-txt-generator/
 │   └── index.html                    # LLMs.txt Validator tool
 ├── ai-robots-txt-generator/
 │   └── index.html                    # AI Robots.txt Generator tool
+├── faq-schema-generator/
+│   └── index.html                    # FAQ JSON-LD Schema Generator tool
 ├── how-to-create-llms-txt/
 │   └── index.html                    # How-to guide with checklist widget
 ├── how-to-validate-llms-txt/
@@ -116,6 +120,14 @@ sites/llms-txt-generator/
 │   └── index.html                    # Comparison with decision widget
 ├── ai-crawler-user-agents/
 │   └── index.html                    # Full agent list with search + copy
+├── faq-schema-examples/
+│   └── index.html                    # FAQ schema templates with tab copy widget
+├── how-to-add-faq-schema/
+│   └── index.html                    # FAQ schema implementation guide + checklist
+├── faq-schema-json-ld/
+│   └── index.html                    # FAQ JSON-LD format explained + formatter
+├── faq-rich-results-deprecated/
+│   └── index.html                    # FAQ rich results deprecated guide + decision widget
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -132,6 +144,7 @@ llms-txt-generator/
 ├── index.html
 ├── llms-txt-validator/
 ├── ai-robots-txt-generator/
+├── faq-schema-generator/
 ├── how-to-create-llms-txt/
 ├── how-to-validate-llms-txt/
 ├── llms-txt-examples/
@@ -139,6 +152,10 @@ llms-txt-generator/
 ├── block-gptbot-robots-txt/
 ├── llms-txt-vs-robots-txt/
 ├── ai-crawler-user-agents/
+├── faq-schema-examples/
+├── how-to-add-faq-schema/
+├── faq-schema-json-ld/
+├── faq-rich-results-deprecated/
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -179,14 +196,14 @@ All styling uses CSS custom properties (variables) at the top of each `<style>` 
 - All pages have optimized title and meta description
 - All pages have canonical URL set to `https://webtoolkitai.com/`
 - JSON-LD structured data: WebApplication + FAQPage schemas on every page
-- sitemap.xml includes all 10 URLs
+- sitemap.xml includes all 15 URLs
 - llms.txt describes all tools and guides
 
 ## Related Tools Roadmap
 
 Future tools to add to this matrix:
 
-1. **FAQ Schema Generator** — Create JSON-LD FAQ structured data
+1. ~~FAQ Schema Generator~~ — ✅ Complete
 2. **Open Graph Preview Generator** — Generate and preview OG tags
 3. **Sitemap.xml Generator** — Create XML sitemaps
 4. **AI Content Brief Generator** — SEO content briefs from keywords

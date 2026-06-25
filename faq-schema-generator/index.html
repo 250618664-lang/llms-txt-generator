@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ JSON-LD Schema Generator — Create FAQPage Structured Data</title>
+  <meta name="description" content="Free online FAQ JSON-LD Schema Generator. Create FAQPage JSON-LD structured data for any webpage. Supports multiple Q&A pairs, validates structure, and generates copy-ready HTML snippets. No signup required.">
+  <meta name="keywords" content="FAQ JSON-LD schema generator, FAQPage structured data, JSON-LD FAQ, FAQ schema markup, schema.org FAQPage">
+  <link rel="canonical" href="https://webtoolkitai.com/faq-schema-generator/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❓</text></svg>">
+
+  <meta property="og:title" content="FAQ JSON-LD Schema Generator — Create FAQPage Structured Data">
+  <meta property="og:description" content="Generate FAQPage JSON-LD structured data for any webpage. Free, instant, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/faq-schema-generator/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FAQ JSON-LD Schema Generator",
+    "description": "Free online tool to generate FAQPage JSON-LD structured data for any webpage",
+    "url": "https://webtoolkitai.com/faq-schema-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "No special requirements"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is FAQPage JSON-LD structured data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FAQPage is a schema.org type that lets you mark up FAQ content with machine-readable JSON-LD. It helps AI systems and search engines understand the Q&A content on your page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does FAQPage schema guarantee Google rich results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Google stopped showing FAQ rich results in 2026. Adding FAQPage JSON-LD still helps AI readability and content organization, but does not produce visible search enhancements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good minimum for FAQ answers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each FAQ answer should be at least 40 characters to provide meaningful content. Vague one-line answers may be ignored by parsers and offer little value to readers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use FAQPage schema on non-FAQ pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FAQPage JSON-LD can be added to any page that contains FAQ content — product pages, landing pages, documentation pages, or dedicated FAQ pages. Only pages with actual Q&A content should include it."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .tool-section, .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tool-section h2, .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .tool-section h3, .content-section h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .form-grid { display: grid; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 0.875rem; font-weight: 600; }
+    label .hint { font-weight: 400; color: var(--muted); }
+    input, textarea {
+      padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius);
+      font: inherit; background: white; width: 100%; font-size: 0.95rem;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+    textarea { resize: vertical; min-height: 80px; font-family: var(--mono); font-size: 0.875rem; }
+
+    .faq-list { display: grid; gap: 16px; margin: 14px 0; }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; background: var(--bg); }
+    .faq-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .faq-item-header span { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .faq-item .form-group { gap: 4px; }
+    .faq-item label { font-size: 0.8rem; }
+    .faq-item textarea { min-height: 60px; font-size: 0.875rem; }
+    .faq-item textarea.error { border-color: var(--danger); }
+
+    .char-count { font-size: 0.75rem; color: var(--muted); text-align: right; }
+    .char-count.warn { color: var(--warning); }
+    .char-count.ok { color: var(--success); }
+
+    .add-faq-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 2px dashed var(--border); border-radius: var(--radius); background: none; cursor: pointer; font-size: 0.9rem; font-weight: 600; color: var(--primary); width: 100%; justify-content: center; }
+    .add-faq-btn:hover { border-color: var(--primary); background: #eff6ff; }
+    .remove-faq-btn { background: none; border: none; cursor: pointer; color: var(--danger); font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; }
+    .remove-faq-btn:hover { background: #fee2e2; }
+
+    .validation-list { list-style: none; padding: 0; margin: 12px 0; }
+    .validation-list li { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; font-size: 0.875rem; }
+    .validation-list li.pass { color: var(--success); }
+    .validation-list li.fail { color: var(--danger); }
+    .validation-list li.warn { color: var(--warning); }
+
+    .output-section { margin-top: 20px; display: none; }
+    .output-section.visible { display: block; }
+    .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+    .output-header h3 { font-size: 1rem; color: var(--muted); }
+    .output-actions { display: flex; gap: 8px; }
+    .output-tabs { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
+    .output-tab { padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+    .output-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .output-preview {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; font-family: var(--mono); font-size: 0.8rem;
+      white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
+      line-height: 1.7; display: none;
+    }
+    .output-preview.active { display: block; }
+    .faq-preview-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; margin-bottom: 10px; display: none; }
+    .faq-preview-item.active { display: block; }
+    .faq-preview-item h4 { font-size: 0.95rem; margin-bottom: 6px; color: var(--text); }
+    .faq-preview-item p { font-size: 0.875rem; color: var(--muted); }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .tool-section, .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>FAQ JSON-LD Schema Generator</h1>
+    <p>Create FAQPage structured data for any webpage — free, instant, no signup</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="tool-section" id="tool">
+      <h2>Create Your FAQPage JSON-LD</h2>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pageUrl">Page URL <span class="hint">(the page this FAQ belongs to)</span></label>
+            <input id="pageUrl" type="url" placeholder="https://example.com/pricing/" value="">
+          </div>
+          <div class="form-group">
+            <label for="publisherName">Publisher / Site Name <span class="hint">(optional)</span></label>
+            <input id="publisherName" type="text" placeholder="Acme Corp" value="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pageTitle">Page Title <span class="hint">(the FAQ section heading on your page)</span></label>
+          <input id="pageTitle" type="text" placeholder="Frequently Asked Questions" value="">
+        </div>
+
+        <div class="form-group">
+          <label>FAQ Questions &amp; Answers</label>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item" data-index="0">
+              <div class="faq-item-header">
+                <span>Question #1</span>
+                <button type="button" class="remove-faq-btn" style="visibility:hidden;">Remove</button>
+              </div>
+              <div class="form-group">
+                <label>Question</label>
+                <input type="text" class="faq-question" placeholder="What is your refund policy?">
+              </div>
+              <div class="form-group" style="margin-top:8px;">
+                <label>Answer</label>
+                <textarea class="faq-answer" placeholder="We offer full refunds within 30 days of purchase for any reason. No questions asked — just contact our support team."></textarea>
+                <div class="char-count" data-for="0">0 characters (min 40)</div>
+              </div>
+            </div>
+            <div class="faq-item" data-index="1">
+              <div class="faq-item-header">
+                <span>Question #2</span>
+                <button type="button" class="remove-faq-btn">Remove</button>
+              </div>
+              <div class="form-group">
+                <label>Question</label>
+                <input type="text" class="faq-question" placeholder="How do I contact support?">
+              </div>
+              <div class="form-group" style="margin-top:8px;">
+                <label>Answer</label>
+                <textarea class="faq-answer" placeholder="You can reach our support team by email at help@example.com or via the live chat on our website. We typically respond within 24 hours on business days."></textarea>
+                <div class="char-count" data-for="1">0 characters (min 40)</div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="add-faq-btn" id="addFaqBtn">+ Add Another Question</button>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate JSON-LD</button>
+        <button type="button" class="btn btn-secondary" id="sampleBtn">Load Sample</button>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+      <div class="output-section" id="outputSection">
+        <div class="output-header">
+          <h3>Your FAQPage JSON-LD</h3>
+          <div class="output-actions">
+            <button type="button" class="btn btn-secondary" id="copyBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy
+            </button>
+            <button type="button" class="btn btn-secondary" id="downloadBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download .json
+            </button>
+          </div>
+        </div>
+
+        <div class="output-tabs">
+          <button type="button" class="output-tab active" data-tab="json">JSON-LD Code</button>
+          <button type="button" class="output-tab" data-tab="html">HTML Snippet</button>
+          <button type="button" class="output-tab" data-tab="preview">FAQ Preview</button>
+        </div>
+
+        <pre class="output-preview active" id="jsonOutput"></pre>
+        <pre class="output-preview" id="htmlOutput"></pre>
+        <div class="faq-preview-item active" id="faqPreview"></div>
+
+        <div style="margin-top:16px;">
+          <h3 style="font-size:0.95rem;margin-bottom:8px;">Validation Checklist</h3>
+          <ul class="validation-list" id="validationList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About FAQPage JSON-LD</h2>
+      <p>FAQPage JSON-LD is a structured data format that marks up Q&A content on your pages using schema.org vocabulary. It makes FAQ content machine-readable without changing how it looks to visitors.</p>
+      <ul>
+        <li><strong>AI readability</strong> — AI systems can parse FAQ content more reliably when marked up with structured data.</li>
+        <li><strong>Content organization</strong> — Structured FAQ data helps content management systems and internal tooling process Q&A content.</li>
+        <li><strong>Documentation hygiene</strong> — Adding FAQPage schema is a best practice for structured content, regardless of search features.</li>
+      </ul>
+      <div class="disclaimer">
+        <strong>⚠️ Google FAQ Rich Results Deprecated in 2026.</strong>
+        Google stopped showing FAQ rich results in 2026. FAQPage JSON-LD does not produce visible search enhancements. It still helps with AI readability and content organization, but do not expect ranking improvements or featured snippets from this schema alone.
+      </div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> ·
+        <a href="/llms-txt-validator/">LLMs.txt Validator</a> ·
+        <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a> ·
+        <a href="/faq-schema-examples/">FAQ Schema Examples</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Does FAQPage schema improve my Google ranking?</h3>
+      <p>No. FAQPage JSON-LD does not directly affect Google search rankings. Google stopped showing FAQ rich results in 2026, and structured data alone is not a ranking factor. FAQPage helps with AI system comprehension and content organization.</p>
+      <h3>Will FAQPage schema get my site featured in AI responses?</h3>
+      <p>No guarantee. Making your FAQ content machine-readable may help AI systems understand and reference it, but there is no guarantee of being cited in AI-generated responses. AI systems decide what to reference based on many factors beyond structured data.</p>
+      <h3>How many FAQs should I include?</h3>
+      <p>Include only FAQs that are genuinely relevant to the page content. A typical FAQ section has 5–15 questions. Each answer should be at least 40 characters and actually useful to readers.</p>
+      <h3>Where do I place the JSON-LD in my page?</h3>
+      <p>Place the FAQPage JSON-LD script inside the <code>&lt;head&gt;</code> section of your page, before any other scripts. This is the standard location for all JSON-LD structured data.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const faqList = document.getElementById('faqList');
+      const addFaqBtn = document.getElementById('addFaqBtn');
+      const generateBtn = document.getElementById('generateBtn');
+      const sampleBtn = document.getElementById('sampleBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const outputSection = document.getElementById('outputSection');
+      const jsonOutput = document.getElementById('jsonOutput');
+      const htmlOutput = document.getElementById('htmlOutput');
+      const faqPreview = document.getElementById('faqPreview');
+      const validationList = document.getElementById('validationList');
+      const toast = document.getElementById('toast');
+      const outputTabs = document.querySelectorAll('.output-tab');
+
+      let faqIndex = 2;
+      let currentJson = '';
+
+      function showToast(m) {
+        toast.textContent = m; toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      function updateCharCount(textarea) {
+        const item = textarea.closest('.faq-item');
+        const countEl = item.querySelector('.char-count');
+        const len = textarea.value.length;
+        countEl.textContent = `${len} characters (min 40)`;
+        countEl.className = 'char-count' + (len >= 40 ? ' ok' : len > 0 ? ' warn' : '');
+        if (len === 0) countEl.textContent = '0 characters (min 40)';
+      }
+
+      function addFaqItem() {
+        const item = document.createElement('div');
+        item.className = 'faq-item';
+        item.dataset.index = faqIndex;
+        item.innerHTML = `
+          <div class="faq-item-header">
+            <span>Question #${faqIndex + 1}</span>
+            <button type="button" class="remove-faq-btn">Remove</button>
+          </div>
+          <div class="form-group">
+            <label>Question</label>
+            <input type="text" class="faq-question" placeholder="Enter your question here">
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <label>Answer</label>
+            <textarea class="faq-answer" placeholder="Enter a detailed answer (at least 40 characters)"></textarea>
+            <div class="char-count" data-for="${faqIndex}">0 characters (min 40)</div>
+          </div>
+        `;
+        faqList.appendChild(item);
+        item.querySelector('.remove-faq-btn').addEventListener('click', () => removeFaq(item));
+        item.querySelectorAll('textarea').forEach(t => t.addEventListener('input', () => updateCharCount(t)));
+        faqIndex++;
+        updateRemoveButtons();
+        item.querySelector('.faq-question').focus();
+      }
+
+      function removeFaq(item) {
+        if (faqList.querySelectorAll('.faq-item').length <= 2) return;
+        faqList.removeChild(item);
+        updateRemoveButtons();
+        reindexFaq();
+      }
+
+      function updateRemoveButtons() {
+        const items = faqList.querySelectorAll('.faq-item');
+        items.forEach((item, i) => {
+          const btn = item.querySelector('.remove-faq-btn');
+          btn.style.visibility = items.length <= 2 ? 'hidden' : 'visible';
+        });
+      }
+
+      function reindexFaq() {
+        faqList.querySelectorAll('.faq-item').forEach((item, i) => {
+          item.dataset.index = i;
+          item.querySelector('.faq-item-header span').textContent = `Question #${i + 1}`;
+          item.querySelector('.char-count').dataset.for = i;
+        });
+        faqIndex = faqList.querySelectorAll('.faq-item').length;
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      function validate() {
+        const checks = [];
+        const items = faqList.querySelectorAll('.faq-item');
+        const questions = [];
+        let allQuestions = true;
+        let allAnswers = true;
+
+        if (items.length < 2) {
+          checks.push({ msg: 'At least 2 FAQ items required', type: 'fail' });
+        } else {
+          checks.push({ msg: `✓ At least 2 FAQ items (${items.length} provided)`, type: 'pass' });
+        }
+
+        items.forEach((item, i) => {
+          const q = item.querySelector('.faq-question').value.trim();
+          const a = item.querySelector('.faq-answer').value.trim();
+          questions.push({ q, a });
+          if (!q) { allQuestions = false; checks.push({ msg: `✗ Question #${i + 1} is empty`, type: 'fail' }); }
+          if (!a) { allAnswers = false; checks.push({ msg: `✗ Answer #${i + 1} is empty`, type: 'fail' }); }
+          else if (a.length < 40) { checks.push({ msg: `⚠ Answer #${i + 1} is shorter than 40 characters`, type: 'warn' }); }
+        });
+
+        if (allQuestions) checks.push({ msg: '✓ All questions are filled', type: 'pass' });
+        if (allAnswers) checks.push({ msg: '✓ All answers are filled', type: 'pass' });
+
+        const blocked = /guarantee|ranking improvement|will (always |definitely )?(rank|be cited|appear|boost)/i;
+        let hasBadClaim = false;
+        questions.forEach((item, i) => {
+          if (blocked.test(item.q) || blocked.test(item.a)) hasBadClaim = true;
+        });
+        if (hasBadClaim) {
+          checks.push({ msg: '⚠ Remove exaggerated claims (guarantee, ranking, "always cited")', type: 'warn' });
+        } else {
+          checks.push({ msg: '✓ No exaggerated claims detected', type: 'pass' });
+        }
+
+        // Try parsing the JSON
+        if (currentJson) {
+          try { JSON.parse(currentJson); checks.push({ msg: '✓ Output JSON is valid and parseable', type: 'pass' }); }
+          catch { checks.push({ msg: '✗ Output JSON failed to parse', type: 'fail' }); }
+        }
+
+        return checks;
+      }
+
+      function generate() {
+        const pageUrl = document.getElementById('pageUrl').value.trim();
+        const publisherName = document.getElementById('publisherName').value.trim();
+        const pageTitle = document.getElementById('pageTitle').value.trim();
+
+        const faqs = [];
+        faqList.querySelectorAll('.faq-item').forEach(item => {
+          const q = item.querySelector('.faq-question').value.trim();
+          const a = item.querySelector('.faq-answer').value.trim();
+          if (q && a) faqs.push({ q, a });
+        });
+
+        const faqEntities = faqs.map(f => ({
+          '@type': 'Question',
+          'name': f.q,
+          'acceptedAnswer': { '@type': 'Answer', 'text': f.a }
+        }));
+
+        const ldJson = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          'mainEntity': faqEntities
+        };
+
+        currentJson = JSON.stringify(ldJson, null, 2);
+        jsonOutput.textContent = currentJson;
+
+        const escaped = escapeHtml(currentJson);
+        htmlOutput.textContent = `<!-- FAQPage JSON-LD -->\n<script type="application/ld+json">\n${currentJson}\n</script>`;
+
+        faqPreview.innerHTML = faqs.map(f => `
+          <h4>Q: ${escapeHtml(f.q)}</h4>
+          <p>A: ${escapeHtml(f.a)}</p>
+        `).join('');
+
+        const checks = validate();
+        validationList.innerHTML = checks.map(c => `<li class="${c.type}">${c.msg}</li>`).join('');
+
+        outputSection.classList.add('visible');
+        outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function loadSample() {
+        document.getElementById('pageUrl').value = 'https://techdocspro.com/pricing/';
+        document.getElementById('publisherName').value = 'TechDocsPro';
+        document.getElementById('pageTitle').value = 'Frequently Asked Questions';
+        faqList.innerHTML = '';
+        const sampleFaqs = [
+          { q: 'What is your refund policy?', a: 'We offer full refunds within 30 days of purchase for any reason. No questions asked — just contact our support team and we will process your refund within 5 business days.' },
+          { q: 'How do I upgrade or downgrade my plan?', a: 'You can change your plan at any time from your account settings. Upgrades take effect immediately, and downgrades apply at the start of your next billing cycle. We will prorate any differences.' },
+          { q: 'Do you offer annual billing discounts?', a: 'Yes, switching to annual billing saves you 20% compared to monthly payments. Annual plans are billed upfront once per year and cannot be partially refunded, but you can downgrade to monthly at renewal.' },
+          { q: 'What payment methods do you accept?', a: 'We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and bank transfers for annual enterprise plans. All payments are processed securely through Stripe.' }
+        ];
+        sampleFaqs.forEach((f, i) => {
+          const item = document.createElement('div');
+          item.className = 'faq-item';
+          item.dataset.index = i;
+          item.innerHTML = `
+            <div class="faq-item-header">
+              <span>Question #${i + 1}</span>
+              <button type="button" class="remove-faq-btn" style="visibility:${i < 2 ? 'hidden' : 'visible'}">Remove</button>
+            </div>
+            <div class="form-group"><label>Question</label><input type="text" class="faq-question" value="${escapeHtml(f.q)}"></div>
+            <div class="form-group" style="margin-top:8px;"><label>Answer</label><textarea class="faq-answer">${escapeHtml(f.a)}</textarea><div class="char-count ok" data-for="${i}">${f.a.length} characters (min 40)</div></div>
+          `;
+          faqList.appendChild(item);
+          item.querySelector('.remove-faq-btn').addEventListener('click', () => removeFaq(item));
+          item.querySelectorAll('textarea').forEach(t => t.addEventListener('input', () => updateCharCount(t)));
+        });
+        faqIndex = sampleFaqs.length;
+        updateRemoveButtons();
+        showToast('Sample loaded');
+      }
+
+      function clearForm() {
+        document.getElementById('pageUrl').value = '';
+        document.getElementById('publisherName').value = '';
+        document.getElementById('pageTitle').value = '';
+        faqList.innerHTML = '';
+        faqIndex = 2;
+        addFaqItem();
+        addFaqItem();
+        updateRemoveButtons();
+        outputSection.classList.remove('visible');
+        currentJson = '';
+        showToast('Cleared');
+      }
+
+      async function copyToClipboard() {
+        const activeTab = document.querySelector('.output-tab.active').dataset.tab;
+        let text = currentJson;
+        if (activeTab === 'html') text = htmlOutput.textContent;
+        if (!text) return;
+        try { await navigator.clipboard.writeText(text); showToast('Copied!'); }
+        catch { showToast('Failed to copy'); }
+      }
+
+      function downloadFile() {
+        if (!currentJson) return;
+        const blob = new Blob([currentJson], { type: 'application/json' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'faq-schema.json'; document.body.appendChild(a); a.click();
+        document.body.removeChild(a); URL.revokeObjectURL(a.href);
+        showToast('Downloaded!');
+      }
+
+      // Tab switching
+      outputTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          outputTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          document.querySelectorAll('.output-preview, .faq-preview-item').forEach(el => el.classList.remove('active'));
+          if (tab.dataset.tab === 'json') jsonOutput.classList.add('active');
+          else if (tab.dataset.tab === 'html') htmlOutput.classList.add('active');
+          else faqPreview.classList.add('active');
+        });
+      });
+
+      addFaqBtn.addEventListener('click', addFaqItem);
+      generateBtn.addEventListener('click', generate);
+      sampleBtn.addEventListener('click', loadSample);
+      clearBtn.addEventListener('click', clearForm);
+      copyBtn.addEventListener('click', copyToClipboard);
+      downloadBtn.addEventListener('click', downloadFile);
+
+      // Init char counts
+      document.querySelectorAll('.faq-answer').forEach(t => t.addEventListener('input', () => updateCharCount(t)));
+    })();
+  </script>
+</body>
+</html>

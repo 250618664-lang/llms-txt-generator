@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Schema JSON-LD Explained — What It Is and How It Works</title>
+  <meta name="description" content="Understand FAQPage JSON-LD structured data: what it is, how it works, the schema.org vocabulary it uses, and how to format it correctly.">
+  <meta name="keywords" content="FAQ JSON-LD explained, FAQPage schema, JSON-LD structured data, schema.org FAQPage, what is FAQ schema">
+  <link rel="canonical" href="https://webtoolkitai.com/faq-schema-json-ld/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+
+  <meta property="og:title" content="FAQ Schema JSON-LD Explained — What It Is and How It Works">
+  <meta property="og:description" content="Understand FAQPage JSON-LD structured data, the schema.org vocabulary, and how to format it correctly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/faq-schema-json-ld/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "FAQ Schema JSON-LD Explained — What It Is and How It Works",
+    "description": "Understanding FAQPage JSON-LD structured data: format, schema.org vocabulary, and correct usage.",
+    "url": "https://webtoolkitai.com/faq-schema-json-ld/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is JSON-LD?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JSON-LD (JavaScript Object Notation for Linked Data) is a lightweight structured data format. It encodes data in JSON format with special @context and @type fields that tell machines what vocabulary the data uses." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does @type: FAQPage mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "@type: FAQPage is a schema.org type representing a FAQ page. It tells AI systems and parsers that the structured data on this page represents a set of questions and answers rather than other content types like articles or products." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why use @context: https://schema.org?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The @context field tells parsers to interpret field names using schema.org vocabulary. This is the standard linked data vocabulary used by major search engines and AI systems to understand structured content." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the mainEntity field in FAQPage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "mainEntity is an array of Question entities — each representing one Q&A pair. Each Question has a name (the question text) and an acceptedAnswer (an Answer object with the answer text)." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; margin-top: 28px; }
+    .content-section h2:first-child { margin-top: 0; }
+    .content-section h3 { font-size: 1.05rem; margin: 20px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul, .content-section ol { padding-left: 22px; margin: 10px 0 14px; }
+    .content-section li { margin-bottom: 8px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; font-family: var(--mono); }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; overflow-x: auto; margin: 12px 0; font-family: var(--mono); font-size: 0.8rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+
+    .field-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.875rem; }
+    .field-table th, .field-table td { text-align: left; padding: 10px 12px; border: 1px solid var(--border); }
+    .field-table th { background: var(--bg); font-weight: 600; }
+    .field-table td code { font-size: 0.8rem; }
+    .field-table tr:nth-child(even) td { background: #fafafa; }
+
+    .formatter-widget { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin: 16px 0; }
+    .formatter-widget h3 { font-size: 1rem; margin-bottom: 10px; }
+    .formatter-widget textarea { width: 100%; min-height: 120px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--mono); font-size: 0.8rem; resize: vertical; box-sizing: border-box; }
+    .formatter-widget .btn-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .formatter-output { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; margin-top: 10px; font-family: var(--mono); font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; max-height: 300px; overflow-y: auto; display: none; }
+    .formatter-output.visible { display: block; }
+    .formatter-output.error { border-color: var(--danger); color: var(--danger); }
+    .formatter-output.ok { border-color: var(--success); color: var(--success); }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: none; border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>FAQ Schema JSON-LD Explained</h1>
+    <p>Understand the format, fields, and vocabulary behind FAQPage structured data</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>What Is JSON-LD?</h2>
+      <p>JSON-LD (JavaScript Object Notation for Linked Data) is a structured data format that makes content machine-readable. It uses standard JSON syntax with special fields (<code>@context</code> and <code>@type</code>) that tell parsers what vocabulary to use.</p>
+      <p>Unlike older formats like microdata, JSON-LD is placed in a <code>&lt;script&gt;</code> tag inside the <code>&lt;head&gt;</code> — it does not require any changes to your HTML structure or visible content.</p>
+
+      <h2>FAQPage Schema Structure</h2>
+      <p>A FAQPage JSON-LD has a simple three-layer structure:</p>
+      <pre>{
+  "@context": "https://schema.org",       ← tells parsers to use schema.org vocabulary
+  "@type": "FAQPage",                    ← identifies this as FAQ content
+  "mainEntity": [                        ← array of Question objects
+    {
+      "@type": "Question",
+      "name": "Your question here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your answer here."
+      }
+    }
+  ]
+}</pre>
+
+      <h2>Required Fields</h2>
+      <table class="field-table">
+        <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        <tr><td><code>@context</code></td><td>String</td><td>Yes</td><td>Must be <code>https://schema.org</code></td></tr>
+        <tr><td><code>@type</code></td><td>String</td><td>Yes</td><td>Must be <code>FAQPage</code></td></tr>
+        <tr><td><code>mainEntity</code></td><td>Array</td><td>Yes</td><td>Array of Question objects (min 1)</td></tr>
+        <tr><td><code>mainEntity[].@type</code></td><td>String</td><td>Yes</td><td>Must be <code>Question</code></td></tr>
+        <tr><td><code>mainEntity[].name</code></td><td>String</td><td>Yes</td><td>The question text</td></tr>
+        <tr><td><code>mainEntity[].acceptedAnswer.@type</code></td><td>String</td><td>Yes</td><td>Must be <code>Answer</code></td></tr>
+        <tr><td><code>mainEntity[].acceptedAnswer.text</code></td><td>String</td><td>Yes</td><td>The answer text (recommended 40+ chars)</td></tr>
+      </table>
+
+      <h2>Mini JSON-LD Formatter &amp; Copy Widget</h2>
+      <p>Paste any JSON-LD below to format and validate it:</p>
+      <div class="formatter-widget">
+        <h3>JSON-LD Input</h3>
+        <textarea id="formatterInput" placeholder="Paste your JSON-LD here...">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": []
+}</textarea>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" id="formatBtn">Format &amp; Validate</button>
+          <button type="button" class="btn btn-secondary" id="copyJsonBtn">Copy Formatted</button>
+          <button type="button" class="btn btn-secondary" id="clearFormatterBtn">Clear</button>
+        </div>
+        <div class="formatter-output" id="formatterOutput"></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Why FAQPage JSON-LD Is Still Useful</h2>
+      <p>Even though Google stopped showing FAQ rich results in 2026, FAQPage JSON-LD remains useful for:</p>
+      <ul>
+        <li><strong>AI system comprehension</strong> — AI models and tools can parse structured FAQ content more reliably than scraping raw HTML.</li>
+        <li><strong>Content organization</strong> — Structured data forces you to write clear, well-defined Q&A content.</li>
+        <li><strong>Internal tooling</strong> — Content management systems, chatbots, and internal search can use FAQPage schema to process Q&A content.</li>
+        <li><strong>Documentation hygiene</strong> — Following structured data best practices keeps your technical SEO foundation solid.</li>
+      </ul>
+      <p>FAQPage does not guarantee AI citations, ranking improvements, or featured snippets. It is one signal among many.</p>
+
+      <div class="disclaimer">
+        <strong>⚠️ FAQ Rich Results Are Not Guaranteed.</strong>
+        Google stopped displaying FAQ rich results in 2026. Adding FAQPage JSON-LD helps AI readability and content organization — not Google search appearances.
+      </div>
+
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/faq-schema-generator/">FAQ Schema Generator</a> ·
+        <a href="/faq-schema-examples/">FAQ Schema Examples</a> ·
+        <a href="/how-to-add-faq-schema/">How to Add FAQ Schema</a> ·
+        <a href="/faq-rich-results-deprecated/">FAQ Rich Results — What Changed</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the difference between FAQPage and QAPage?</h3>
+      <p>FAQPage is for pages where a website owner presents their own FAQ content. QAPage is for pages where community members submit questions and answers (like Stack Overflow). Most websites should use FAQPage.</p>
+      <h3>Can I use HTML entities in FAQ answers?</h3>
+      <p>Yes. JSON-LD supports standard HTML entities. However, avoid overusing special characters. Keep answers in plain, readable language without unnecessary HTML formatting.</p>
+      <h3>What happens if my JSON-LD has a syntax error?</h3>
+      <p>Invalid JSON will be ignored by parsers. Use the formatter widget above to validate your JSON-LD before adding it to your page. A missing comma or unquoted key will cause parsing to fail.</p>
+      <h3>Is there a size limit for FAQPage JSON-LD?</h3>
+      <p>There is no strict limit, but very large FAQPage schemas (hundreds of questions) may be ignored or truncated by some parsers. A typical FAQ section with 5–15 questions is well within acceptable range.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const formatterInput = document.getElementById('formatterInput');
+      const formatterOutput = document.getElementById('formatterOutput');
+      const formatBtn = document.getElementById('formatBtn');
+      const copyJsonBtn = document.getElementById('copyJsonBtn');
+      const clearBtn = document.getElementById('clearFormatterBtn');
+      const toast = document.getElementById('toast');
+
+      function showToast(m) {
+        toast.textContent = m; toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      formatBtn.addEventListener('click', () => {
+        const raw = formatterInput.value.trim();
+        if (!raw) return;
+        try {
+          const parsed = JSON.parse(raw);
+          const formatted = JSON.stringify(parsed, null, 2);
+          formatterOutput.textContent = formatted;
+          formatterOutput.className = 'formatter-output visible ok';
+          formatterOutput.textContent = '✓ Valid JSON-LD\n\n' + formatted;
+        } catch (e) {
+          formatterOutput.textContent = '✗ Invalid JSON: ' + e.message;
+          formatterOutput.className = 'formatter-output visible error';
+        }
+      });
+
+      copyJsonBtn.addEventListener('click', async () => {
+        const text = formatterOutput.textContent.replace('✓ Valid JSON-LD\n\n', '');
+        if (!text) return;
+        try { await navigator.clipboard.writeText(text); showToast('Copied!'); }
+        catch { showToast('Failed to copy'); }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        formatterInput.value = '';
+        formatterOutput.textContent = '';
+        formatterOutput.className = 'formatter-output';
+      });
+    })();
+  </script>
+</body>
+</html>

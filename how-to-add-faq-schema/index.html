@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Add FAQ Schema — Step-by-Step JSON-LD Implementation Guide</title>
+  <meta name="description" content="Step-by-step guide to adding FAQPage JSON-LD to any website. Learn how to generate, place, and validate your FAQ schema markup without touching code.">
+  <meta name="keywords" content="how to add FAQ schema, FAQPage JSON-LD tutorial, add FAQ structured data, FAQ schema implementation, schema.org FAQPage">
+  <link rel="canonical" href="https://webtoolkitai.com/how-to-add-faq-schema/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+
+  <meta property="og:title" content="How to Add FAQ Schema — Step-by-Step JSON-LD Implementation Guide">
+  <meta property="og:description" content="Add FAQPage JSON-LD to your site in 5 steps. No coding required — use our free generator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/how-to-add-faq-schema/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "How to Add FAQ Schema — Step-by-Step JSON-LD Implementation Guide",
+    "description": "Step-by-step guide to adding FAQPage JSON-LD to any website using the free WebToolkitAI generator.",
+    "url": "https://webtoolkitai.com/how-to-add-faq-schema/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I add FAQ schema without editing code?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most CMS platforms (WordPress, Webflow, Shopify) let you add custom script blocks through their theme or page editor. Check your platform's documentation for 'custom code' or 'head' injection." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where exactly do I place the FAQ JSON-LD in my HTML?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Place the FAQPage JSON-LD script inside the <head> section of your page, before any other scripts. This is the standard location for all JSON-LD structured data." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to add FAQ schema to every page?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Add FAQPage JSON-LD only to pages that contain an actual FAQ section. Adding it to pages without visible FAQ content is considered misuse and may be flagged by AI systems." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I verify my FAQ schema is working?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use the FAQ Schema Generator to validate your JSON-LD syntax. Check that the questions and answers in the JSON-LD match exactly what is visible on your page." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; margin-top: 28px; }
+    .content-section h2:first-child { margin-top: 0; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul, .content-section ol { padding-left: 22px; margin: 10px 0 14px; }
+    .content-section li { margin-bottom: 8px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; font-family: var(--mono); }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; overflow-x: auto; margin: 12px 0; font-family: var(--mono); font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; }
+    .step { display: flex; gap: 14px; margin: 20px 0; }
+    .step-num { flex-shrink: 0; width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+    .step-body { flex: 1; }
+    .step-body h3 { font-size: 1.05rem; margin-bottom: 6px; color: var(--text); }
+    .step-body p { font-size: 0.9rem; }
+
+    .checklist-widget { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin: 16px 0; }
+    .checklist-widget h3 { font-size: 1rem; margin-bottom: 12px; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer; }
+    .checklist-item label { cursor: pointer; flex: 1; color: var(--text); }
+    .checklist-item.done label { text-decoration: line-through; color: var(--muted); }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) { .content-section { padding: 18px; } .step { gap: 10px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>How to Add FAQ Schema</h1>
+    <p>Add FAQPage JSON-LD to any website in 5 steps — no coding required</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>What You Need Before Starting</h2>
+      <p>You need an actual FAQ section on your page — the JSON-LD must match visible content. Do not add FAQ schema to pages without a visible FAQ section.</p>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Generate your FAQ JSON-LD</h3>
+          <p>Use the <a href="/faq-schema-generator/">FAQ Schema Generator</a> to create your FAQPage JSON-LD. Enter your page URL, add your questions and answers (minimum 2, each answer at least 40 characters), and click Generate.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Copy the JSON-LD code</h3>
+          <p>Click the Copy button to copy the JSON-LD code. It will look like this:</p>
+          <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [ ... ]
+}
+&lt;/script&gt;</pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Add to your page's &lt;head&gt; section</h3>
+          <p>Open your page's HTML source and paste the script right before the closing <code>&lt;/head&gt;</code> tag. If you use a CMS, look for a "Custom Code" or "Head" injection setting.</p>
+          <p><strong>WordPress:</strong> Use a plugin like WPCode or your theme's custom head field.</p>
+          <p><strong>Shopify:</strong> Go to Online Store &gt; Themes &gt; Actions &gt; Edit code &gt; Add a custom liquid block in the head.</p>
+          <p><strong>Webflow:</strong> Use Project Settings &gt; Custom Code &gt; Head code.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Verify the JSON-LD matches your page content</h3>
+          <p>The questions and answers in your JSON-LD must match exactly what users see on your page. If you update your FAQ content, regenerate and replace the JSON-LD.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Validate and publish</h3>
+          <p>Save your page and test it loads without errors. Use the <a href="/faq-schema-generator/">FAQ Schema Generator</a> to re-validate any time you update your FAQ content.</p>
+        </div>
+      </div>
+
+      <p><a href="/faq-schema-generator/"><button type="button" class="btn btn-primary">Go to FAQ Schema Generator →</button></a></p>
+    </section>
+
+    <section class="content-section">
+      <h2>Implementation Checklist</h2>
+      <p>Use this checklist before publishing your FAQ schema:</p>
+
+      <div class="checklist-widget" id="checklistWidget">
+        <div class="checklist-item">
+          <input type="checkbox" id="c1">
+          <label for="c1">Page has a visible FAQ section with actual Q&A content</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c2">
+          <label for="c2">At least 2 FAQ questions in the JSON-LD</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c3">
+          <label for="c3">Every answer is at least 40 characters</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c4">
+          <label for="c4">JSON-LD is placed inside the &lt;head&gt; section</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c5">
+          <label for="c5">Questions and answers match visible page content exactly</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c6">
+          <label for="c6">No exaggerated claims (guarantee, ranking, "always cited") in FAQ text</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c7">
+          <label for="c7">JSON parses without errors (use the generator to check)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="c8">
+          <label for="c8">Page loads without showing JSON-LD errors in browser console</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Common Mistakes to Avoid</h2>
+      <ul>
+        <li><strong>Adding FAQ schema to pages without FAQ content</strong> — The JSON-LD must correspond to visible content. Invisible schema is considered spam.</li>
+        <li><strong>Using generic placeholder content</strong> — Replace all template text with your actual FAQ. Generic or obviously fake content is ignored by AI systems.</li>
+        <li><strong>Making ranking or citation promises in FAQ answers</strong> — Claims like "will always rank #1" or "guaranteed AI citation" are red flags. Keep answers factual.</li>
+        <li><strong>Placing JSON-LD in the body instead of head</strong> — FAQPage JSON-LD belongs in <code>&lt;head&gt;</code> like all structured data.</li>
+        <li><strong>Forgetting to update schema when FAQ content changes</strong> — Keep the JSON-LD in sync with your visible FAQ content.</li>
+      </ul>
+
+      <div class="disclaimer">
+        <strong>⚠️ Google FAQ Rich Results Deprecated in 2026.</strong>
+        FAQPage schema does not produce Google rich results or improve search rankings. It helps with AI readability and content organization. Do not expect SEO benefits beyond that.
+      </div>
+
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/faq-schema-generator/">FAQ Schema Generator</a> ·
+        <a href="/faq-schema-examples/">FAQ Schema Examples</a> ·
+        <a href="/faq-rich-results-deprecated/">FAQ Rich Results — What Changed</a> ·
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I add FAQ schema to a page built with Wix or Squarespace?</h3>
+      <p>Yes. Both Wix and Squarespace support custom code injection through their settings. In Wix, go to Settings &gt; Tracking &amp; Analytics &gt; Custom Header Code. In Squarespace, use Settings &gt; Advanced &gt; Code Injection. Paste the JSON-LD script there.</p>
+      <h3>Do I need to add FAQ schema to every page?</h3>
+      <p>No. Add FAQPage JSON-LD only to pages that contain a visible FAQ section. Pages without FAQ content should not include FAQPage schema.</p>
+      <h3>Can I use multiple FAQ sections on one page?</h3>
+      <p>Yes. If your page has multiple distinct FAQ topics, you can include multiple FAQPage JSON-LD blocks — one per topic. Each should correspond to a visible FAQ section on the page.</p>
+      <h3>Does FAQ schema help with AI search?</h3>
+      <p>FAQPage JSON-LD makes FAQ content machine-readable, which may help AI systems parse and understand your Q&A content. There is no guarantee of improved AI visibility or citations. This is one of many content signals.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.checklist-item input').forEach(cb => {
+      cb.addEventListener('change', () => {
+        cb.closest('.checklist-item').classList.toggle('done', cb.checked);
+      });
+    });
+  </script>
+</body>
+</html>
