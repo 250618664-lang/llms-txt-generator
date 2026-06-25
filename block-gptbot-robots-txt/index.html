@@ -27,7 +27,8 @@
     "mainEntity": [
       { "@type": "Question", "name": "How do I block GPTBot specifically?", "acceptedAnswer": { "@type": "Answer", "text": "Add 'User-agent: GPTBot' followed by 'Disallow: /' to your robots.txt file. This blocks GPTBot from accessing any page on your site." }},
       { "@type": "Question", "name": "Should I block GPTBot or allow it?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your goals. If you do not want your content used to train AI models for free, block training crawlers. If you want your content to potentially appear in AI search results and don't mind the training use, allow it." }},
-      { "@type": "Question", "name": "Does blocking GPTBot affect Google Search?", "acceptedAnswer": { "@type": "Answer", "text": "No. GPTBot and Googlebot are completely different crawlers. Blocking GPTBot has no effect on your Google search ranking or indexing." }}
+      { "@type": "Question", "name": "Does blocking GPTBot affect Google Search?", "acceptedAnswer": { "@type": "Answer", "text": "No. GPTBot and Googlebot are completely different crawlers. Blocking GPTBot has no effect on your Google search ranking or indexing." }},
+      { "@type": "Question", "name": "What is the difference between ClaudeBot and Claude-SearchBot?", "acceptedAnswer": { "@type": "Answer", "text": "ClaudeBot is Anthropic's training crawler. Claude-SearchBot is Anthropic's search crawler for AI search products. Claude-User is triggered when a user asks Claude to browse a URL — it fetches on behalf of the user." }}
     ]
   }
   </script>
@@ -169,6 +170,9 @@ Disallow: /
 
 # Allow AI search crawlers
 User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: PerplexityBot

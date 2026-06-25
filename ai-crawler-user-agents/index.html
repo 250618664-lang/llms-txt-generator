@@ -31,6 +31,17 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a user agent string?", "acceptedAnswer": { "@type": "Answer", "text": "A user agent string is the identifier a crawler sends in the HTTP User-Agent header when visiting your site. robots.txt uses these strings to match rules to specific crawlers." }},
+      { "@type": "Question", "name": "How do I block a specific AI crawler?", "acceptedAnswer": { "@type": "Answer", "text": "Add 'User-agent: [Name]' followed by 'Disallow: /' to your robots.txt. For example: 'User-agent: GPTBot\\nDisallow: /' blocks GPTBot from your entire site." }},
+      { "@type": "Question", "name": "What is the difference between ClaudeBot and Claude-SearchBot?", "acceptedAnswer": { "@type": "Answer", "text": "ClaudeBot is Anthropic's training crawler used to collect data for model training. Claude-SearchBot is Anthropic's search crawler used to fetch pages for real-time AI search answers. Claude-User is triggered by user requests in conversations." }}
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -298,6 +309,35 @@
           <p>Meta's crawler used for AI product data collection. Review based on your content policy.</p>
           <div class="ua-string">User-Agent: Meta-ExternalAgent</div>
         </div>
+
+        <div class="agent-card" data-name="Claude-User" data-company="Anthropic">
+          <div class="agent-card-header">
+            <h4>Claude-User</h4>
+            <span class="company">Anthropic</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-both">User</span>
+            <span class="badge badge-block">Review</span>
+          </div>
+          <p>Triggered when a user asks Claude to browse a URL — it fetches the page on behalf of the user in a conversation, not automatically.</p>
+          <div class="ua-string">User-Agent: Claude-User</div>
+        </div>
+
+        <div class="agent-card" data-name="Claude-SearchBot" data-company="Anthropic">
+          <div class="agent-card-header">
+            <h4>Claude-SearchBot</h4>
+            <span class="company">Anthropic</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-search">AI Search</span>
+            <span class="badge badge-safe">Allow</span>
+          </div>
+          <p>Anthropic's dedicated search crawler used to answer user queries in AI search products. Fetches pages for real-time answers, not model training.</p>
+          <div class="ua-string">User-Agent: Claude-SearchBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('Claude-SearchBot', 'Allow')">Copy Allow Rule</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -325,7 +365,9 @@ User-agent: Google-Extended
 Disallow: /
 
 User-agent: Applebot-Extended
-Disallow: /</pre>
+Disallow: /
+
+# Note: Claude-SearchBot (AI search) and OAI-SearchBot are allowed below if you want to allow AI search crawlers</pre>
         <button class="btn btn-primary" onclick="copyCode('blockAll')">Copy Block-All Snippet</button>
       </div>
       <div class="btn-group" style="margin-top:12px;">

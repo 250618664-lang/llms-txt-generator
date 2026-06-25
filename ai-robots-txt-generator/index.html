@@ -45,7 +45,7 @@
       {
         "@type": "Question",
         "name": "Can I allow AI search crawlers but block training crawlers?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI search crawlers (GPTBot, OAI-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers are often blocked to prevent your content from being used to train models." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI search crawlers (OAI-SearchBot, Claude-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers (GPTBot, ClaudeBot) are blocked to prevent content from being used to train models." }
       },
       {
         "@type": "Question",
@@ -125,6 +125,7 @@
     .type-search { background: #d1fae5; color: #065f46; }
     .type-training { background: #fee2e2; color: #991b1b; }
     .type-both { background: #fef3c7; color: #92400e; }
+    .type-user { background: #f3e8ff; color: #6b21a8; }
 
     .output-section { margin-top: 20px; display: none; }
     .output-section.visible { display: block; }
@@ -193,7 +194,7 @@
             <div class="preset-card selected" data-preset="search-allowed">
               <input type="radio" name="preset" value="search-allowed" checked>
               <h4>Allow AI search, block training</h4>
-              <p>AI search bots (GPTBot, PerplexityBot) can crawl. Training crawlers are blocked.</p>
+              <p>AI search bots (OAI-SearchBot, Claude-SearchBot, PerplexityBot) can crawl. Training crawlers (GPTBot, ClaudeBot) are blocked.</p>
             </div>
             <div class="preset-card" data-preset="block-all-ai">
               <input type="radio" name="preset" value="block-all-ai">
@@ -221,8 +222,8 @@
               <label for="coaisearchbot"><span class="agent-name">OAI-SearchBot</span> <span class="agent-type type-search">AI Search</span></label>
             </div>
             <div class="crawler-row">
-              <input type="checkbox" id="cchatgptuser" value="ChatGPT-User" data-type="both">
-              <label for="cchatgptuser"><span class="agent-name">ChatGPT-User</span> <span class="agent-type type-both">Both</span></label>
+              <input type="checkbox" id="cchatgptuser" value="ChatGPT-User" data-type="user">
+              <label for="cchatgptuser"><span class="agent-name">ChatGPT-User</span> <span class="agent-type type-user">User</span></label>
             </div>
             <div class="crawler-row">
               <input type="checkbox" id="cclaudebot" value="ClaudeBot" data-type="training">
@@ -231,6 +232,14 @@
             <div class="crawler-row">
               <input type="checkbox" id="canthropicai" value="anthropic-ai" data-type="training">
               <label for="canthropicai"><span class="agent-name">anthropic-ai</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cclaudeuser" value="Claude-User" data-type="user">
+              <label for="cclaudeuser"><span class="agent-name">Claude-User</span> <span class="agent-type type-user">User</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cclaudesearchbot" value="Claude-SearchBot" data-type="search">
+              <label for="cclaudesearchbot"><span class="agent-name">Claude-SearchBot</span> <span class="agent-type type-search">AI Search</span></label>
             </div>
             <div class="crawler-row">
               <input type="checkbox" id="cperplexitybot" value="PerplexityBot" data-type="search">
@@ -322,11 +331,13 @@
       <h3>Does blocking AI crawlers affect my Google search ranking?</h3>
       <p>No. Blocking AI training crawlers like GPTBot or ClaudeBot does not affect your Googlebot crawl budget or search rankings. These are separate systems. Googlebot indexes for Google Search; AI training crawlers are used for model training.</p>
       <h3>Can I allow AI search crawlers but block training crawlers?</h3>
-      <p>Yes. AI search crawlers (GPTBot, OAI-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers are often blocked to prevent content from being used to train models without compensation.</p>
+      <p>Yes. AI search crawlers (OAI-SearchBot, Claude-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers (GPTBot, ClaudeBot) are blocked to prevent content from being used to train models without compensation.</p>
       <h3>Is blocking AI crawlers guaranteed to prevent all AI use of my content?</h3>
-      <p>No. robots.txt is a voluntary protocol. Blocking crawlers prevents well-behaved bots but does not stop unauthorized scraping. Determined scrapers can ignore robots.txt. Do not rely on robots.txt as a security or版权 protection measure.</p>
+      <p>No. robots.txt is a voluntary protocol. Blocking crawlers prevents well-behaved bots but does not stop unauthorized scraping. Determined scrapers can ignore robots.txt. Do not rely on robots.txt as a security measure.</p>
       <h3>What is the difference between GPTBot and OAI-SearchBot?</h3>
-      <p>GPTBot is used by OpenAI to train models. OAI-SearchBot (OpenAI Search Bot) is used to fetch pages for ChatGPT's live search and citations feature. Most website owners allow OAI-SearchBot while blocking GPTBot.</p>
+      <p>GPTBot is OpenAI's training crawler — it scrapes pages to improve ChatGPT models. OAI-SearchBot is OpenAI's search crawler — it fetches pages for ChatGPT's live search citations. Most site owners allow OAI-SearchBot while blocking GPTBot.</p>
+      <h3>What are Claude-User and Claude-SearchBot?</h3>
+      <p>Claude-User is triggered when a user asks Claude to browse a URL — it fetches on behalf of the user, not automatically. Claude-SearchBot is Anthropic's dedicated search crawler for answering user queries in AI search products. Training crawlers (ClaudeBot) are separate and used for model training.</p>
     </section>
   </main>
 
@@ -422,7 +433,7 @@
           // Also add search bots explicitly allowed
           lines.push('');
           lines.push('# AI search crawlers — allowed for referral traffic');
-          ['OAI-SearchBot', 'PerplexityBot'].forEach(agent => {
+          ['OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot'].forEach(agent => {
             lines.push(`User-agent: ${agent}`);
             lines.push('Allow: /');
           });
