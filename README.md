@@ -1,10 +1,15 @@
-# LLMs.txt Generator
+# WebToolkitAI
 
-A free, mobile-friendly online tool that helps website owners create an AI-readable `llms.txt` file for improved visibility in ChatGPT, Claude, Perplexity, Gemini, and other AI search tools.
+Free, mobile-friendly online tools that help website owners create and validate AI-readable site files for SEO, GEO, and AI search visibility.
+
+## Current Tools
+
+- **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
+- **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
 
 ## What is This?
 
-LLMs.txt Generator is a standalone website tool that creates `llms.txt` files — an emerging experimental practice that helps AI systems understand your website's structure, purpose, and key content.
+WebToolkitAI is a small static tool site focused on AI Search / GEO / website visibility utilities. The first tool creates `llms.txt` files; the second validates pasted `llms.txt` content for structure, clarity, URLs, and common publishing issues.
 
 ## Quick Links
 
@@ -88,9 +93,14 @@ Upload `index.html` to any web server's root directory. That's it.
 
 ```
 llms-txt-generator/
-├── index.html      # Complete standalone website
-├── README.md       # This file
-└── .gitignore      # Git ignore file
+├── index.html                  # LLMs.txt Generator
+├── llms-txt-validator/
+│   └── index.html              # LLMs.txt Validator
+├── robots.txt
+├── sitemap.xml
+├── llms.txt
+├── README.md
+└── .gitignore
 ```
 
 ## What to Upload to GitHub
@@ -100,6 +110,10 @@ llms-txt-generator/
 ```
 llms-txt-generator/
 ├── index.html
+├── llms-txt-validator/
+├── robots.txt
+├── sitemap.xml
+├── llms.txt
 ├── README.md
 └── .gitignore
 ```
@@ -140,15 +154,15 @@ All styling uses CSS custom properties (variables) at the top of the `<style>` s
 - The canonical URL is set to `https://webtoolkitai.com/`
 - Content includes 500+ words of explanatory text for search engines
 
-## Related Tools
+## Related Tools Roadmap
 
 This is the first tool in a planned tool matrix. Similar tools that can be built:
 
-1. **robots.txt Generator** — Create robots.txt files with AI crawler directives
-2. **sitemap.xml Generator** — Generate XML sitemaps for search engines
-3. **Schema.org Generator** — Create JSON-LD structured data for websites
-4. **Open Graph Generator** — Generate OG tags for social sharing
-5. **AI Content Brief Generator** — Create SEO content briefs from keywords
+1. **LLMs.txt Validator** — Check llms.txt files before publishing
+2. **AI robots.txt Generator** — Create robots.txt files with AI crawler directives
+3. **FAQ Schema Generator** — Create JSON-LD FAQ structured data
+4. **AI Search Readiness Checker** — Review site visibility basics
+5. **Open Graph Preview Generator** — Generate and preview OG tags for social sharing
 
 ## Disclaimer
 

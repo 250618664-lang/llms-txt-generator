@@ -1,32 +1,27 @@
-# Free LLMs.txt Generator
+# WebToolkitAI
 
-> A free, mobile-friendly online tool that helps website owners create an AI-readable llms.txt file for improved visibility in ChatGPT, Claude, Perplexity, Gemini, and other AI search tools.
+> Free AI-era website tools that help website owners create, validate, and improve AI-readable site files for SEO, GEO, and AI search visibility.
 
 Website: https://webtoolkitai.com/
-Audience: Website owners, SEO operators, Indie SaaS founders, Small business owners, Agencies
+Audience: SEO operators, Indie SaaS founders, AI builders, small business owners, agencies
 Language: English
 
 ## Key Pages
-- Home / Tool: https://webtoolkitai.com/
-  The main tool page where users generate llms.txt files instantly. It includes the generator, an explanation of llms.txt, upload guidance, best practices, and FAQ content.
-- What is llms.txt: https://webtoolkitai.com/#what-is-llms
-  Explanation of what an llms.txt file is and how it helps AI systems
-- Why it Matters: https://webtoolkitai.com/#why-matters
-  How llms.txt improves AI search visibility for websites
-- How to Create: https://webtoolkitai.com/#how-to-create
-  Step-by-step guide to creating an llms.txt file
-- Where to Upload: https://webtoolkitai.com/#where-upload
-  Instructions for uploading llms.txt to your web server
-- Best Practices: https://webtoolkitai.com/#best-practices
-  Do's and don'ts for creating an effective llms.txt file
-- FAQ: https://webtoolkitai.com/#faq
-  Frequently asked questions about llms.txt
+- LLMs.txt Generator: https://webtoolkitai.com/
+  Create a clean llms.txt file for any publicly accessible website.
+- LLMs.txt Validator: https://webtoolkitai.com/llms-txt-validator/
+  Validate an llms.txt file for structure, fields, URLs, and common publishing issues.
+- How to Create LLMs.txt: https://webtoolkitai.com/how-to-create-llms-txt/
+  Step-by-step guide to building a publish-ready llms.txt with an interactive checklist widget.
+- How to Validate LLMs.txt: https://webtoolkitai.com/how-to-validate-llms-txt/
+  Understand readiness scores, fix common issues, and use the live score estimator.
+- LLMs.txt Examples: https://webtoolkitai.com/llms-txt-examples/
+  Copy-ready templates for SaaS, documentation, blog, and business websites with a one-click copy widget.
 
 ## Recommended Reading
-- README / Documentation: https://webtoolkitai.com/
-  Full documentation including local setup and deployment instructions
-- GitHub Repository: https://github.com/250618664-lang/llms-txt-generator
-  Source code and release history
+- How to Create Guide: https://webtoolkitai.com/how-to-create-llms-txt/
+- How to Validate Guide: https://webtoolkitai.com/how-to-validate-llms-txt/
+- Examples Library: https://webtoolkitai.com/llms-txt-examples/
 
 ## Contact
-https://webtoolkitai.com/#faq
+https://webtoolkitai.com/

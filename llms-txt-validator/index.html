@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLMs.txt Validator - Check Your AI-Readable Website File</title>
+  <meta name="description" content="Free online LLMs.txt validator. Paste your llms.txt file and check structure, required fields, URLs, clarity, and common AI search visibility issues.">
+  <meta name="keywords" content="llms.txt validator, llms.txt checker, AI search visibility, GEO, AI SEO, website file validator">
+  <link rel="canonical" href="https://webtoolkitai.com/llms-txt-validator/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>V</text></svg>">
+
+  <meta property="og:title" content="LLMs.txt Validator - Check Your AI-Readable Website File">
+  <meta property="og:description" content="Paste your llms.txt file and get a practical checklist before publishing it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/llms-txt-validator/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LLMs.txt Validator",
+    "description": "Free online tool to validate llms.txt file structure, fields, URLs, and common quality issues",
+    "url": "https://webtoolkitai.com/llms-txt-validator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "No special requirements"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does this LLMs.txt Validator check?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It checks whether your pasted llms.txt content has a clear title, summary, website URL, audience, language, useful sections, valid-looking URLs, and common issues that make the file harder for AI systems to understand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this validator fetch my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The first version runs fully in your browser and validates the text you paste. It does not crawl your website, call an API, or store your file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this validator guarantee AI search visibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. LLMs.txt is an experimental practice. This validator helps you catch structure and clarity issues, but it cannot guarantee ranking, crawling, citation, or AI search visibility."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-border: #e5e7eb;
+      --color-text: #1f2937;
+      --color-text-muted: #6b7280;
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-success: #059669;
+      --color-warning: #b45309;
+      --color-danger: #dc2626;
+      --color-radius: 8px;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      padding: 32px 16px 24px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .site-nav a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .site-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .tool-section,
+    .content-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .tool-section h2,
+    .content-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .content-section h3 {
+      font-size: 1.05rem;
+      margin: 18px 0 8px;
+    }
+
+    .content-section p,
+    .content-section li {
+      color: var(--color-text-muted);
+    }
+
+    .content-section ul {
+      padding-left: 20px;
+      margin: 8px 0 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      font: inherit;
+      background: white;
+    }
+
+    textarea {
+      min-height: 260px;
+      resize: vertical;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: var(--color-radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-bg);
+    }
+
+    .result-panel {
+      display: none;
+      margin-top: 24px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 20px;
+    }
+
+    .result-panel.visible {
+      display: block;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .score-box {
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 18px;
+      text-align: center;
+      background: var(--color-bg);
+    }
+
+    .score-value {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .score-label {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+    }
+
+    .summary {
+      color: var(--color-text-muted);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .check-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--color-radius);
+      padding: 12px;
+      background: var(--color-bg);
+    }
+
+    .check-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      color: white;
+    }
+
+    .badge.pass {
+      background: var(--color-success);
+    }
+
+    .badge.warn {
+      background: var(--color-warning);
+    }
+
+    .badge.fail {
+      background: var(--color-danger);
+    }
+
+    .check-item p {
+      color: var(--color-text-muted);
+      font-size: 0.93rem;
+    }
+
+    .report-output {
+      width: 100%;
+      min-height: 180px;
+      margin-top: 14px;
+      background: var(--color-bg);
+    }
+
+    .disclaimer {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: var(--color-radius);
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      color: #92400e;
+      margin: 16px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: 32px;
+    }
+
+    footer a,
+    .content-section a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    footer a:hover,
+    .content-section a:hover {
+      text-decoration: underline;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-text);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--color-radius);
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+      .score-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-section,
+      .content-section {
+        padding: 18px;
+      }
+
+      textarea {
+        min-height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Free LLMs.txt Validator</h1>
+    <p>Check whether your llms.txt file is clear, structured, and ready to publish</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="tool-section" id="tool">
+      <h2>Validate Your llms.txt</h2>
+      <div class="form-grid">
+        <div>
+          <label for="siteUrl">Website URL <span aria-hidden="true">(optional)</span></label>
+          <input id="siteUrl" type="url" placeholder="https://example.com">
+        </div>
+        <div>
+          <label for="llmsInput">Paste your llms.txt content</label>
+          <textarea id="llmsInput" spellcheck="false" placeholder="# Your Website&#10;&#10;> Short description of your site&#10;&#10;Website: https://example.com&#10;Audience: SEO operators, SaaS founders&#10;Language: English&#10;&#10;## Key Pages&#10;- Home: https://example.com/&#10;  Main website homepage"></textarea>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="validateBtn">Validate llms.txt</button>
+        <button type="button" class="btn btn-secondary" id="sampleBtn">Load Sample</button>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+      <div class="result-panel" id="resultPanel">
+        <div class="score-row">
+          <div class="score-box">
+            <span class="score-value" id="scoreValue">0</span>
+            <span class="score-label">Readiness score</span>
+          </div>
+          <p class="summary" id="scoreSummary"></p>
+        </div>
+
+        <div class="check-list" id="checkList"></div>
+
+        <label for="reportOutput">Validation report</label>
+        <textarea class="report-output" id="reportOutput" readonly></textarea>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" id="copyReportBtn">Copy Report</button>
+          <button type="button" class="btn btn-secondary" id="downloadReportBtn">Download Report</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="what-it-checks">
+      <h2>What This Validator Checks</h2>
+      <p>This free LLMs.txt Validator reviews the text you paste and looks for practical issues that can make the file harder to understand for people, crawlers, and AI answer systems.</p>
+      <ul>
+        <li>Clear title and one-sentence summary near the top.</li>
+        <li>Website, audience, and language fields.</li>
+        <li>Useful sections such as Key Pages, Recommended Reading, and Contact.</li>
+        <li>Valid-looking HTTPS URLs and possible sensitive paths.</li>
+        <li>Overly vague claims, missing descriptions, or thin files.</li>
+      </ul>
+      <div class="disclaimer">
+        LLMs.txt is experimental. This checker is a quality checklist, not a ranking or AI citation guarantee.
+      </div>
+    </section>
+
+    <section class="content-section" id="how-to-use">
+      <h2>How to Use the LLMs.txt Validator</h2>
+      <ol>
+        <li>Generate or draft your llms.txt file.</li>
+        <li>Paste the full file into the validator.</li>
+        <li>Review warnings and missing fields.</li>
+        <li>Copy the report or update your file before uploading it to your website root.</li>
+      </ol>
+      <p>If you do not have a file yet, start with the <a href="/">free LLMs.txt Generator</a>, then return here to validate it.</p>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Does this validator crawl my website?</h3>
+      <p>No. This version runs in your browser and checks pasted text only. That keeps it free, fast, and privacy-friendly.</p>
+
+      <h3>What score should I aim for?</h3>
+      <p>A score above 80 usually means the file has the basic structure needed for a first publish. A lower score does not mean the file is harmful; it means there are clarity or completeness issues to fix.</p>
+
+      <h3>Can a valid llms.txt improve rankings?</h3>
+      <p>No tool can guarantee rankings or AI citations. Treat llms.txt as an extra clarity layer on top of normal SEO basics such as crawlable pages, useful content, schema, robots.txt, and sitemap.xml.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. Free AI-era website tools for SEO, GEO, and AI search visibility.</p>
+    <p>This is an independent project, not affiliated with OpenAI, Anthropic, Google, or any AI company.</p>
+    <p style="margin-top: 8px;">
+      <a href="/">Generate llms.txt</a> · <a href="#tool">Validate llms.txt</a> · <a href="#faq">FAQ</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const input = document.getElementById('llmsInput');
+      const siteUrlInput = document.getElementById('siteUrl');
+      const validateBtn = document.getElementById('validateBtn');
+      const sampleBtn = document.getElementById('sampleBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const resultPanel = document.getElementById('resultPanel');
+      const scoreValue = document.getElementById('scoreValue');
+      const scoreSummary = document.getElementById('scoreSummary');
+      const checkList = document.getElementById('checkList');
+      const reportOutput = document.getElementById('reportOutput');
+      const copyReportBtn = document.getElementById('copyReportBtn');
+      const downloadReportBtn = document.getElementById('downloadReportBtn');
+      const toast = document.getElementById('toast');
+
+      let currentReport = '';
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      function getUrls(text) {
+        return text.match(/https?:\/\/[^\s)]+/g) || [];
+      }
+
+      function addCheck(checks, label, status, detail, weight) {
+        checks.push({ label, status, detail, weight });
+      }
+
+      function validate() {
+        const text = input.value.trim();
+        const providedSiteUrl = siteUrlInput.value.trim();
+
+        if (!text) {
+          showToast('Paste your llms.txt content first');
+          return;
+        }
+
+        const lines = text.split(/\r?\n/);
+        const normalized = text.toLowerCase();
+        const checks = [];
+        const urls = getUrls(text);
+        const hasTitle = /^#\s+.+/m.test(text);
+        const hasSummary = /^>\s+.{20,}/m.test(text);
+        const hasWebsite = /^website:\s*https?:\/\/\S+/mi.test(text);
+        const hasAudience = /^audience:\s*.{5,}/mi.test(text);
+        const hasLanguage = /^language:\s*.{2,}/mi.test(text);
+        const hasKeyPages = /^##\s+key pages\b/mi.test(text);
+        const hasContact = /^##\s+contact\b/mi.test(text);
+        const hasRecommended = /^##\s+recommended reading\b/mi.test(text);
+        const httpsUrls = urls.filter(url => url.startsWith('https://'));
+        const insecureUrls = urls.filter(url => url.startsWith('http://'));
+        const sensitivePatterns = /(\/admin\b|\/login\b|\/wp-admin\b|\/checkout\b|\/cart\b|\/account\b|\/private\b)/i;
+        const hasSensitiveUrl = urls.some(url => sensitivePatterns.test(url));
+        const hasVagueClaims = /(guaranteed|guarantee|rank #1|instant ranking|100% visibility|always cited)/i.test(text);
+        const hasTooManyLines = lines.filter(line => line.trim()).length > 80;
+        const hasEnoughLength = text.length >= 250;
+        const hasLongEnoughDescriptions = lines.some(line => /^\s{2,}\S.{24,}/.test(line));
+        const matchesProvidedDomain = !providedSiteUrl || urls.some(url => {
+          try {
+            return new URL(url).hostname.replace(/^www\./, '') === new URL(providedSiteUrl).hostname.replace(/^www\./, '');
+          } catch (err) {
+            return false;
+          }
+        });
+
+        addCheck(checks, 'Title line', hasTitle ? 'pass' : 'fail', hasTitle ? 'A top-level # title is present.' : 'Add a top-level # title with your website name.', 12);
+        addCheck(checks, 'Short summary', hasSummary ? 'pass' : 'fail', hasSummary ? 'A concise summary is present near the top.' : 'Add a > summary that explains the site in one or two sentences.', 12);
+        addCheck(checks, 'Website field', hasWebsite ? 'pass' : 'fail', hasWebsite ? 'Website: points to a URL.' : 'Add Website: https://yourdomain.com near the top.', 10);
+        addCheck(checks, 'Audience field', hasAudience ? 'pass' : 'warn', hasAudience ? 'Audience is described.' : 'Add Audience: so AI systems understand who the site serves.', 8);
+        addCheck(checks, 'Language field', hasLanguage ? 'pass' : 'warn', hasLanguage ? 'Language is included.' : 'Add Language: English or your primary site language.', 6);
+        addCheck(checks, 'Key Pages section', hasKeyPages ? 'pass' : 'fail', hasKeyPages ? 'Key Pages section is present.' : 'Add a ## Key Pages section with your most important public pages.', 12);
+        addCheck(checks, 'Useful page descriptions', hasLongEnoughDescriptions ? 'pass' : 'warn', hasLongEnoughDescriptions ? 'At least one page has a helpful description.' : 'Add short descriptions under key page links.', 8);
+        addCheck(checks, 'Recommended Reading', hasRecommended ? 'pass' : 'warn', hasRecommended ? 'Recommended Reading section is present.' : 'Consider adding docs, blog, pricing, or guide links.', 5);
+        addCheck(checks, 'Contact section', hasContact ? 'pass' : 'warn', hasContact ? 'Contact section is present.' : 'Add a ## Contact section with a public contact or homepage URL.', 5);
+        addCheck(checks, 'HTTPS URLs', urls.length > 0 && insecureUrls.length === 0 && httpsUrls.length === urls.length ? 'pass' : 'warn', insecureUrls.length ? 'Use HTTPS instead of HTTP where possible.' : urls.length ? 'All detected URLs use HTTPS.' : 'Add complete https:// URLs for key pages.', 8);
+        addCheck(checks, 'Domain consistency', matchesProvidedDomain ? 'pass' : 'warn', matchesProvidedDomain ? 'Detected URLs match the optional website URL.' : 'The pasted URLs do not appear to match the optional website URL.', 4);
+        addCheck(checks, 'Sensitive paths', hasSensitiveUrl ? 'fail' : 'pass', hasSensitiveUrl ? 'Avoid listing login, checkout, admin, account, or private URLs.' : 'No obvious sensitive paths were detected.', 6);
+        addCheck(checks, 'Realistic claims', hasVagueClaims ? 'fail' : 'pass', hasVagueClaims ? 'Remove guaranteed ranking or guaranteed citation claims.' : 'No obvious guarantee-style claims were detected.', 4);
+        addCheck(checks, 'File depth', hasEnoughLength && !hasTooManyLines ? 'pass' : 'warn', hasTooManyLines ? 'The file may be too long; keep it focused on the most useful public pages.' : hasEnoughLength ? 'The file has enough detail for a first review.' : 'The file is thin; add key pages and useful descriptions.', 5);
+
+        const score = Math.max(0, Math.min(100, checks.reduce((total, check) => {
+          if (check.status === 'pass') return total + check.weight;
+          if (check.status === 'warn') return total + Math.round(check.weight * 0.45);
+          return total;
+        }, 0)));
+
+        const summary = score >= 85
+          ? 'Strong first version. Review the warnings, then publish or update your root /llms.txt file.'
+          : score >= 65
+            ? 'Usable draft. Fix the failed checks and tighten any warnings before publishing.'
+            : 'Needs work before publishing. Add the missing structure first, then validate again.';
+
+        scoreValue.textContent = String(score);
+        scoreSummary.textContent = summary;
+        checkList.innerHTML = checks.map(check => `
+          <div class="check-item">
+            <div class="check-title">
+              <span>${escapeHtml(check.label)}</span>
+              <span class="badge ${check.status}">${check.status.toUpperCase()}</span>
+            </div>
+            <p>${escapeHtml(check.detail)}</p>
+          </div>
+        `).join('');
+
+        currentReport = buildReport(score, summary, checks, urls);
+        reportOutput.value = currentReport;
+        resultPanel.classList.add('visible');
+        resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function buildReport(score, summary, checks, urls) {
+        const date = new Date().toISOString().slice(0, 10);
+        const lines = [
+          'LLMs.txt Validation Report',
+          `Date: ${date}`,
+          `Score: ${score}/100`,
+          '',
+          summary,
+          '',
+          'Checks:'
+        ];
+
+        checks.forEach(check => {
+          lines.push(`- [${check.status.toUpperCase()}] ${check.label}: ${check.detail}`);
+        });
+
+        lines.push('', `Detected URLs: ${urls.length}`);
+        urls.slice(0, 20).forEach(url => lines.push(`- ${url}`));
+        if (urls.length > 20) lines.push(`- ...and ${urls.length - 20} more`);
+        lines.push('', 'Generated by https://webtoolkitai.com/llms-txt-validator/');
+        return lines.join('\n');
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function loadSample() {
+        siteUrlInput.value = 'https://webtoolkitai.com';
+        input.value = `# WebToolkitAI
+
+> Free AI-era website tools for SEO operators, SaaS founders, AI builders, and agencies.
+
+Website: https://webtoolkitai.com/
+Audience: SEO operators, indie SaaS founders, AI builders, small business owners, agencies
+Language: English
+
+## Key Pages
+- LLMs.txt Generator: https://webtoolkitai.com/
+  Create a clean llms.txt file for a website.
+- LLMs.txt Validator: https://webtoolkitai.com/llms-txt-validator/
+  Check an llms.txt file for structure, clarity, URLs, and common issues.
+
+## Recommended Reading
+- LLMs.txt Guide: https://webtoolkitai.com/#what-is-llms
+
+## Contact
+https://webtoolkitai.com/#faq`;
+        showToast('Sample loaded');
+      }
+
+      function clearForm() {
+        siteUrlInput.value = '';
+        input.value = '';
+        resultPanel.classList.remove('visible');
+        currentReport = '';
+        showToast('Form cleared');
+      }
+
+      async function copyReport() {
+        if (!currentReport) return;
+        try {
+          await navigator.clipboard.writeText(currentReport);
+          showToast('Report copied');
+        } catch (err) {
+          showToast('Failed to copy');
+        }
+      }
+
+      function downloadReport() {
+        if (!currentReport) return;
+        const blob = new Blob([currentReport], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'llms-validation-report.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('Report downloaded');
+      }
+
+      validateBtn.addEventListener('click', validate);
+      sampleBtn.addEventListener('click', loadSample);
+      clearBtn.addEventListener('click', clearForm);
+      copyReportBtn.addEventListener('click', copyReport);
+      downloadReportBtn.addEventListener('click', downloadReport);
+    })();
+  </script>
+</body>
+</html>

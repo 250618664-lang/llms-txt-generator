@@ -135,6 +135,25 @@
       font-size: 0.95rem;
     }
 
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .site-nav a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .site-nav a:hover {
+      text-decoration: underline;
+    }
+
     /* Tool Section */
     .tool-section {
       background: var(--color-surface);
@@ -480,6 +499,10 @@
   <header>
     <h1>Free LLMs.txt Generator</h1>
     <p>Create an AI-readable file to help ChatGPT, Claude, Perplexity, and Gemini understand your website</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+    </nav>
   </header>
 
   <main class="container">
@@ -738,6 +761,12 @@ Language: [Primary language]
       </ul>
     </section>
 
+    <section class="content-section" id="related-tools">
+      <h2>Related AI Search Tools</h2>
+      <p>After you generate a file, check whether it is readable, complete, and safe to publish.</p>
+      <p><a href="/llms-txt-validator/">Use the free LLMs.txt Validator</a> to review your file structure, key fields, URLs, and common issues before uploading it to your website root.</p>
+    </section>
+
     <!-- FAQ -->
     <section class="content-section" id="faq">
       <h2>Frequently Asked Questions</h2>
@@ -783,7 +812,7 @@ Language: [Primary language]
     <p>&copy; 2026 LLMs.txt Generator. A free tool for website owners.</p>
     <p>This is an independent project, not affiliated with OpenAI, Anthropic, Google, or any AI company.</p>
     <p style="margin-top: 8px;">
-      <a href="#tool">Use the Generator</a> · <a href="#what-is-llms">What is llms.txt</a> · <a href="#faq">FAQ</a>
+      <a href="#tool">Use the Generator</a> · <a href="/llms-txt-validator/">Validate llms.txt</a> · <a href="#what-is-llms">What is llms.txt</a> · <a href="#faq">FAQ</a>
     </p>
   </footer>
 

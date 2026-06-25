@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLMs.txt Examples — Real Templates and Patterns</title>
+  <meta name="description" content="Real llms.txt examples and templates for SaaS, docs, blog, and business websites. Copy and adapt the pattern that fits your site type.">
+  <meta name="keywords" content="llms.txt examples, llms.txt template, AI search visibility, llms.txt SaaS, llms.txt docs">
+  <link rel="canonical" href="https://webtoolkitai.com/llms-txt-examples/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+
+  <meta property="og:title" content="LLMs.txt Examples — Real Templates and Patterns">
+  <meta property="og:description" content="Copy-ready llms.txt examples for SaaS, documentation, blog, and business sites.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LLMs.txt Examples",
+    "description": "Real llms.txt examples and templates for different website types with a one-click copy widget",
+    "url": "https://webtoolkitai.com/llms-txt-examples/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 820px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section, .example-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin: 24px 0;
+    }
+    .content-section h2 { font-size: 1.35rem; margin-bottom: 14px; }
+    .content-section p { color: var(--muted); margin-bottom: 12px; }
+    .content-section ul { color: var(--muted); padding-left: 20px; margin-bottom: 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .example-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tab-btn { padding: 8px 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); cursor: pointer; font-size: 0.875rem; font-weight: 600; font-family: inherit; color: var(--text); transition: background 0.15s; }
+    .tab-btn:hover { background: var(--bg); }
+    .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .example-panel { display: none; }
+    .example-panel.active { display: block; }
+
+    .example-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+    .example-header h3 { font-size: 1rem; }
+    .example-header span { font-size: 0.8rem; color: var(--muted); }
+
+    .code-block { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; font-family: var(--mono); font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; line-height: 1.7; max-height: 380px; overflow-y: auto; margin-bottom: 12px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: none; border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+
+    .next-tools { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 16px; margin-top: 16px; }
+    .next-tools h4 { font-size: 1rem; margin-bottom: 8px; color: #1e40af; }
+    .next-tools p { font-size: 0.9rem; color: #1e40af; }
+    .next-tools a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .content-section, .example-section { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LLMs.txt Examples</h1>
+    <p>Real-world templates and patterns for different website types — copy and adapt</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">Generator</a>
+      <a href="/llms-txt-validator/">Validator</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>How to Use These Examples</h2>
+      <p>Each example below shows a production-ready llms.txt for a different website type. Select the tab that matches your site, copy the template, and customize it with your own details. Validate it with the <a href="/llms-txt-validator/">LLMs.txt Validator</a> before publishing.</p>
+      <div class="disclaimer"><strong>⚠️ Experimental Practice:</strong> llms.txt is community-driven. These examples follow current community patterns, not an official standard.</div>
+    </section>
+
+    <section class="example-section">
+      <div class="example-tabs">
+        <button class="tab-btn active" data-tab="saas">SaaS Product</button>
+        <button class="tab-btn" data-tab="docs">Docs Site</button>
+        <button class="tab-btn" data-tab="blog">Blog / Content</button>
+        <button class="tab-btn" data-tab="business">Local Business</button>
+      </div>
+
+      <div class="example-panel active" id="panel-saas">
+        <div class="example-header">
+          <h3>SaaS Product</h3>
+          <span>Best for: Web apps, B2B tools, developer products</span>
+        </div>
+        <pre class="code-block" id="code-saas"># Acme Analytics
+
+> A real-time product analytics platform for SaaS teams. Track user behavior, retention, and funnel conversion in one dashboard.
+
+Website: https://acme-analytics.io
+Audience: SaaS founders, product managers, growth teams
+Language: English
+
+## Key Pages
+- Dashboard: https://acme-analytics.io/dashboard
+  Sign in to your analytics dashboard and view real-time metrics.
+- Pricing: https://acme-analytics.io/pricing
+  Simple per-seat pricing with a free 14-day trial.
+- Documentation: https://docs.acme-analytics.io
+  Integration guides, API reference, and onboarding walkthroughs.
+- Changelog: https://acme-analytics.io/changelog
+  Latest product updates and feature releases.
+
+## Recommended Reading
+- Documentation: https://docs.acme-analytics.io/getting-started
+- Blog: https://acme-analytics.io/blog
+
+## Contact
+https://acme-analytics.io/contact</pre>
+        <button class="btn btn-primary" onclick="copyCode('saas')">Copy SaaS Template</button>
+      </div>
+
+      <div class="example-panel" id="panel-docs">
+        <div class="example-header">
+          <h3>Documentation Site</h3>
+          <span>Best for: Developer tools, SDKs, API products</span>
+        </div>
+        <pre class="code-block" id="code-docs"># FastAPI Wrapper Docs
+
+> Comprehensive documentation for the FastAPI wrapper library. Covers installation, authentication, all endpoints, and real-world code examples.
+
+Website: https://fastapi-wrapper.dev
+Audience: Python developers, backend engineers, API integrators
+Language: English
+
+## Key Pages
+- Getting Started: https://fastapi-wrapper.dev/docs/getting-started
+  Install the library and make your first API call in under 5 minutes.
+- Authentication: https://fastapi-wrapper.dev/docs/auth
+  API key generation, OAuth 2.0 setup, and token management.
+- API Reference: https://fastapi-wrapper.dev/docs/reference
+  Complete endpoint documentation with request/response schemas.
+- Examples: https://fastapi-wrapper.dev/docs/examples
+  Copy-paste code examples for common integration scenarios.
+
+## Recommended Reading
+- GitHub Repository: https://github.com/example/fastapi-wrapper
+- Changelog: https://fastapi-wrapper.dev/changelog
+
+## Contact
+https://fastapi-wrapper.dev/discord</pre>
+        <button class="btn btn-primary" onclick="copyCode('docs')">Copy Docs Template</button>
+      </div>
+
+      <div class="example-panel" id="panel-blog">
+        <div class="example-header">
+          <h3>Blog / Content Site</h3>
+          <span>Best for: Publications, niche blogs, content businesses</span>
+        </div>
+        <pre class="code-block" id="code-blog"># The Growth Journal
+
+> Actionable articles on B2B growth, content marketing, and product-led growth strategies for indie hackers and SaaS founders.
+
+Website: https://thegrowthjournal.com
+Audience: Indie hackers, SaaS founders, content marketers
+Language: English
+
+## Key Pages
+- Articles: https://thegrowthjournal.com/articles
+  In-depth guides on growth tactics, SEO, and distribution.
+- Newsletter: https://thegrowthjournal.com/newsletter
+  Weekly insights on growth strategies — 8,000+ subscribers.
+- About: https://thegrowthjournal.com/about
+  The story behind the publication and its founder.
+
+## Recommended Reading
+- Latest Article: https://thegrowthjournal.com/articles
+- Newsletter: https://thegrowthjournal.com/newsletter
+
+## Contact
+https://thegrowthjournal.com/contact</pre>
+        <button class="btn btn-primary" onclick="copyCode('blog')">Copy Blog Template</button>
+      </div>
+
+      <div class="example-panel" id="panel-business">
+        <div class="example-header">
+          <h3>Local / Service Business</h3>
+          <span>Best for: Agencies, consultancies, local service providers</span>
+        </div>
+        <pre class="code-block" id="code-business"># ClearPath Consulting
+
+> Business consulting services specializing in digital transformation and process automation for mid-market companies.
+
+Website: https://clearpathconsulting.com
+Audience: Business owners, operations leaders, enterprise teams
+Language: English
+
+## Key Pages
+- Services: https://clearpathconsulting.com/services
+  Strategy, implementation, and managed services for digital transformation.
+- Case Studies: https://clearpathconsulting.com/case-studies
+  Real-world results for clients across manufacturing and retail.
+- About: https://clearpathconsulting.com/about
+  Our team, our approach, and client success stories.
+- Contact: https://clearpathconsulting.com/contact
+  Schedule a free 30-minute discovery call.
+
+## Recommended Reading
+- Blog: https://clearpathconsulting.com/blog
+- Case Studies: https://clearpathconsulting.com/case-studies
+
+## Contact
+https://clearpathconsulting.com/contact</pre>
+        <button class="btn btn-primary" onclick="copyCode('business')">Copy Business Template</button>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Makes a Good Example?</h2>
+      <p>All good llms.txt examples share these traits:</p>
+      <ul>
+        <li><strong>One clear summary:</strong> A single > sentence that explains what the site does, not marketing copy.</li>
+        <li><strong>Accurate page titles:</strong> Titles match the actual page name, not a keyword-stuffed version.</li>
+        <li><strong>Descriptive sub-lines:</strong> Each page link has a one-sentence description that adds context beyond the title.</li>
+        <li><strong>Honest audience:</strong> Write who the site actually serves, not a broader audience for SEO purposes.</li>
+        <li><strong>Consistent URLs:</strong> Every URL points to a real, accessible page with content matching the description.</li>
+      </ul>
+    </section>
+
+    <div class="next-tools">
+      <h4>Next Steps</h4>
+      <p>Pick a template above and customize it for your site. <a href="/llms-txt-validator/">Validate it</a> before uploading to your website root, and <a href="/">generate a fresh file</a> if you prefer to fill in a form.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">Generate llms.txt</a> · <a href="/llms-txt-validator/">Validate llms.txt</a> · <a href="/llms-txt-examples/">Examples</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.example-panel');
+      const toast = document.getElementById('toast');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+        });
+      });
+
+      window.copyCode = function(type) {
+        const text = document.getElementById('code-' + type).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          toast.textContent = 'Template copied to clipboard!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
+        });
+      };
+  </script>
+</body>
+</html>

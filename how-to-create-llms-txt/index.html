@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Create an LLMs.txt File — Step-by-Step Guide</title>
+  <meta name="description" content="Step-by-step guide to creating an llms.txt file for your website. Learn what to include, what to avoid, and how to upload it to your server.">
+  <meta name="keywords" content="how to create llms.txt, llms.txt tutorial, AI search visibility, llms.txt guide">
+  <link rel="canonical" href="https://webtoolkitai.com/how-to-create-llms-txt/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+
+  <meta property="og:title" content="How to Create an LLMs.txt File — Step-by-Step Guide">
+  <meta property="og:description" content="A practical step-by-step guide to creating an llms.txt file that helps AI systems understand your website.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "How to Create an LLMs.txt File — Step-by-Step Guide",
+    "description": "Interactive guide to creating an llms.txt file with a live checklist builder widget",
+    "url": "https://webtoolkitai.com/how-to-create-llms-txt/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long should an llms.txt file be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Aim for a focused file that covers your site's purpose and 5-10 most important pages. Files over 80 lines with too many links may be flagged as too long by the validator." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use llms.txt for any type of website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any publicly accessible website can benefit from an llms.txt file. It is especially useful for content-heavy sites, SaaS products, documentation hubs, and business websites." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I include every page of my site?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Only include your most important public pages that genuinely help someone understand what the site offers. Avoid admin pages, login flows, and thin content pages." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 820px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section, .tool-section, .checklist-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin: 24px 0;
+    }
+    .content-section h2 { font-size: 1.35rem; margin-bottom: 14px; }
+    .content-section h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin: 14px 0; }
+    .content-section pre code { background: none; padding: 0; }
+
+    .step-list { counter-reset: steps; list-style: none; padding: 0; }
+    .step-list li { counter-increment: steps; display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
+    .step-list li::before { content: counter(steps); min-width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+    .step-list li p { margin: 0; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+
+    /* Checklist Builder */
+    .checklist-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .checklist-builder { display: grid; gap: 10px; }
+    .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s; }
+    .check-row:hover { border-color: var(--primary); }
+    .check-row.checked { border-color: var(--success); background: #f0fdf4; }
+    .check-row input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer; }
+    .check-row label { cursor: pointer; font-size: 0.9rem; flex: 1; }
+    .check-row small { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+    .checklist-progress { margin: 14px 0 8px; font-size: 0.9rem; color: var(--muted); }
+    .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 6px; }
+    .progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width 0.3s; width: 0%; }
+    .progress-fill.complete { background: var(--success); }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    .next-steps { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 16px; margin-top: 16px; }
+    .next-steps h4 { font-size: 1rem; margin-bottom: 8px; color: #1e40af; }
+    .next-steps p { font-size: 0.9rem; color: #1e40af; }
+    .next-steps a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) { .content-section, .tool-section, .checklist-section { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>How to Create an LLMs.txt File</h1>
+    <p>A practical step-by-step guide to building a clean, publish-ready llms.txt file</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">Generator</a>
+      <a href="/llms-txt-validator/">Validator</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>What is an LLMs.txt File?</h2>
+      <p>An llms.txt is a plain text file you place at your website root (<code>yourdomain.com/llms.txt</code>) to help AI systems like ChatGPT, Claude, Perplexity, and Gemini understand your site's purpose, audience, and key pages. It is an emerging experimental practice—not an official standard.</p>
+      <div class="disclaimer"><strong>⚠️ Experimental Practice:</strong> llms.txt is community-driven, not officially endorsed. Use it as a supplementary clarity layer on top of proper SEO, not a replacement.</div>
+    </section>
+
+    <section class="content-section">
+      <h2>The 6-Step Process</h2>
+      <ol class="step-list">
+        <li>
+          <div>
+            <p><strong>Collect your site information</strong> — Gather your website name, URL, a one-sentence description, your primary audience, and the main language of the site.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>List your 5–10 most important public pages</strong> — Choose pages that genuinely help a newcomer understand your site: homepage, key features or products, documentation, pricing, blog, and contact.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>Write a short description for each page</strong> — Keep descriptions to one or two sentences. Explain what the page offers, not just its title.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>Choose optional sections</strong> — Recommended Reading (docs, blog, pricing), API section (if you have developer docs), and a Contact URL.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>Validate before publishing</strong> — Use the <a href="/llms-txt-validator/">LLMs.txt Validator</a> to check structure, URLs, and common issues.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>Upload to your website root</strong> — Place <code>llms.txt</code> at the same level as <code>robots.txt</code>. Test by visiting <code>yourdomain.com/llms.txt</code> in your browser.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="content-section">
+      <h2>The File Structure</h2>
+      <p>Your llms.txt follows a simple pattern. Copy and edit this template:</p>
+      <pre><code># [Your Website Name]
+
+> [One-sentence description of your website]
+
+Website: https://yourdomain.com
+Audience: [Who your site is for]
+Language: [Primary language]
+
+## Key Pages
+- [Page title]: https://yourdomain.com/page
+  [One-sentence description]
+
+## Recommended Reading
+- Documentation: https://yourdomain.com/docs
+- Blog: https://yourdomain.com/blog
+
+## Contact
+https://yourdomain.com/contact</code></pre>
+    </section>
+
+    <section class="content-section">
+      <h2>Common Mistakes to Avoid</h2>
+      <ul>
+        <li><strong>Broken URLs:</strong> Every URL in the file must return a 200 response. Test them before publishing.</li>
+        <li><strong>Vague descriptions:</strong> "Welcome to our site" is not useful. Write what the page actually offers.</li>
+        <li><strong>Including sensitive paths:</strong> Never list /admin, /login, /checkout, or /account pages.</li>
+        <li><strong>Guaranteed ranking claims:</strong> Do not write "will guarantee top rankings" or similar—it's false and makes the file less credible.</li>
+        <li><strong>Too many pages:</strong> Stick to 5–10 pages. An 80+ line file is a red flag in the validator.</li>
+        <li><strong>Outdated content:</strong> Refresh the file when you rename pages, launch new sections, or change URLs.</li>
+      </ul>
+    </section>
+
+    <!-- Interactive Checklist -->
+    <section class="checklist-section">
+      <h2>✅ Pre-Publish Checklist</h2>
+      <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 14px;">Check each item as you prepare your llms.txt file. You need at least 6 of 8 to pass.</p>
+      <div class="checklist-builder" id="checklist">
+        <div class="check-row" data-item="title">
+          <input type="checkbox" id="c1">
+          <label for="c1">Title line present (# Website Name) <small>Starts with a top-level heading with your site name</small></label>
+        </div>
+        <div class="check-row" data-item="summary">
+          <input type="checkbox" id="c2">
+          <label for="c2">Short description (> sentence) <small>One or two sentences explaining what the site offers</small></label>
+        </div>
+        <div class="check-row" data-item="website">
+          <input type="checkbox" id="c3">
+          <label for="c3">Website field with HTTPS URL <small>Starts with Website: followed by your full domain</small></label>
+        </div>
+        <div class="check-row" data-item="audience">
+          <input type="checkbox" id="c4">
+          <label for="c4">Audience field filled in <small>Who the site serves, e.g. "Small business owners"</small></label>
+        </div>
+        <div class="check-row" data-item="language">
+          <input type="checkbox" id="c5">
+          <label for="c5">Language field included <small>Primary content language, e.g. "English"</small></label>
+        </div>
+        <div class="check-row" data-item="pages">
+          <input type="checkbox" id="c6">
+          <label for="c6">Key Pages section with 3–10 links <small>Each page has a descriptive line underneath</small></label>
+        </div>
+        <div class="check-row" data-item="https">
+          <input type="checkbox" id="c7">
+          <label for="c7">All URLs use HTTPS <small>No http:// links, except intentionally (rare)</small></label>
+        </div>
+        <div class="check-row" data-item="sensitive">
+          <input type="checkbox" id="c8">
+          <label for="c8">No sensitive paths included <small>No /admin, /login, /checkout, or private URLs</small></label>
+        </div>
+      </div>
+      <div class="checklist-progress">
+        <span id="progressText">0 / 8 checked</span>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="checkAllBtn">Check All</button>
+        <button class="btn btn-secondary" id="clearCheckBtn">Clear</button>
+      </div>
+      <div class="next-steps" id="nextSteps" style="display:none">
+        <h4>You're ready to publish!</h4>
+        <p>Your file has at least 6 of 8 checklist items. <a href="/llms-txt-validator/">Validate it with the tool</a> to get a score and final report, then upload it to your website root.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>FAQ</h2>
+      <h3>How long should an llms.txt file be?</h3>
+      <p>Aim for a focused file that covers your site's purpose and 5–10 most important pages. Files over 80 lines with too many links may be flagged as too long by the validator.</p>
+      <h3>Can I use llms.txt for any type of website?</h3>
+      <p>Yes. Any publicly accessible website can benefit from an llms.txt file. It is especially useful for content-heavy sites, SaaS products, documentation hubs, and business websites.</p>
+      <h3>Should I include every page of my site?</h3>
+      <p>No. Only include your most important public pages that genuinely help someone understand what the site offers. Avoid admin pages, login flows, and thin content pages.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">Generate llms.txt</a> · <a href="/llms-txt-validator/">Validate llms.txt</a> · <a href="/how-to-create-llms-txt/">How to Create</a></p>
+  </footer>
+
+  <script>
+    (function() {
+      const rows = document.querySelectorAll('.check-row[data-item]');
+      const progressText = document.getElementById('progressText');
+      const progressFill = document.getElementById('progressFill');
+      const nextSteps = document.getElementById('nextSteps');
+      const checkAllBtn = document.getElementById('checkAllBtn');
+      const clearCheckBtn = document.getElementById('clearCheckBtn');
+
+      function update() {
+        const checked = document.querySelectorAll('.check-row.checked').length;
+        const pct = (checked / 8) * 100;
+        progressText.textContent = `${checked} / 8 checked`;
+        progressFill.style.width = pct + '%';
+        if (pct === 100) { progressFill.classList.add('complete'); }
+        else { progressFill.classList.remove('complete'); }
+        nextSteps.style.display = checked >= 6 ? 'block' : 'none';
+      }
+
+      rows.forEach(row => {
+        const cb = row.querySelector('input[type="checkbox"]');
+        row.addEventListener('click', e => {
+          if (e.target === cb) return;
+          cb.checked = !cb.checked;
+          row.classList.toggle('checked', cb.checked);
+          update();
+        });
+        cb.addEventListener('change', () => {
+          row.classList.toggle('checked', cb.checked);
+          update();
+        });
+      });
+
+      checkAllBtn.addEventListener('click', () => {
+        rows.forEach(row => {
+          row.querySelector('input').checked = true;
+          row.classList.add('checked');
+        });
+        update();
+      });
+
+      clearCheckBtn.addEventListener('click', () => {
+        rows.forEach(row => {
+          row.querySelector('input').checked = false;
+          row.classList.remove('checked');
+        });
+        update();
+      });
+    })();
+  </script>
+</body>
+</html>
