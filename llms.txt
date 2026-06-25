@@ -6,22 +6,34 @@ Website: https://webtoolkitai.com/
 Audience: SEO operators, Indie SaaS founders, AI builders, small business owners, agencies
 Language: English
 
-## Key Pages
+## Key Pages — Tools
 - LLMs.txt Generator: https://webtoolkitai.com/
   Create a clean llms.txt file for any publicly accessible website.
 - LLMs.txt Validator: https://webtoolkitai.com/llms-txt-validator/
   Validate an llms.txt file for structure, fields, URLs, and common publishing issues.
+- AI Robots.txt Generator: https://webtoolkitai.com/ai-robots-txt-generator/
+  Generate a robots.txt file to control AI crawler access — block or allow GPTBot, ClaudeBot, PerplexityBot, and more.
+
+## Key Pages — Guides
 - How to Create LLMs.txt: https://webtoolkitai.com/how-to-create-llms-txt/
-  Step-by-step guide to building a publish-ready llms.txt with an interactive checklist widget.
+  Step-by-step guide with an interactive pre-publish checklist widget.
 - How to Validate LLMs.txt: https://webtoolkitai.com/how-to-validate-llms-txt/
   Understand readiness scores, fix common issues, and use the live score estimator.
 - LLMs.txt Examples: https://webtoolkitai.com/llms-txt-examples/
-  Copy-ready templates for SaaS, documentation, blog, and business websites with a one-click copy widget.
+  Copy-ready templates for SaaS, documentation, blog, and business websites.
+- AI Crawlers and Robots.txt: https://webtoolkitai.com/robots-txt-ai-crawlers/
+  Complete guide to AI crawler user agents, training vs. search crawlers, and filtering table.
+- Block GPTBot Guide: https://webtoolkitai.com/block-gptbot-robots-txt/
+  Step-by-step guide with copy-paste robots.txt snippets to block AI training crawlers.
+- LLMs.txt vs Robots.txt: https://webtoolkitai.com/llms-txt-vs-robots-txt/
+  Side-by-side comparison and decision widget — which file does your site need?
+- AI Crawler User Agents: https://webtoolkitai.com/ai-crawler-user-agents/
+  Full searchable list of AI crawler identifiers with blocking snippets.
 
 ## Recommended Reading
-- How to Create Guide: https://webtoolkitai.com/how-to-create-llms-txt/
-- How to Validate Guide: https://webtoolkitai.com/how-to-validate-llms-txt/
-- Examples Library: https://webtoolkitai.com/llms-txt-examples/
+- AI Crawlers Guide: https://webtoolkitai.com/robots-txt-ai-crawlers/
+- AI Crawler Agents List: https://webtoolkitai.com/ai-crawler-user-agents/
+- LLMs.txt Examples: https://webtoolkitai.com/llms-txt-examples/
 
 ## Contact
 https://webtoolkitai.com/

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Robots.txt Generator — Block or Allow AI Crawlers</title>
+  <meta name="description" content="Free AI robots.txt generator. Create a robots.txt file that controls AI crawler access — block GPTBot, ClaudeBot, PerplexityBot, and more. No signup required.">
+  <meta name="keywords" content="AI robots.txt generator, block GPTBot, block ClaudeBot, robots.txt AI crawlers, ChatGPT crawler, PerplexityBot, OAI-SearchBot, AI SEO">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-robots-txt-generator/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <meta property="og:title" content="AI Robots.txt Generator — Block or Allow AI Crawlers">
+  <meta property="og:description" content="Generate a robots.txt file that controls AI crawler access. Block or allow specific bots including GPTBot, ClaudeBot, and PerplexityBot.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/ai-robots-txt-generator/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Robots.txt Generator",
+    "description": "Free online tool to generate a robots.txt file that controls AI crawler access",
+    "url": "https://webtoolkitai.com/ai-robots-txt-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "No special requirements"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the AI Robots.txt Generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A free online tool that generates a robots.txt file with AI crawler policies. It helps website owners control which AI bots can access their site." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does blocking AI crawlers affect my Google search ranking?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Blocking AI training crawlers like GPTBot or ClaudeBot does not affect your Googlebot crawl budget or search rankings. These are separate systems." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I allow AI search crawlers but block training crawlers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI search crawlers (GPTBot, OAI-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers are often blocked to prevent your content from being used to train models." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is blocking AI crawlers guaranteed to prevent all AI use of my content?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. robots.txt is a voluntary protocol. Blocking crawlers prevents well-behaved bots but does not stop unauthorized scraping. Do not rely on robots.txt as a security measure." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .tool-section, .content-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin: 24px 0;
+    }
+    .tool-section h2, .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .tool-section h3, .content-section h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin: 14px 0; }
+    .content-section pre code { background: none; padding: 0; }
+
+    .form-grid { display: grid; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 0.875rem; font-weight: 600; }
+    label .hint { font-weight: 400; color: var(--muted); }
+    input, select, textarea {
+      padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius);
+      font: inherit; background: white; width: 100%; font-size: 0.95rem;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    textarea { resize: vertical; min-height: 100px; font-family: var(--mono); font-size: 0.875rem; }
+
+    .preset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0; }
+    .preset-card {
+      border: 2px solid var(--border); border-radius: var(--radius); padding: 14px;
+      cursor: pointer; transition: border-color 0.15s, background 0.15s;
+    }
+    .preset-card:hover { border-color: var(--primary); background: #eff6ff; }
+    .preset-card.selected { border-color: var(--primary); background: #eff6ff; }
+    .preset-card input[type="radio"] { margin-bottom: 8px; }
+    .preset-card h4 { font-size: 0.9rem; margin-bottom: 4px; }
+    .preset-card p { font-size: 0.8rem; color: var(--muted); }
+
+    .crawler-grid { display: grid; gap: 6px; margin: 10px 0; }
+    .crawler-row { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; font-size: 0.875rem; }
+    .crawler-row input[type="checkbox"] { width: 15px; height: 15px; flex-shrink: 0; }
+    .crawler-row label { cursor: pointer; flex: 1; font-size: 0.875rem; }
+    .crawler-row .agent-name { font-family: var(--mono); font-size: 0.8rem; color: var(--primary); min-width: 160px; }
+    .crawler-row .agent-type { font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; }
+    .type-search { background: #d1fae5; color: #065f46; }
+    .type-training { background: #fee2e2; color: #991b1b; }
+    .type-both { background: #fef3c7; color: #92400e; }
+
+    .output-section { margin-top: 20px; display: none; }
+    .output-section.visible { display: block; }
+    .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+    .output-header h3 { font-size: 1rem; color: var(--muted); }
+    .output-actions { display: flex; gap: 8px; }
+    .output-preview {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; font-family: var(--mono); font-size: 0.85rem;
+      white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
+      line-height: 1.7;
+    }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .tool-section, .content-section { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Free AI Robots.txt Generator</h1>
+    <p>Generate a robots.txt file to control AI crawler access — block or allow GPTBot, ClaudeBot, PerplexityBot, and more</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="tool-section" id="tool">
+      <h2>Configure Your robots.txt</h2>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="websiteUrl">Website URL</label>
+            <input id="websiteUrl" type="url" placeholder="https://example.com">
+          </div>
+          <div class="form-group">
+            <label for="sitemapUrl">Sitemap URL <span class="hint">(optional)</span></label>
+            <input id="sitemapUrl" type="url" placeholder="https://example.com/sitemap.xml">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>AI Crawler Policy</label>
+          <div class="preset-grid">
+            <div class="preset-card selected" data-preset="search-allowed">
+              <input type="radio" name="preset" value="search-allowed" checked>
+              <h4>Allow AI search, block training</h4>
+              <p>AI search bots (GPTBot, PerplexityBot) can crawl. Training crawlers are blocked.</p>
+            </div>
+            <div class="preset-card" data-preset="block-all-ai">
+              <input type="radio" name="preset" value="block-all-ai">
+              <h4>Block all AI crawlers</h4>
+              <p>Blocks every known AI crawler. Standard search bots (Googlebot, Bingbot) still allowed.</p>
+            </div>
+            <div class="preset-card" data-preset="custom">
+              <input type="radio" name="preset" value="custom">
+              <h4>Custom policy</h4>
+              <p>Manually select which crawlers to allow or block below.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>AI Crawler Agents</label>
+          <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 8px;">Select which crawlers your policy applies to. Or choose a preset above.</p>
+          <div class="crawler-grid" id="crawlerGrid">
+            <div class="crawler-row">
+              <input type="checkbox" id="cgptbot" value="GPTBot" data-type="training">
+              <label for="cgptbot"><span class="agent-name">GPTBot</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="coaisearchbot" value="OAI-SearchBot" data-type="search">
+              <label for="coaisearchbot"><span class="agent-name">OAI-SearchBot</span> <span class="agent-type type-search">AI Search</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cchatgptuser" value="ChatGPT-User" data-type="both">
+              <label for="cchatgptuser"><span class="agent-name">ChatGPT-User</span> <span class="agent-type type-both">Both</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cclaudebot" value="ClaudeBot" data-type="training">
+              <label for="cclaudebot"><span class="agent-name">ClaudeBot</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="canthropicai" value="anthropic-ai" data-type="training">
+              <label for="canthropicai"><span class="agent-name">anthropic-ai</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cperplexitybot" value="PerplexityBot" data-type="search">
+              <label for="cperplexitybot"><span class="agent-name">PerplexityBot</span> <span class="agent-type type-search">AI Search</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cperplexityuser" value="Perplexity-User" data-type="both">
+              <label for="cperplexityuser"><span class="agent-name">Perplexity-User</span> <span class="agent-type type-both">Both</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cccbot" value="CCBot" data-type="training">
+              <label for="cccbot"><span class="agent-name">CCBot</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cbytespider" value="Bytespider" data-type="training">
+              <label for="cbytespider"><span class="agent-name">Bytespider</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cgoogleextended" value="Google-Extended" data-type="training">
+              <label for="cgoogleextended"><span class="agent-name">Google-Extended</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="capplebotext" value="Applebot-Extended" data-type="training">
+              <label for="capplebotext"><span class="agent-name">Applebot-Extended</span> <span class="agent-type type-training">Training</span></label>
+            </div>
+            <div class="crawler-row">
+              <input type="checkbox" id="cmetaext" value="Meta-ExternalAgent" data-type="both">
+              <label for="cmetaext"><span class="agent-name">Meta-ExternalAgent</span> <span class="agent-type type-both">Both</span></label>
+            </div>
+          </div>
+          <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary" id="selectAllAI" style="font-size:0.8rem; padding:6px 12px;">Select All Training</button>
+            <button type="button" class="btn btn-secondary" id="selectSearchAI" style="font-size:0.8rem; padding:6px 12px;">Select All AI Search</button>
+            <button type="button" class="btn btn-secondary" id="clearAI" style="font-size:0.8rem; padding:6px 12px;">Clear All</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="sensitivePaths">Sensitive Paths to Block <span class="hint">(optional, one per line)</span></label>
+          <textarea id="sensitivePaths" placeholder="/admin&#10;/login&#10;/checkout&#10;/private&#10;/account"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="customRules">Additional Custom Rules <span class="hint">(optional, one per line, standard robots.txt format)</span></label>
+          <textarea id="customRules" placeholder="Allow: /public/&#10;Disallow: /internal/"></textarea>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate robots.txt</button>
+        <button type="button" class="btn btn-secondary" id="sampleBtn">Load Sample</button>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+      <div class="output-section" id="outputSection">
+        <div class="output-header">
+          <h3>Your robots.txt file</h3>
+          <div class="output-actions">
+            <button type="button" class="btn btn-secondary" id="copyBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy
+            </button>
+            <button type="button" class="btn btn-secondary" id="downloadBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download
+            </button>
+          </div>
+        </div>
+        <pre class="output-preview" id="outputPreview"></pre>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About AI Crawlers and robots.txt</h2>
+      <p>AI companies use crawlers to either train models or to answer user queries in AI-powered search. robots.txt allows you to control both types. Understanding the difference is key:</p>
+      <ul>
+        <li><strong>Training crawlers</strong> — Use your content to improve AI models. Blocking them does not affect your search rankings.</li>
+        <li><strong>AI search crawlers</strong> — Fetch your pages to answer user queries in AI tools. Blocking them prevents your site from appearing in AI search results.</li>
+      </ul>
+      <div class="disclaimer"><strong>⚠️ robots.txt is not a security measure.</strong> Blocking crawlers prevents well-behaved bots but does not stop unauthorized scraping. Do not rely on robots.txt to prevent unauthorized access to your content.</div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/robots-txt-ai-crawlers/">AI Crawlers Guide</a> · <a href="/ai-crawler-user-agents/">Crawler Agents List</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Does blocking AI crawlers affect my Google search ranking?</h3>
+      <p>No. Blocking AI training crawlers like GPTBot or ClaudeBot does not affect your Googlebot crawl budget or search rankings. These are separate systems. Googlebot indexes for Google Search; AI training crawlers are used for model training.</p>
+      <h3>Can I allow AI search crawlers but block training crawlers?</h3>
+      <p>Yes. AI search crawlers (GPTBot, OAI-SearchBot, PerplexityBot) are typically allowed because they can drive referral traffic. Training crawlers are often blocked to prevent content from being used to train models without compensation.</p>
+      <h3>Is blocking AI crawlers guaranteed to prevent all AI use of my content?</h3>
+      <p>No. robots.txt is a voluntary protocol. Blocking crawlers prevents well-behaved bots but does not stop unauthorized scraping. Determined scrapers can ignore robots.txt. Do not rely on robots.txt as a security or版权 protection measure.</p>
+      <h3>What is the difference between GPTBot and OAI-SearchBot?</h3>
+      <p>GPTBot is used by OpenAI to train models. OAI-SearchBot (OpenAI Search Bot) is used to fetch pages for ChatGPT's live search and citations feature. Most website owners allow OAI-SearchBot while blocking GPTBot.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">Generate llms.txt</a> · <a href="/llms-txt-validator/">Validate llms.txt</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const presets = document.querySelectorAll('.preset-card');
+      const crawlerGrid = document.getElementById('crawlerGrid');
+      const generateBtn = document.getElementById('generateBtn');
+      const sampleBtn = document.getElementById('sampleBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const outputSection = document.getElementById('outputSection');
+      const outputPreview = document.getElementById('outputPreview');
+      const selectAllAI = document.getElementById('selectAllAI');
+      const selectSearchAI = document.getElementById('selectSearchAI');
+      const clearAIChecks = document.getElementById('clearAI');
+      const toast = document.getElementById('toast');
+
+      let currentOutput = '';
+
+      function showToast(m) {
+        toast.textContent = m; toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      presets.forEach(card => {
+        card.addEventListener('click', e => {
+          if (e.target.type === 'radio') return;
+          card.querySelector('input[type="radio"]').checked = true;
+          presets.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          applyPreset(card.dataset.preset);
+        });
+        card.querySelector('input[type="radio"]').addEventListener('change', () => {
+          presets.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          applyPreset(card.dataset.preset);
+        });
+      });
+
+      function applyPreset(preset) {
+        const rows = crawlerGrid.querySelectorAll('.crawler-row');
+        rows.forEach(row => { const cb = row.querySelector('input'); cb.checked = false; });
+        if (preset === 'search-allowed') {
+          crawlerGrid.querySelectorAll('[data-type="training"]').forEach(cb => cb.checked = true);
+        } else if (preset === 'block-all-ai') {
+          crawlerGrid.querySelectorAll('input').forEach(cb => cb.checked = true);
+        }
+      }
+
+      selectAllAI.addEventListener('click', () => {
+        crawlerGrid.querySelectorAll('[data-type="training"]').forEach(cb => cb.checked = true);
+      });
+      selectSearchAI.addEventListener('click', () => {
+        crawlerGrid.querySelectorAll('[data-type="search"], [data-type="both"]').forEach(cb => cb.checked = true);
+      });
+      clearAIChecks.addEventListener('click', () => {
+        crawlerGrid.querySelectorAll('input').forEach(cb => cb.checked = false);
+      });
+
+      function generate() {
+        const siteUrl = document.getElementById('websiteUrl').value.trim();
+        const sitemapUrl = document.getElementById('sitemapUrl').value.trim();
+        const preset = document.querySelector('.preset-card.selected input').value;
+        const sensitivePaths = document.getElementById('sensitivePaths').value.trim().split('\n').filter(l => l.trim());
+        const customRules = document.getElementById('customRules').value.trim().split('\n').filter(l => l.trim());
+
+        let lines = ['User-agent: *'];
+        const blockedAgents = [];
+
+        if (preset === 'block-all-ai') {
+          crawlerGrid.querySelectorAll('input:checked').forEach(cb => blockedAgents.push(cb.value));
+        } else {
+          crawlerGrid.querySelectorAll('[data-type="training"]:checked').forEach(cb => blockedAgents.push(cb.value));
+        }
+
+        if (blockedAgents.length > 0) {
+          lines.push('');
+          blockedAgents.forEach(agent => {
+            lines.push(`User-agent: ${agent}`);
+            lines.push('Disallow: /');
+          });
+        }
+
+        if (preset === 'search-allowed') {
+          // Also add search bots explicitly allowed
+          lines.push('');
+          lines.push('# AI search crawlers — allowed for referral traffic');
+          ['OAI-SearchBot', 'PerplexityBot'].forEach(agent => {
+            lines.push(`User-agent: ${agent}`);
+            lines.push('Allow: /');
+          });
+        }
+
+        if (sensitivePaths.length > 0) {
+          lines.push('');
+          lines.push('# Sensitive paths — block all crawlers');
+          sensitivePaths.forEach(path => {
+            const p = path.trim();
+            lines.push(`Disallow: ${p.startsWith('/') ? p : '/' + p}`);
+          });
+        }
+
+        if (customRules.length > 0) {
+          lines.push('');
+          lines.push('# Custom rules');
+          customRules.forEach(r => lines.push(r.trim()));
+        }
+
+        lines.push('');
+        if (sitemapUrl) {
+          lines.push(`Sitemap: ${sitemapUrl}`);
+        } else if (siteUrl) {
+          lines.push(`Sitemap: ${siteUrl.replace(/\/$/, '')}/sitemap.xml`);
+        }
+
+        currentOutput = lines.join('\n');
+        outputPreview.textContent = currentOutput;
+        outputSection.classList.add('visible');
+        outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function loadSample() {
+        document.getElementById('websiteUrl').value = 'https://techdocspro.com';
+        document.getElementById('sitemapUrl').value = 'https://techdocspro.com/sitemap.xml';
+        document.getElementById('sensitivePaths').value = '/admin\n/login\n/checkout\n/account';
+        document.getElementById('customRules').value = '';
+        presets.forEach(c => { c.classList.remove('selected'); c.querySelector('input').checked = false; });
+        document.querySelector('[data-preset="search-allowed"]').classList.add('selected');
+        document.querySelector('[data-preset="search-allowed"] input').checked = true;
+        applyPreset('search-allowed');
+        showToast('Sample loaded');
+      }
+
+      function clearForm() {
+        document.getElementById('websiteUrl').value = '';
+        document.getElementById('sitemapUrl').value = '';
+        document.getElementById('sensitivePaths').value = '';
+        document.getElementById('customRules').value = '';
+        crawlerGrid.querySelectorAll('input').forEach(cb => cb.checked = false);
+        outputSection.classList.remove('visible');
+        currentOutput = '';
+        showToast('Cleared');
+      }
+
+      async function copyToClipboard() {
+        if (!currentOutput) return;
+        try { await navigator.clipboard.writeText(currentOutput); showToast('Copied!'); }
+        catch { showToast('Failed to copy'); }
+      }
+
+      function downloadFile() {
+        if (!currentOutput) return;
+        const blob = new Blob([currentOutput], { type: 'text/plain' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'robots.txt'; document.body.appendChild(a); a.click();
+        document.body.removeChild(a); URL.revokeObjectURL(a.href);
+        showToast('Downloaded!');
+      }
+
+      generateBtn.addEventListener('click', generate);
+      sampleBtn.addEventListener('click', loadSample);
+      clearBtn.addEventListener('click', clearForm);
+      copyBtn.addEventListener('click', copyToClipboard);
+      downloadBtn.addEventListener('click', downloadFile);
+    })();
+  </script>
+</body>
+</html>

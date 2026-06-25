@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Crawler User Agents — Full List 2026</title>
+  <meta name="description" content="Complete list of AI crawler user agents in 2026. Includes GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, and how to block or allow each one.">
+  <meta name="keywords" content="AI crawler user agents, GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, block AI bots, AI bot list, ChatGPT crawler">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-crawler-user-agents/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Crawler User Agents — Full List 2026",
+    "description": "Interactive reference list of all known AI crawler user agents with blocking snippets and a searchable lookup widget",
+    "url": "https://webtoolkitai.com/ai-crawler-user-agents/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a user agent string?", "acceptedAnswer": { "@type": "Answer", "text": "A user agent string is the identifier a crawler sends in the HTTP User-Agent header when visiting your site. robots.txt uses these strings to match rules to specific crawlers." }},
+      { "@type": "Question", "name": "How do I block a specific AI crawler?", "acceptedAnswer": { "@type": "Answer", "text": "Add 'User-agent: [Name]' followed by 'Disallow: /' to your robots.txt. For example: 'User-agent: GPTBot\\nDisallow: /' blocks GPTBot from your entire site." }},
+      { "@type": "Question", "name": "Is this list complete?", "acceptedAnswer": { "@type": "Answer", "text": "No. AI crawler landscape changes frequently. This list reflects known crawlers as of mid-2026. Check each AI company's documentation for the latest user agent strings." }}
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb; --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8; --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; --mono: 'Monaco', 'Menlo', 'Consolas', monospace; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 820px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.35rem; margin-bottom: 14px; }
+    .content-section h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; }
+    .content-section pre { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin: 14px 0; }
+    .content-section pre code { background: none; padding: 0; }
+
+    /* Search Widget */
+    .agent-search { margin: 14px 0; }
+    .agent-search input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.95rem; font-family: inherit; }
+    .agent-search input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+    /* Agent Cards */
+    .agent-cards { display: grid; gap: 12px; margin: 14px 0; }
+    .agent-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; background: var(--bg); }
+    .agent-card-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .agent-card h4 { font-family: var(--mono); font-size: 0.9rem; color: var(--primary); margin: 0; }
+    .agent-card .company { font-size: 0.8rem; color: var(--muted); }
+    .agent-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+    .agent-card .ua-string { font-family: var(--mono); font-size: 0.75rem; background: white; border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+    .agent-card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; }
+    .badge-training { background: #fee2e2; color: #991b1b; }
+    .badge-search { background: #d1fae5; color: #065f46; }
+    .badge-both { background: #fef3c7; color: #92400e; }
+    .badge-safe { background: #d1fae5; color: #065f46; }
+    .badge-block { background: #fee2e2; color: #991b1b; }
+
+    /* Quick Copy */
+    .quick-copy { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 14px 0; }
+    .quick-copy pre { font-family: var(--mono); font-size: 0.8rem; white-space: pre-wrap; word-break: break-all; margin: 0 0 10px; }
+    .quick-copy + .quick-copy { margin-top: 0; }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: none; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+    .related-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; }
+    .related-box a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Crawler User Agents</h1>
+    <p>Complete reference list of known AI crawler identifiers — search, filter, and copy blocking rules</p>
+    <nav class="site-nav">
+      <a href="/">Generator</a>
+      <a href="/llms-txt-validator/">Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>Searchable Agent List</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:10px;">Type to filter by name or company:</p>
+      <div class="agent-search">
+        <input type="text" id="searchInput" placeholder="Search GPTBot, Anthropic, Perplexity...">
+      </div>
+      <div class="agent-cards" id="agentCards">
+        <div class="agent-card" data-name="GPTBot" data-company="OpenAI">
+          <div class="agent-card-header">
+            <h4>GPTBot</h4>
+            <span class="company">OpenAI</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>OpenAI's web crawler for training ChatGPT models. Scrapes public web pages to improve AI training data.</p>
+          <div class="ua-string">User-Agent: GPTBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('GPTBot')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="OAI-SearchBot" data-company="OpenAI">
+          <div class="agent-card-header">
+            <h4>OAI-SearchBot</h4>
+            <span class="company">OpenAI</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-search">AI Search</span>
+            <span class="badge badge-safe">Allow</span>
+          </div>
+          <p>OpenAI's search crawler for ChatGPT's live web search and citation features. Drives referral traffic.</p>
+          <div class="ua-string">User-Agent: OAI-SearchBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('OAI-SearchBot', 'Allow')">Copy Allow Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="ChatGPT-User" data-company="OpenAI">
+          <div class="agent-card-header">
+            <h4>ChatGPT-User</h4>
+            <span class="company">OpenAI</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-both">Both</span>
+            <span class="badge badge-block">Review</span>
+          </div>
+          <p>Used when ChatGPT accesses pages on behalf of a user (e.g., in Conversations). Check your policy.</p>
+          <div class="ua-string">User-Agent: ChatGPT-User</div>
+        </div>
+
+        <div class="agent-card" data-name="ClaudeBot" data-company="Anthropic">
+          <div class="agent-card-header">
+            <h4>ClaudeBot</h4>
+            <span class="company">Anthropic</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>Anthropic's web crawler for training Claude models. Most websites block this crawler.</p>
+          <div class="ua-string">User-Agent: ClaudeBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('ClaudeBot')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="anthropic-ai" data-company="Anthropic">
+          <div class="agent-card-header">
+            <h4>anthropic-ai</h4>
+            <span class="company">Anthropic</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>Alternative user agent string used by Anthropic's crawlers in some contexts.</p>
+          <div class="ua-string">User-Agent: anthropic-ai</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('anthropic-ai')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="PerplexityBot" data-company="Perplexity">
+          <div class="agent-card-header">
+            <h4>PerplexityBot</h4>
+            <span class="company">Perplexity</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-search">AI Search</span>
+            <span class="badge badge-safe">Allow</span>
+          </div>
+          <p>Perplexity AI's search crawler. Used to fetch pages for AI-powered answer generation.</p>
+          <div class="ua-string">User-Agent: PerplexityBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('PerplexityBot', 'Allow')">Copy Allow Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="Perplexity-User" data-company="Perplexity">
+          <div class="agent-card-header">
+            <h4>Perplexity-User</h4>
+            <span class="company">Perplexity</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-both">Both</span>
+            <span class="badge badge-block">Review</span>
+          </div>
+          <p>Used when Perplexity accesses pages on behalf of a user in answer synthesis.</p>
+          <div class="ua-string">User-Agent: Perplexity-User</div>
+        </div>
+
+        <div class="agent-card" data-name="CCBot" data-company="Common Crawl">
+          <div class="agent-card-header">
+            <h4>CCBot</h4>
+            <span class="company">Common Crawl</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>Common Crawl's bot used to build open web archives used for AI training. Generally blocked by privacy-conscious sites.</p>
+          <div class="ua-string">User-Agent: CCBot</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('CCBot')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="Bytespider" data-company="Bytespider">
+          <div class="agent-card-header">
+            <h4>Bytespider</h4>
+            <span class="company">Bytespider</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>AI training crawler associated with TikTok/ByteDance. Often blocked due to aggressive crawling behavior.</p>
+          <div class="ua-string">User-Agent: Bytespider</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('Bytespider')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="Google-Extended" data-company="Google">
+          <div class="agent-card-header">
+            <h4>Google-Extended</h4>
+            <span class="company">Google</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>Google's product-specific crawler for training Bard (now Gemini) and other Google AI products. Does not affect Google Search.</p>
+          <div class="ua-string">User-Agent: Google-Extended</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('Google-Extended')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="Applebot-Extended" data-company="Apple">
+          <div class="agent-card-header">
+            <h4>Applebot-Extended</h4>
+            <span class="company">Apple</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-training">Training</span>
+            <span class="badge badge-block">Block</span>
+          </div>
+          <p>Apple's crawler for training Apple Intelligence features. Does not affect Siri indexing.</p>
+          <div class="ua-string">User-Agent: Applebot-Extended</div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="copyRule('Applebot-Extended')">Copy Block Rule</button>
+          </div>
+        </div>
+
+        <div class="agent-card" data-name="Meta-ExternalAgent" data-company="Meta">
+          <div class="agent-card-header">
+            <h4>Meta-ExternalAgent</h4>
+            <span class="company">Meta</span>
+          </div>
+          <div class="tags">
+            <span class="badge badge-both">Both</span>
+            <span class="badge badge-block">Review</span>
+          </div>
+          <p>Meta's crawler used for AI product data collection. Review based on your content policy.</p>
+          <div class="ua-string">User-Agent: Meta-ExternalAgent</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Quick Block-All Snippet</h2>
+      <p>Copy this to block all known AI training crawlers at once:</p>
+      <div class="quick-copy">
+        <pre id="blockAll"># Block all AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /</pre>
+        <button class="btn btn-primary" onclick="copyCode('blockAll')">Copy Block-All Snippet</button>
+      </div>
+      <div class="btn-group" style="margin-top:12px;">
+        <a href="/ai-robots-txt-generator/" class="btn btn-primary">Generate Full robots.txt →</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is a user agent string?</h3>
+      <p>A user agent string is the identifier a crawler sends in the HTTP User-Agent header when visiting your site. robots.txt uses these strings to match rules to specific crawlers.</p>
+      <h3>How do I block a specific AI crawler?</h3>
+      <p>Add <code>User-agent: [Name]</code> followed by <code>Disallow: /</code> to your robots.txt. For example: <code>User-agent: GPTBot\nDisallow: /</code> blocks GPTBot from your entire site.</p>
+      <h3>Is this list complete?</h3>
+      <p>No. AI crawler landscape changes frequently. This list reflects known crawlers as of mid-2026. Check each AI company's documentation for the latest user agent strings.</p>
+    </section>
+
+    <div class="related-box">
+      <strong>Related:</strong>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a> · <a href="/robots-txt-ai-crawlers/">AI Crawlers Guide</a> · <a href="/block-gptbot-robots-txt/">Block GPTBot Guide</a> · <a href="/llms-txt-vs-robots-txt/">LLMs.txt vs Robots.txt</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">Generate llms.txt</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/ai-crawler-user-agents/">Crawler Agents</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.agent-card').forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const company = card.dataset.company.toLowerCase();
+        card.style.display = (name.includes(q) || company.includes(q)) ? '' : 'none';
+      });
+    });
+
+    function copyRule(agent, action) {
+      const text = `User-agent: ${agent}\n${action || 'Disallow'}: /`;
+      navigator.clipboard.writeText(text).then(() => showToast(`${agent} rule copied!`));
+    }
+
+    function copyCode(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => showToast('Copied!'));
+    }
+
+    function showToast(m) {
+      const t = document.getElementById('toast');
+      t.textContent = m; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+  </script>
+</body>
+</html>

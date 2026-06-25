@@ -6,14 +6,18 @@ Free, mobile-friendly online tools that help website owners create and validate 
 
 - **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 - **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
+- **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
 
 ## What is This?
 
-WebToolkitAI is a small static tool site focused on AI Search / GEO / website visibility utilities. The first tool creates `llms.txt` files; the second validates pasted `llms.txt` content for structure, clarity, URLs, and common publishing issues.
+WebToolkitAI is a static tool site focused on AI Search / GEO / website visibility utilities. Current tools generate and validate `llms.txt` files, and generate `robots.txt` files with AI crawler policies.
 
 ## Quick Links
 
-- **Live Tool**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
+- **Live Site**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
+- **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
+- **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
+- **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
 
 ## Features
 
@@ -21,9 +25,9 @@ WebToolkitAI is a small static tool site focused on AI Search / GEO / website vi
 - ✅ Mobile-first, responsive design
 - ✅ No database, no API calls, no tracking
 - ✅ Pure frontend — works offline after first load
-- ✅ Generate, copy, and download your llms.txt instantly
+- ✅ Generate, copy, and download files instantly
 - ✅ Load sample data for quick testing
-- ✅ Supports all optional fields (docs, blog, pricing, API docs, contact)
+- ✅ Built-in crawler agent reference (13 AI agents)
 
 ## Local Development
 
@@ -75,7 +79,7 @@ Then visit `http://localhost:8000` in your browser.
 
 ### Netlify
 
-1. Drag and drop the `index.html` file to [Netlify Drop](https://app.netlify.com/drop)
+1. Drag and drop the project folder to [Netlify Drop](https://app.netlify.com/drop)
 2. Or connect via GitHub for automatic deployments
 
 ### GitHub Pages
@@ -83,19 +87,35 @@ Then visit `http://localhost:8000` in your browser.
 1. Push this folder to a GitHub repository
 2. Go to Settings → Pages
 3. Select source branch (main/root)
-4. Your site will be at `https://username.github.io/repo-name/llms.txt`
+4. Your site will be at `https://username.github.io/repo-name/`
 
 ### Manual Upload
 
-Upload `index.html` to any web server's root directory. That's it.
+Upload files to any web server's root directory. That's it.
 
 ## File Structure
 
 ```
-llms-txt-generator/
-├── index.html                  # LLMs.txt Generator
+sites/llms-txt-generator/
+├── index.html                        # LLMs.txt Generator (homepage)
 ├── llms-txt-validator/
-│   └── index.html              # LLMs.txt Validator
+│   └── index.html                    # LLMs.txt Validator tool
+├── ai-robots-txt-generator/
+│   └── index.html                    # AI Robots.txt Generator tool
+├── how-to-create-llms-txt/
+│   └── index.html                    # How-to guide with checklist widget
+├── how-to-validate-llms-txt/
+│   └── index.html                    # Validation guide with score estimator
+├── llms-txt-examples/
+│   └── index.html                    # Example templates with copy widget
+├── robots-txt-ai-crawlers/
+│   └── index.html                    # AI crawlers guide with filter table
+├── block-gptbot-robots-txt/
+│   └── index.html                    # Block GPTBot step-by-step guide
+├── llms-txt-vs-robots-txt/
+│   └── index.html                    # Comparison with decision widget
+├── ai-crawler-user-agents/
+│   └── index.html                    # Full agent list with search + copy
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -111,6 +131,14 @@ llms-txt-generator/
 llms-txt-generator/
 ├── index.html
 ├── llms-txt-validator/
+├── ai-robots-txt-generator/
+├── how-to-create-llms-txt/
+├── how-to-validate-llms-txt/
+├── llms-txt-examples/
+├── robots-txt-ai-crawlers/
+├── block-gptbot-robots-txt/
+├── llms-txt-vs-robots-txt/
+├── ai-crawler-user-agents/
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -130,43 +158,43 @@ This site is designed to be independently deployable and uploadable as a standal
 
 ### Update Canonical URL
 
-The canonical URL is already set to `https://webtoolkitai.com/`. If you deploy to a different domain, update these locations in `index.html`:
+The canonical URL is already set to `https://webtoolkitai.com/`. If you deploy to a different domain, update these locations:
 
-1. `<link rel="canonical" href="...">`
-2. JSON-LD WebApplication `@id` field
+1. Each `index.html` — `<link rel="canonical" href="...">`
+2. Each `index.html` — JSON-LD WebApplication `url` field
 
 ### Change Branding
 
-All styling uses CSS custom properties (variables) at the top of the `<style>` section. Modify these to match your brand:
+All styling uses CSS custom properties (variables) at the top of each `<style>` section. Modify to match your brand:
 
 ```css
 :root {
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  /* ... */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
 }
 ```
 
 ## SEO Notes
 
-- Title and meta description are already optimized for "LLMs.txt Generator" and related keywords
-- JSON-LD structured data includes WebApplication and FAQPage schemas
-- The canonical URL is set to `https://webtoolkitai.com/`
-- Content includes 500+ words of explanatory text for search engines
+- All pages have optimized title and meta description
+- All pages have canonical URL set to `https://webtoolkitai.com/`
+- JSON-LD structured data: WebApplication + FAQPage schemas on every page
+- sitemap.xml includes all 10 URLs
+- llms.txt describes all tools and guides
 
 ## Related Tools Roadmap
 
-This is the first tool in a planned tool matrix. Similar tools that can be built:
+Future tools to add to this matrix:
 
-1. **LLMs.txt Validator** — Check llms.txt files before publishing
-2. **AI robots.txt Generator** — Create robots.txt files with AI crawler directives
-3. **FAQ Schema Generator** — Create JSON-LD FAQ structured data
-4. **AI Search Readiness Checker** — Review site visibility basics
-5. **Open Graph Preview Generator** — Generate and preview OG tags for social sharing
+1. **FAQ Schema Generator** — Create JSON-LD FAQ structured data
+2. **Open Graph Preview Generator** — Generate and preview OG tags
+3. **Sitemap.xml Generator** — Create XML sitemaps
+4. **AI Content Brief Generator** — SEO content briefs from keywords
+5. **Schema.org Generator** — Create JSON-LD structured data for any page type
 
 ## Disclaimer
 
-This tool and the `llms.txt` format are experimental, community-driven projects. There is no official standard. Results may vary. Do not rely on `llms.txt` as a replacement for proper SEO fundamentals.
+All tools and the `llms.txt` format are experimental, community-driven projects. There is no official standard. Results may vary. Do not rely on `llms.txt` or robots.txt policies as guarantees of AI visibility, ranking, or security.
 
 ## License
 
