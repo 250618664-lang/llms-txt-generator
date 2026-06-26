@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact WebToolkitAI — Tool Feedback &amp; Feature Requests</title>
+  <title>Contact WebToolkitAI — Tool Feedback & Feature Requests</title>
   <meta name="description" content="Contact WebToolkitAI for tool feedback, bug reports, or feature requests. Free AI search visibility and GEO tools.">
   <meta name="keywords" content="contact WebToolkitAI, tool feedback, feature request, bug report, AI SEO tools">
   <link rel="canonical" href="https://webtoolkitai.com/contact/">
@@ -56,9 +56,11 @@
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
     .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
 
-    .success-msg { background: #d1fae5; border: 1px solid var(--success); border-radius: var(--radius); padding: 14px 16px; font-size: 0.9rem; color: #065f46; margin: 14px 0; display: none; }
-    .success-msg.visible { display: block; }
+    .copy-msg { background: #d1fae5; border: 1px solid var(--success); border-radius: var(--radius); padding: 14px 16px; font-size: 0.9rem; color: #065f46; margin: 14px 0; display: none; }
+    .copy-msg.visible { display: block; }
 
     footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
     footer a { color: var(--primary); text-decoration: none; }
@@ -91,19 +93,19 @@
 
   <main class="container">
     <section class="content-section">
-      <h2>Send a Message</h2>
-      <p>Use the form below for tool feedback, bug reports, or feature requests. For general questions, check the <a href="/about/">About page</a> first.</p>
+      <h2>Draft Your Message Locally</h2>
+      <p>Use the form below to draft your feedback. When ready, click <strong>Copy Message Draft</strong> to copy the text to your clipboard — then paste it into GitHub Issues, X (Twitter), or an email.</p>
+      <p class="form-hint" style="margin-bottom:16px;">This is a static site — messages are not sent to us directly. For the fastest response, reach out via GitHub Issues or X below.</p>
 
-      <form id="contactForm" onsubmit="return false;">
+      <form id="contactForm">
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder="Your name" autocomplete="name">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email <span class="form-hint" style="display:inline;">(optional — only needed if you want us to reply)</span></label>
             <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
-            <span class="form-hint">Required for us to reply. Not shared with third parties.</span>
           </div>
           <div class="form-group">
             <label for="topic">Topic</label>
@@ -131,14 +133,14 @@
             <textarea id="message" placeholder="Describe your feedback, bug, or feature request in detail..."></textarea>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" id="submitBtn" onclick="handleSubmit()">Send Message</button>
-        <div class="success-msg" id="successMsg">Thank you! Your message has been received. We read every submission and respond when appropriate.</div>
+        <button type="button" class="btn btn-primary" id="copyBtn" onclick="copyDraft()">Copy Message Draft</button>
+        <div class="copy-msg" id="copyMsg">Message draft copied! Paste it into GitHub Issues, X, or your email client.</div>
       </form>
     </section>
 
     <section class="content-section">
       <h2>Other Ways to Reach Us</h2>
-      <p><strong>GitHub Issues:</strong> If you find a bug or want to request a feature, open an issue on our <a href="https://github.com/250618664-lang/llms-txt-generator/issues" target="_blank" rel="noopener">GitHub repository</a>.</p>
+      <p><strong>GitHub Issues:</strong> For bug reports and feature requests, open an issue on our <a href="https://github.com/250618664-lang/llms-txt-generator/issues" target="_blank" rel="noopener">GitHub repository</a>. This is the fastest way to get a response.</p>
       <p><strong>Social:</strong> Follow us on <a href="https://x.com/webtoolkitai" target="_blank" rel="noopener">X (Twitter)</a> for tool updates and announcements.</p>
     </section>
   </main>
@@ -149,13 +151,36 @@
   </footer>
 
   <script>
-    function handleSubmit() {
+    function copyDraft() {
+      var name = document.getElementById('name').value.trim();
       var email = document.getElementById('email').value.trim();
+      var topic = document.getElementById('topic').value;
+      var tool = document.getElementById('tool').value;
       var message = document.getElementById('message').value.trim();
-      if (!email || !message) { alert('Please fill in your email and message.'); return; }
-      document.getElementById('successMsg').classList.add('visible');
-      document.getElementById('submitBtn').disabled = true;
-      document.getElementById('submitBtn').textContent = 'Sent!';
+
+      if (!message) { alert('Please write your message first.'); return; }
+
+      var lines = [];
+      if (name) lines.push('Name: ' + name);
+      if (email) lines.push('Email: ' + email);
+      lines.push('Topic: ' + topic);
+      if (tool) lines.push('Related Tool: ' + tool);
+      lines.push('');
+      lines.push(message);
+
+      var draft = lines.join('\n');
+      navigator.clipboard.writeText(draft).then(function() {
+        document.getElementById('copyMsg').classList.add('visible');
+        document.getElementById('copyBtn').textContent = 'Copied!';
+        document.getElementById('copyBtn').disabled = true;
+        setTimeout(function() {
+          document.getElementById('copyMsg').classList.remove('visible');
+          document.getElementById('copyBtn').textContent = 'Copy Message Draft';
+          document.getElementById('copyBtn').disabled = false;
+        }, 3000);
+      }).catch(function() {
+        alert('Failed to copy. Please select and copy the text manually.');
+      });
     }
   </script>
 </body>
