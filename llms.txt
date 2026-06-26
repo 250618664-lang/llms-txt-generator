@@ -15,6 +15,8 @@ Language: English
   Generate a robots.txt file to control AI crawler access — block or allow GPTBot, ClaudeBot, PerplexityBot, and more.
 - FAQ Schema Generator: https://webtoolkitai.com/faq-schema-generator/
   Create FAQPage JSON-LD structured data for any webpage — supports multiple Q&A pairs and generates copy-ready HTML snippets.
+- AI Search Readiness Checker: https://webtoolkitai.com/ai-search-readiness-checker/
+  Audit a website for llms.txt, robots.txt, sitemap, structured data, and AI crawler policies — get a readiness score and copyable report.
 
 ## Key Pages — Guides
 - How to Add FAQ Schema: https://webtoolkitai.com/how-to-add-faq-schema/
@@ -39,11 +41,27 @@ Language: English
   Side-by-side comparison and decision widget — which file does your site need?
 - AI Crawler User Agents: https://webtoolkitai.com/ai-crawler-user-agents/
   Full searchable list of AI crawler identifiers with blocking snippets.
+- AI Search Readiness Checklist: https://webtoolkitai.com/ai-search-readiness-checklist/
+  Interactive checklist with completion percentage tracking and copyable summary.
+- AI Search Visibility Score: https://webtoolkitai.com/ai-search-visibility-score/
+  Simplified score estimator with answer-based scoring and improvement suggestions.
+- How to Improve AI Search Visibility: https://webtoolkitai.com/how-to-improve-ai-search-visibility/
+  7-day action plan with priority planner and day-by-day tasks.
+- AI Search Readiness Report Template: https://webtoolkitai.com/ai-search-readiness-report-template/
+  Editable audit report template with copy and download functionality.
+
+## Trust Pages
+- About: https://webtoolkitai.com/about/
+- Contact: https://webtoolkitai.com/contact/
+- Privacy Policy: https://webtoolkitai.com/privacy-policy/
+- Terms of Use: https://webtoolkitai.com/terms/
 
 ## Recommended Reading
+- AI Search Readiness Guide: https://webtoolkitai.com/ai-search-readiness-checker/
+- AI Search Visibility Score: https://webtoolkitai.com/ai-search-visibility-score/
 - AI Crawlers Guide: https://webtoolkitai.com/robots-txt-ai-crawlers/
 - AI Crawler Agents List: https://webtoolkitai.com/ai-crawler-user-agents/
 - LLMs.txt Examples: https://webtoolkitai.com/llms-txt-examples/
 
 ## Contact
-https://webtoolkitai.com/
+https://webtoolkitai.com/contact/

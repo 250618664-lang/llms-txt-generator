@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Improve AI Search Visibility — 7-Day Action Plan</title>
+  <meta name="description" content="Step-by-step guide to improving AI search visibility. Use the 7-day action plan to fix llms.txt, robots.txt, sitemap, structured data, and crawler policies.">
+  <meta name="keywords" content="how to improve AI search visibility, AI SEO guide, improve AI search ranking, AI visibility checklist, AI search best practices">
+  <link rel="canonical" href="https://webtoolkitai.com/how-to-improve-ai-search-visibility/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+  <meta property="og:title" content="How to Improve AI Search Visibility — 7-Day Action Plan">
+  <meta property="og:description" content="Fix your AI search foundations in 7 days. Action plan covering llms.txt, robots.txt, sitemap, schema, and crawler policies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/how-to-improve-ai-search-visibility/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "How to Improve AI Search Visibility — 7-Day Action Plan",
+    "description": "Step-by-step 7-day action plan to improve AI search visibility by fixing key website files and metadata.",
+    "url": "https://webtoolkitai.com/how-to-improve-ai-search-visibility/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does it take to improve AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Technical fixes can be done in 1–2 weeks. Content improvements and indexation may take 4–8 weeks to reflect in AI search results. AI visibility is a long-term effort." } },
+      { "@type": "Question", "name": "Does fixing llms.txt guarantee better AI search results?", "acceptedAnswer": { "@type": "Answer", "text": "No. llms.txt is one factor. AI search results depend on content quality, authority, relevance, and many other signals. Technical setup is necessary but not sufficient." } },
+      { "@type": "Question", "name": "Should I hire an SEO for AI search?", "acceptedAnswer": { "@type": "Answer", "text": "Most technical fixes (robots.txt, sitemap, structured data) can be done without an SEO. Focus on understanding the fundamentals first. A good SEO can help with content strategy and authority building." } }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb; --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8; --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section h3 { font-size: 1.05rem; margin: 20px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul, .content-section ol { padding-left: 22px; margin: 10px 0 14px; }
+    .content-section li { margin-bottom: 8px; }
+    .content-section code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem; }
+
+    .plan-widget { margin: 16px 0; }
+    .plan-day { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; }
+    .plan-day-header { background: var(--bg); padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .plan-day-header:hover { background: #f3f4f6; }
+    .plan-day input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+    .plan-day h4 { font-size: 0.9rem; flex: 1; }
+    .plan-day .day-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--primary); color: white; flex-shrink: 0; }
+    .plan-day-body { padding: 12px 14px; font-size: 0.875rem; color: var(--muted); display: none; }
+    .plan-day-body.open { display: block; }
+    .plan-day-body li { margin-bottom: 6px; }
+    .plan-day.done h4 { text-decoration: line-through; color: var(--muted); }
+    .plan-day.done .day-tag { background: var(--success); }
+
+    .completion-bar { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; margin: 14px 0; }
+    .completion-bar h3 { font-size: 0.95rem; margin-bottom: 8px; }
+    .completion-bar .bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .completion-bar .bar-fill { height: 100%; background: var(--success); border-radius: 4px; transition: width 0.3s; }
+    .completion-bar p { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>How to Improve AI Search Visibility</h1>
+    <p>7-day action plan to fix your AI search foundations — llms.txt, robots.txt, sitemap, schema, and crawler policies</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+      <a href="/ai-search-readiness-checker/">AI Readiness</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>7-Day AI Search Visibility Action Plan</h2>
+      <p>Work through one task per day. Check off items as you complete them. The completion bar tracks your progress.</p>
+
+      <div class="completion-bar">
+        <h3>Plan Completion: <span id="completionPct">0%</span></h3>
+        <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+        <p id="completionText">0 of 7 days completed</p>
+      </div>
+
+      <div class="plan-widget" id="planWidget">
+        <div class="plan-day" data-day="1">
+          <div class="plan-day-header" onclick="toggleDay(1)">
+            <input type="checkbox" id="d1" onchange="updateCompletion()">
+            <h4>Day 1 — Audit Your Current State</h4>
+            <span class="day-tag">Day 1</span>
+          </div>
+          <div class="plan-day-body open">
+            <ul>
+              <li>Run the <a href="/ai-search-readiness-checker/">AI Search Readiness Checker</a> to understand your current score.</li>
+              <li>Check if your site has an <a href="https://example.com/llms.txt" target="_blank">llms.txt</a> file (replace with your domain).</li>
+              <li>Check your <a href="https://example.com/robots.txt" target="_blank">robots.txt</a> for AI crawler policies.</li>
+              <li>Check if your <a href="https://example.com/sitemap.xml" target="_blank">sitemap.xml</a> exists.</li>
+              <li>Note all findings — these will guide your fixes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="2">
+          <div class="plan-day-header" onclick="toggleDay(2)">
+            <input type="checkbox" id="d2" onchange="updateCompletion()">
+            <h4>Day 2 — Create or Update llms.txt</h4>
+            <span class="day-tag">Day 2</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Use the <a href="/llms-txt-generator/">LLMs.txt Generator</a> to create your llms.txt file.</li>
+              <li>Include: site name, description, key pages, audience, and any relevant policies.</li>
+              <li>Write in natural language — avoid SEO jargon and corporate tone.</li>
+              <li>Upload to your site root (example.com/llms.txt).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="3">
+          <div class="plan-day-header" onclick="toggleDay(3)">
+            <input type="checkbox" id="d3" onchange="updateCompletion()">
+            <h4>Day 3 — Set Your AI Crawler Policy</h4>
+            <span class="day-tag">Day 3</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Use the <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a> to configure your AI crawler policy.</li>
+              <li>Allow: OAI-SearchBot, Claude-SearchBot, PerplexityBot (AI search crawlers).</li>
+              <li>Block or allow GPTBot and ClaudeBot based on your content policy.</li>
+              <li>Ensure Googlebot and Bingbot are NOT blocked.</li>
+              <li>Add your sitemap URL to robots.txt.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="4">
+          <div class="plan-day-header" onclick="toggleDay(4)">
+            <input type="checkbox" id="d4" onchange="updateCompletion()">
+            <h4>Day 4 — Submit Your Sitemap</h4>
+            <span class="day-tag">Day 4</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Verify your sitemap.xml exists and includes all important pages.</li>
+              <li>Submit sitemap.xml to <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a> → Sitemaps → Submit.</li>
+              <li>Submit to <a href="https://www.bing.com/webmasters" target="_blank">Bing Webmaster Tools</a> → Sitemaps.</li>
+              <li>Check for any crawl errors in GSC after 48 hours.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="5">
+          <div class="plan-day-header" onclick="toggleDay(5)">
+            <input type="checkbox" id="d5" onchange="updateCompletion()">
+            <h4>Day 5 — Add or Expand Structured Data</h4>
+            <span class="day-tag">Day 5</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Use the <a href="/faq-schema-generator/">FAQ Schema Generator</a> to add FAQPage JSON-LD to your FAQ pages.</li>
+              <li>Add Organization schema to your homepage if not already present.</li>
+              <li>Add WebSite schema with searchAction to your homepage.</li>
+              <li>Use JSON-LD placed in the <code>&lt;head&gt;</code> section of each page.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="6">
+          <div class="plan-day-header" onclick="toggleDay(6)">
+            <input type="checkbox" id="d6" onchange="updateCompletion()">
+            <h4>Day 6 — Audit Content Accessibility</h4>
+            <span class="day-tag">Day 6</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Check that key content is accessible without login or paywall.</li>
+              <li>Verify important pages render content without requiring JavaScript.</li>
+              <li>Check that your Open Graph tags are set on key pages.</li>
+              <li>Verify canonical URLs are set correctly and point to the preferred version.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-day" data-day="7">
+          <div class="plan-day-header" onclick="toggleDay(7)">
+            <input type="checkbox" id="d7" onchange="updateCompletion()">
+            <h4>Day 7 — Verify and Monitor</h4>
+            <span class="day-tag">Day 7</span>
+          </div>
+          <div class="plan-day-body">
+            <ul>
+              <li>Re-run the <a href="/ai-search-readiness-checker/">AI Search Readiness Checker</a> to see your improved score.</li>
+              <li>Submit any new or updated pages to GSC for indexing.</li>
+              <li>Set a monthly calendar reminder to review your AI search readiness.</li>
+              <li>Monitor GSC for crawl errors and Bing for AI crawler activity.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Does Not Work for AI Search Visibility</h2>
+      <p>Many tactics that work for traditional SEO do not help — and sometimes hurt — AI search visibility. Avoid these common mistakes:</p>
+      <ul>
+        <li><strong>Keyword stuffing</strong> — AI systems can identify and ignore content written for crawlers rather than readers.</li>
+        <li><strong>AI-generated content at scale</strong> — Mass-produced AI content without expertise signals is low-value in AI search.</li>
+        <li><strong>Blocking AI crawlers and expecting AI visibility</strong> — If AI crawlers cannot access your content, they cannot reference it.</li>
+        <li><strong>Paywalling core content and expecting AI citations</strong> — AI systems can only reference content they can access.</li>
+        <li><strong>Buying links for "authority"</strong> — AI systems are sophisticated enough to identify artificial link schemes.</li>
+      </ul>
+      <div class="disclaimer"><strong>⚠️ AI search visibility is not a ranking factor.</strong> It is a measure of how well AI systems can understand and potentially reference your content. Content quality and relevance remain the primary drivers of whether your site is cited in AI-generated responses.</div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/ai-search-readiness-checker/">AI Readiness Checker</a> ·
+        <a href="/ai-search-readiness-checklist/">AI Readiness Checklist</a> ·
+        <a href="/ai-search-visibility-score/">AI Visibility Score</a> ·
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a> · <a href="/ai-search-readiness-checker/">AI Readiness</a></p>
+  </footer>
+
+  <script>
+    function toggleDay(n) {
+      const day = document.querySelector(`.plan-day[data-day="${n}"]`);
+      const body = day.querySelector('.plan-day-body');
+      body.classList.toggle('open');
+    }
+
+    function updateCompletion() {
+      const checked = document.querySelectorAll('.plan-day input:checked').length;
+      const total = 7;
+      const pct = Math.round((checked / total) * 100);
+      document.getElementById('completionPct').textContent = pct + '%';
+      document.getElementById('barFill').style.width = pct + '%';
+      document.getElementById('completionText').textContent = `${checked} of ${total} days completed`;
+
+      document.querySelectorAll('.plan-day').forEach(day => {
+        day.classList.toggle('done', day.querySelector('input').checked);
+      });
+    }
+  </script>
+</body>
+</html>

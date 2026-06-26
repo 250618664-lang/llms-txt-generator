@@ -8,16 +8,20 @@ Free, mobile-friendly online tools that help website owners create and validate 
 - **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
 - **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
 - **FAQ Schema Generator**: [https://webtoolkitai.com/faq-schema-generator/](https://webtoolkitai.com/faq-schema-generator/)
+- **AI Search Readiness Checker**: [https://webtoolkitai.com/ai-search-readiness-checker/](https://webtoolkitai.com/ai-search-readiness-checker/)
 
 ## What is This?
 
-WebToolkitAI is a static tool site focused on AI Search / GEO / website visibility utilities. Current tools generate and validate `llms.txt` files, and generate `robots.txt` files with AI crawler policies.
+WebToolkitAI is a static tool site focused on AI Search / GEO / website visibility utilities. Current tools generate and validate `llms.txt` files, generate `robots.txt` files with AI crawler policies, create FAQ schema, and audit websites for AI search readiness.
 
 ## Quick Links
 
 - **Live Site**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 - **LLMs.txt Generator**: [https://webtoolkitai.com/](https://webtoolkitai.com/)
 - **LLMs.txt Validator**: [https://webtoolkitai.com/llms-txt-validator/](https://webtoolkitai.com/llms-txt-validator/)
+- **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
+- **FAQ Schema Generator**: [https://webtoolkitai.com/faq-schema-generator/](https://webtoolkitai.com/faq-schema-generator/)
+- **AI Search Readiness Checker**: [https://webtoolkitai.com/ai-search-readiness-checker/](https://webtoolkitai.com/ai-search-readiness-checker/)
 - **AI Robots.txt Generator**: [https://webtoolkitai.com/ai-robots-txt-generator/](https://webtoolkitai.com/ai-robots-txt-generator/)
 - **FAQ Schema Generator**: [https://webtoolkitai.com/faq-schema-generator/](https://webtoolkitai.com/faq-schema-generator/)
 
@@ -106,6 +110,8 @@ sites/llms-txt-generator/
 │   └── index.html                    # AI Robots.txt Generator tool
 ├── faq-schema-generator/
 │   └── index.html                    # FAQ JSON-LD Schema Generator tool
+├── ai-search-readiness-checker/
+│   └── index.html                    # AI Search Readiness Checker tool
 ├── how-to-create-llms-txt/
 │   └── index.html                    # How-to guide with checklist widget
 ├── how-to-validate-llms-txt/
@@ -128,6 +134,22 @@ sites/llms-txt-generator/
 │   └── index.html                    # FAQ JSON-LD format explained + formatter
 ├── faq-rich-results-deprecated/
 │   └── index.html                    # FAQ rich results deprecated guide + decision widget
+├── ai-search-readiness-checklist/
+│   └── index.html                    # Interactive readiness checklist with progress
+├── ai-search-visibility-score/
+│   └── index.html                    # AI visibility score estimator + suggestions
+├── how-to-improve-ai-search-visibility/
+│   └── index.html                    # 7-day action plan with priority planner
+├── ai-search-readiness-report-template/
+│   └── index.html                    # Editable audit report template
+├── about/
+│   └── index.html                    # About page
+├── contact/
+│   └── index.html                    # Contact page
+├── privacy-policy/
+│   └── index.html                    # Privacy policy
+├── terms/
+│   └── index.html                    # Terms of use
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -145,6 +167,7 @@ llms-txt-generator/
 ├── llms-txt-validator/
 ├── ai-robots-txt-generator/
 ├── faq-schema-generator/
+├── ai-search-readiness-checker/
 ├── how-to-create-llms-txt/
 ├── how-to-validate-llms-txt/
 ├── llms-txt-examples/
@@ -156,6 +179,14 @@ llms-txt-generator/
 ├── how-to-add-faq-schema/
 ├── faq-schema-json-ld/
 ├── faq-rich-results-deprecated/
+├── ai-search-readiness-checklist/
+├── ai-search-visibility-score/
+├── how-to-improve-ai-search-visibility/
+├── ai-search-readiness-report-template/
+├── about/
+├── contact/
+├── privacy-policy/
+├── terms/
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
@@ -196,7 +227,7 @@ All styling uses CSS custom properties (variables) at the top of each `<style>` 
 - All pages have optimized title and meta description
 - All pages have canonical URL set to `https://webtoolkitai.com/`
 - JSON-LD structured data: WebApplication + FAQPage schemas on every page
-- sitemap.xml includes all 15 URLs
+- sitemap.xml includes all 24 URLs
 - llms.txt describes all tools and guides
 
 ## Related Tools Roadmap
@@ -204,10 +235,11 @@ All styling uses CSS custom properties (variables) at the top of each `<style>` 
 Future tools to add to this matrix:
 
 1. ~~FAQ Schema Generator~~ — ✅ Complete
-2. **Open Graph Preview Generator** — Generate and preview OG tags
-3. **Sitemap.xml Generator** — Create XML sitemaps
-4. **AI Content Brief Generator** — SEO content briefs from keywords
-5. **Schema.org Generator** — Create JSON-LD structured data for any page type
+2. ~~AI Search Readiness Checker~~ — ✅ Complete
+3. **Open Graph Preview Generator** — Generate and preview OG tags
+4. **Sitemap.xml Generator** — Create XML sitemaps
+5. **AI Content Brief Generator** — SEO content briefs from keywords
+6. **Schema.org Generator** — Create JSON-LD structured data for any page type
 
 ## Disclaimer
 

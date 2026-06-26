@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Readiness Checklist — Complete Audit Checklist for AI Visibility</title>
+  <meta name="description" content="Free AI search readiness checklist. Audit your website step by step with a checkable list showing completion percentage and copyable summary.">
+  <meta name="keywords" content="AI search readiness checklist, AI SEO checklist, website audit checklist, llms.txt checklist, structured data checklist">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-search-readiness-checklist/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
+
+  <meta property="og:title" content="AI Search Readiness Checklist — Complete Audit Checklist for AI Visibility">
+  <meta property="og:description" content="Checkable AI search readiness audit checklist. Track your progress and copy the summary when done.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/ai-search-readiness-checklist/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "AI Search Readiness Checklist — Complete Audit Checklist for AI Visibility",
+    "description": "A step-by-step, checkable AI search readiness audit checklist covering files, schema, crawlers, and metadata.",
+    "url": "https://webtoolkitai.com/ai-search-readiness-checklist/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do I use the AI Search Readiness Checklist?", "acceptedAnswer": { "@type": "Answer", "text": "Go through each item and check the boxes as you verify them on your website. The completion percentage updates automatically. When done, copy the checklist summary." } },
+      { "@type": "Question", "name": "Does completing this checklist guarantee AI search visibility?", "acceptedAnswer": { "@type": "Answer", "text": "No. This checklist covers best practices for AI search foundations. Completing all items improves your chances but does not guarantee citations, rankings, or AI visibility." } },
+      { "@type": "Question", "name": "How often should I run this checklist?", "acceptedAnswer": { "@type": "Answer", "text": "Run it when launching a new site, after major site changes, or quarterly as a maintenance check. AI search practices are still evolving — revisit every 6 months." } }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb; --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8; --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .checklist-progress { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 16px 0; }
+    .progress-bar { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; margin: 10px 0; }
+    .progress-fill { height: 100%; background: var(--primary); border-radius: 5px; transition: width 0.3s ease; }
+    .progress-stats { display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; }
+    .progress-stats span { font-weight: 600; }
+    .progress-pct { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+
+    .checklist-widget { margin: 16px 0; }
+    .check-group { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+    .check-group-header { background: var(--bg); padding: 10px 14px; font-size: 0.8rem; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .check-group-header .group-status { font-size: 0.75rem; color: var(--primary); }
+    .check-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 0.875rem; transition: background 0.15s; }
+    .check-item:last-child { border-bottom: none; }
+    .check-item.done { background: #f0fdf4; }
+    .check-item input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer; }
+    .check-item label { cursor: pointer; flex: 1; }
+    .check-item.done label { text-decoration: line-through; color: var(--muted); }
+
+    .summary-widget { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 16px 0; display: none; }
+    .summary-widget.visible { display: block; }
+    .summary-widget pre { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; max-height: 200px; overflow-y: auto; margin-bottom: 10px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: none; border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>AI Search Readiness Checklist</h1>
+    <p>Step-by-step audit checklist for AI search visibility — track progress and copy your summary</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+      <a href="/ai-search-readiness-checker/">AI Readiness</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>AI Search Readiness Checklist</h2>
+      <p>Check each item as you verify it on your website. The progress bar updates automatically. When finished, copy your checklist summary.</p>
+
+      <div class="checklist-progress">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span class="progress-pct" id="progressPct">0%</span>
+          <span><span id="doneCount">0</span> / <span id="totalCount">0</span> items checked</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      </div>
+
+      <div class="checklist-widget" id="checklistWidget">
+        <div class="check-group" data-group="files">
+          <div class="check-group-header">CORE FILES <span class="group-status" id="filesStatus">0/3</span></div>
+          <div class="check-item"><input type="checkbox" id="cl1"><label for="cl1">Website has an llms.txt file accessible at the root URL</label></div>
+          <div class="check-item"><input type="checkbox" id="cl2"><label for="cl2">Website has a robots.txt file accessible at the root URL</label></div>
+          <div class="check-item"><input type="checkbox" id="cl3"><label for="cl3">Website has a sitemap.xml accessible at the root URL</label></div>
+        </div>
+
+        <div class="check-group" data-group="schema">
+          <div class="check-group-header">STRUCTURED DATA <span class="group-status" id="schemaStatus">0/3</span></div>
+          <div class="check-item"><input type="checkbox" id="cl4"><label for="cl4">Pages include JSON-LD structured data (WebSite, FAQPage, Organization, Product, Article, or similar)</label></div>
+          <div class="check-item"><input type="checkbox" id="cl5"><label for="cl5">FAQ section has FAQPage JSON-LD markup</label></div>
+          <div class="check-item"><input type="checkbox" id="cl6"><label for="cl6">Organization or entity schema identifies the business</label></div>
+        </div>
+
+        <div class="check-group" data-group="crawlers">
+          <div class="check-group-header">AI CRAWLER POLICIES <span class="group-status" id="crawlersStatus">0/3</span></div>
+          <div class="check-item"><input type="checkbox" id="cl7"><label for="cl7">AI search crawlers are allowed (OAI-SearchBot, Claude-SearchBot, PerplexityBot)</label></div>
+          <div class="check-item"><input type="checkbox" id="cl8"><label for="cl8">AI training crawler policy is intentional (blocked or allowed by choice)</label></div>
+          <div class="check-item"><input type="checkbox" id="cl9"><label for="cl9">robots.txt does not block Googlebot or Bingbot</label></div>
+        </div>
+
+        <div class="check-group" data-group="content">
+          <div class="check-group-header">CONTENT & METADATA <span class="group-status" id="contentStatus">0/4</span></div>
+          <div class="check-item"><input type="checkbox" id="cl10"><label for="cl10">Every page has a unique, descriptive title tag</label></div>
+          <div class="check-item"><input type="checkbox" id="cl11"><label for="cl11">Every page has a unique meta description</label></div>
+          <div class="check-item"><input type="checkbox" id="cl12"><label for="cl12">Key pages have Open Graph tags (og:title, og:description, og:type)</label></div>
+          <div class="check-item"><input type="checkbox" id="cl13"><label for="cl13">Canonical URLs are set correctly on all pages</label></div>
+        </div>
+
+        <div class="check-group" data-group="accessibility">
+          <div class="check-group-header">CONTENT ACCESSIBILITY <span class="group-status" id="accessibilityStatus">0/2</span></div>
+          <div class="check-item"><input type="checkbox" id="cl14"><label for="cl14">Pages load without requiring JavaScript for core content</label></div>
+          <div class="check-item"><input type="checkbox" id="cl15"><label for="cl15">Important content is in HTML, not behind JavaScript or paywalls</label></div>
+        </div>
+      </div>
+
+      <div class="summary-widget" id="summaryWidget">
+        <h3 style="font-size:0.95rem;margin-bottom:10px;">Checklist Summary</h3>
+        <pre id="summaryText"></pre>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" id="copySummaryBtn">Copy Summary</button>
+          <button type="button" class="btn btn-secondary" id="resetBtn">Reset Checklist</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Why This Checklist Matters</h2>
+      <p>AI search systems use a different set of signals than traditional search engines. This checklist covers the files, metadata, and accessibility factors that affect how well AI systems can discover, understand, and reference your content.</p>
+      <ul>
+        <li><strong>Core files</strong> — llms.txt, robots.txt, and sitemap.xml are the three files that control AI crawler access and comprehension.</li>
+        <li><strong>Structured data</strong> — JSON-LD helps AI systems parse content context without having to infer meaning from raw HTML.</li>
+        <li><strong>Crawler policies</strong> — Making sure AI search crawlers can access your content is a prerequisite for appearing in AI-generated responses.</li>
+        <li><strong>Content accessibility</strong> — AI systems can only reference content they can access. Paywalled or JavaScript-heavy content is harder for AI systems to use.</li>
+      </ul>
+      <div class="disclaimer"><strong>⚠️ No guarantees.</strong> Completing all items on this checklist does not guarantee AI search visibility, citations, or ranking improvements. It covers best practices for foundational AI search readiness.</div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/ai-search-readiness-checker/">AI Readiness Checker</a> ·
+        <a href="/ai-search-visibility-score/">AI Visibility Score</a> ·
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> ·
+        <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a> · <a href="/ai-search-readiness-checker/">AI Readiness</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const checkboxes = document.querySelectorAll('.check-item input');
+      const progressFill = document.getElementById('progressFill');
+      const progressPct = document.getElementById('progressPct');
+      const doneCount = document.getElementById('doneCount');
+      const totalCount = document.getElementById('totalCount');
+      const summaryWidget = document.getElementById('summaryWidget');
+      const summaryText = document.getElementById('summaryText');
+      const toast = document.getElementById('toast');
+
+      const groups = ['files', 'schema', 'crawlers', 'content', 'accessibility'];
+      const groupCounts = { files: 3, schema: 3, crawlers: 3, content: 4, accessibility: 2 };
+
+      function showToast(m) { toast.textContent = m; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500); }
+
+      function update() {
+        const total = checkboxes.length;
+        const done = document.querySelectorAll('.check-item input:checked').length;
+        const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+        totalCount.textContent = total;
+        doneCount.textContent = done;
+        progressPct.textContent = pct + '%';
+        progressFill.style.width = pct + '%';
+
+        groups.forEach(g => {
+          const items = document.querySelectorAll(`.check-group[data-group="${g}"] .check-item input`);
+          const checked = document.querySelectorAll(`.check-group[data-group="${g}"] .check-item input:checked`).length;
+          const el = document.getElementById(g + 'Status');
+          if (el) el.textContent = `${checked}/${groupCounts[g]}`;
+        });
+
+        document.querySelectorAll('.check-item').forEach(item => {
+          item.classList.toggle('done', item.querySelector('input').checked);
+        });
+
+        if (done > 0) {
+          const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          const completed = [];
+          document.querySelectorAll('.check-item input:checked').forEach(cb => {
+            completed.push(cb.closest('.check-item').querySelector('label').textContent.trim());
+          });
+          const summary = [
+            `AI SEARCH READINESS CHECKLIST SUMMARY`,
+            `Date: ${date}`,
+            `Completion: ${pct}% (${done}/${total})`,
+            ``,
+            `COMPLETED ITEMS:`,
+            ...completed.map(c => `  ✓ ${c}`),
+            ``,
+            `DISCLAIMER: Checklist completion reflects self-audit. ` +
+            `It does not guarantee AI visibility, citations, or rankings. ` +
+            `Use as a planning guide only.`
+          ].join('\n');
+          summaryText.textContent = summary;
+          summaryWidget.classList.add('visible');
+        } else {
+          summaryWidget.classList.remove('visible');
+        }
+      }
+
+      checkboxes.forEach(cb => cb.addEventListener('change', update));
+
+      document.getElementById('copySummaryBtn').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(summaryText.textContent); showToast('Summary copied!'); }
+        catch { showToast('Failed to copy'); }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        checkboxes.forEach(cb => cb.checked = false);
+        update();
+        showToast('Checklist reset');
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>

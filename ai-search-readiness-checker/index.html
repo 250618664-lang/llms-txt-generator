@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Readiness Checker — Audit Your Website for AI Search Visibility</title>
+  <meta name="description" content="Free AI search readiness checker. Audit your website for llms.txt, robots.txt, sitemap.xml, structured data, and AI crawler policies. Get a readiness score and a copyable audit report.">
+  <meta name="keywords" content="AI search readiness checker, AI search visibility audit, website AI readiness, llms.txt checker, AI SEO audit, structured data audit">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-search-readiness-checker/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+
+  <meta property="og:title" content="AI Search Readiness Checker — Audit Your Website for AI Search Visibility">
+  <meta property="og:description" content="Run a free AI search readiness audit on any website. Check llms.txt, robots.txt, sitemap, schema, and crawler policies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/ai-search-readiness-checker/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Search Readiness Checker",
+    "description": "Free online tool to audit a website for AI search readiness — checks llms.txt, robots.txt, sitemap, structured data, and AI crawler policies",
+    "url": "https://webtoolkitai.com/ai-search-readiness-checker/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "No special requirements"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does the AI Search Readiness Checker do?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It audits a website for the key files and metadata that affect AI search visibility: llms.txt, robots.txt, sitemap.xml, structured data, AI crawler policies, and title/meta quality." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a high readiness score guarantee AI search visibility?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This tool checks for recommended files and policies — it cannot guarantee AI citations, search rankings, or visibility in AI-generated responses." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good AI search readiness score?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A score above 60% means the site has the basic foundations. A score above 80% is strong. 100% does not guarantee AI visibility — it only means all checked items are in place." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the tool actually crawl my website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The tool uses your inputs to evaluate your readiness against best practices. You enter what you know about your site — the tool does not crawl or access your site directly." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb;
+      --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8;
+      --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .tool-section, .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tool-section h2, .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .form-grid { display: grid; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 0.875rem; font-weight: 600; }
+    label .hint { font-weight: 400; color: var(--muted); }
+    input { padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); font: inherit; background: white; width: 100%; font-size: 0.95rem; }
+    input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+
+    .check-grid { display: grid; gap: 10px; margin: 14px 0; }
+    .check-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; font-size: 0.875rem; }
+    .check-item input[type="checkbox"], .check-item input[type="radio"] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; }
+    .check-item label { font-weight: 400; cursor: pointer; flex: 1; font-size: 0.875rem; }
+    .check-item .check-label { display: flex; align-items: center; gap: 8px; flex: 1; cursor: pointer; }
+    .check-item .item-name { font-weight: 600; color: var(--text); min-width: 200px; }
+    .check-item .item-desc { font-size: 0.8rem; color: var(--muted); }
+
+    .check-group { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 12px; }
+    .check-group-header { background: var(--bg); padding: 10px 14px; font-size: 0.85rem; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .check-group-body { padding: 10px; display: grid; gap: 8px; }
+
+    .score-display { text-align: center; padding: 24px; background: var(--bg); border-radius: var(--radius); margin: 16px 0; }
+    .score-number { font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+    .score-label { font-size: 1rem; color: var(--muted); }
+    .score-bar { height: 8px; background: var(--border); border-radius: 4px; margin: 12px 0; overflow: hidden; }
+    .score-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+    .score-low { color: var(--danger); }
+    .score-medium { color: var(--warning); }
+    .score-high { color: var(--success); }
+
+    .priority-list { list-style: none; padding: 0; margin: 12px 0; }
+    .priority-list li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 0.875rem; border-bottom: 1px solid var(--border); }
+    .priority-list li:last-child { border-bottom: none; }
+    .priority-badge { flex-shrink: 0; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+    .priority-high { background: #fee2e2; color: #991b1b; }
+    .priority-medium { background: #fef3c7; color: #92400e; }
+    .priority-low { background: #d1fae5; color: #065f46; }
+    .priority-done { background: #f3e8ff; color: #6b21a8; }
+
+    .report-preview {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; font-family: var(--mono); font-size: 0.8rem;
+      white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
+      line-height: 1.7; margin-top: 14px;
+    }
+
+    .output-section { margin-top: 20px; display: none; }
+    .output-section.visible { display: block; }
+    .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+    .output-header h3 { font-size: 1rem; color: var(--muted); }
+    .output-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .tool-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0; }
+    .tool-link-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; text-decoration: none; color: var(--text); transition: border-color 0.15s, background 0.15s; display: block; }
+    .tool-link-card:hover { border-color: var(--primary); background: #eff6ff; }
+    .tool-link-card h4 { font-size: 0.875rem; color: var(--primary); margin-bottom: 4px; }
+    .tool-link-card p { font-size: 0.8rem; color: var(--muted); }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 640px) { .tool-section, .content-section { padding: 18px; } .check-item { flex-direction: column; gap: 6px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>AI Search Readiness Checker</h1>
+    <p>Audit your website for AI search visibility — check llms.txt, robots.txt, sitemap, schema, and crawler policies</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+      <a href="/ai-search-readiness-checker/">AI Readiness</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="tool-section" id="tool">
+      <h2>Run Your AI Search Readiness Audit</h2>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="siteUrl">Website URL</label>
+          <input id="siteUrl" type="url" placeholder="https://example.com" value="">
+        </div>
+
+        <div class="check-group">
+          <div class="check-group-header">CORE FILES</div>
+          <div class="check-group-body">
+            <div class="check-item">
+              <input type="checkbox" id="c-llms" value="llms">
+              <div class="check-label">
+                <span class="item-name">llms.txt</span>
+                <span class="item-desc">AI-readable site summary file</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-robots" value="robots">
+              <div class="check-label">
+                <span class="item-name">robots.txt</span>
+                <span class="item-desc">Crawler access control file</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-sitemap" value="sitemap">
+              <div class="check-label">
+                <span class="item-name">sitemap.xml</span>
+                <span class="item-desc">XML sitemap for crawlers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-group">
+          <div class="check-group-header">STRUCTURED DATA</div>
+          <div class="check-group-body">
+            <div class="check-item">
+              <input type="checkbox" id="c-schema" value="schema">
+              <div class="check-label">
+                <span class="item-name">Has structured data / schema</span>
+                <span class="item-desc">JSON-LD schema markup (FAQPage, WebSite, Organization, Product, Article, etc.)</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-faq" value="faq">
+              <div class="check-label">
+                <span class="item-name">Has FAQ content + schema</span>
+                <span class="item-desc">Visible FAQ section with FAQPage JSON-LD</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-entity" value="entity">
+              <div class="check-label">
+                <span class="item-name">Has entity / Organization schema</span>
+                <span class="item-desc">Organization or other entity markup identifying the business</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-group">
+          <div class="check-group-header">AI CRAWLER POLICIES</div>
+          <div class="check-group-body">
+            <div class="check-item">
+              <input type="checkbox" id="c-ai-search-allow" value="ai-search-allow">
+              <div class="check-label">
+                <span class="item-name">Allows AI search crawlers</span>
+                <span class="item-desc">OAI-SearchBot, Claude-SearchBot, PerplexityBot allowed in robots.txt</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-training-block" value="training-block">
+              <div class="check-label">
+                <span class="item-name">Blocks AI training crawlers</span>
+                <span class="item-desc">GPTBot, ClaudeBot blocked (if policy is intentional)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-group">
+          <div class="check-group-header">CONTENT QUALITY</div>
+          <div class="check-group-body">
+            <div class="check-item">
+              <input type="checkbox" id="c-title" value="title">
+              <div class="check-label">
+                <span class="item-name">Has unique title + meta description</span>
+                <span class="item-desc">Every page has a descriptive title tag and meta description</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-og" value="og">
+              <div class="check-label">
+                <span class="item-name">Has Open Graph tags</span>
+                <span class="item-desc">og:title, og:description, og:type on key pages</span>
+              </div>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="c-canonical" value="canonical">
+              <div class="check-label">
+                <span class="item-name">Uses canonical URLs correctly</span>
+                <span class="item-desc">Canonical tags point to the preferred URL version</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="runBtn">Run Check</button>
+        <button type="button" class="btn btn-secondary" id="sampleBtn">Load Sample</button>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+      <div class="output-section" id="outputSection">
+        <div class="score-display" id="scoreDisplay">
+          <div class="score-number" id="scoreNumber">0%</div>
+          <div class="score-label">AI Search Readiness Score</div>
+          <div class="score-bar"><div class="score-bar-fill" id="scoreBarFill" style="width:0%"></div></div>
+          <p id="scoreSummary" style="font-size:0.875rem;color:var(--muted);margin-top:8px;"></p>
+        </div>
+
+        <div class="output-header">
+          <h3>Missing Items &amp; Priorities</h3>
+        </div>
+        <ul class="priority-list" id="priorityList"></ul>
+
+        <div class="output-header" style="margin-top:16px;">
+          <h3>Recommended Tools</h3>
+        </div>
+        <div class="tool-links" id="toolLinks"></div>
+
+        <div class="output-header" style="margin-top:16px;">
+          <h3>Audit Report</h3>
+          <div class="output-actions">
+            <button type="button" class="btn btn-secondary" id="copyBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy Report
+            </button>
+            <button type="button" class="btn btn-secondary" id="downloadBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Report
+            </button>
+          </div>
+        </div>
+        <pre class="report-preview" id="reportPreview"></pre>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About AI Search Readiness</h2>
+      <p>AI search readiness measures whether a website has the foundational files, metadata, and crawler policies that AI systems use to understand and reference web content. It is not a guarantee of AI visibility — it is a checklist of best practices.</p>
+      <ul>
+        <li><strong>AI search crawlers</strong> — OAI-SearchBot, Claude-SearchBot, and PerplexityBot fetch pages to answer user queries. Having the right policies in place helps these systems access your content.</li>
+        <li><strong>Structured data</strong> — JSON-LD schema helps AI systems parse content by providing machine-readable context.</li>
+        <li><strong>Content accessibility</strong> — llms.txt, robots.txt, and sitemap.xml are the three files that control how AI systems discover and understand your site.</li>
+      </ul>
+      <div class="disclaimer">
+        <strong>⚠️ No guarantees.</strong>
+        This tool checks for recommended files and practices. A high readiness score does not guarantee improved search rankings, AI citations, or AI visibility. Results reflect best practices only.
+      </div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> ·
+        <a href="/llms-txt-validator/">LLMs.txt Validator</a> ·
+        <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a> ·
+        <a href="/faq-schema-generator/">FAQ Schema Generator</a> ·
+        <a href="/ai-search-readiness-checklist/">Readiness Checklist</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is a good AI search readiness score?</h3>
+      <p>A score above 60% means you have the basic foundations. Above 80% is strong. 100% means all checked items are in place — but it does not guarantee AI citations, ranking improvements, or featured snippets.</p>
+      <h3>Does the tool actually crawl my website?</h3>
+      <p>No. This tool does not access or crawl your website. You enter what you know about your site — the tool evaluates your readiness based on your inputs against AI search best practices.</p>
+      <h3>Is llms.txt really necessary?</h3>
+      <p>It is recommended but not required. llms.txt is an experimental format that provides AI systems with a human-written site summary. It helps AI search tools understand your site structure, but it is not an official standard.</p>
+      <h3>What is the difference between blocking training crawlers and search crawlers?</h3>
+      <p>Training crawlers (GPTBot, ClaudeBot) use your content to improve AI models. Search crawlers (OAI-SearchBot, PerplexityBot) fetch pages to answer user queries in real time. Most sites allow search crawlers for referral traffic while blocking training crawlers.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a> · <a href="/ai-search-readiness-checker/">AI Readiness</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const runBtn = document.getElementById('runBtn');
+      const sampleBtn = document.getElementById('sampleBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const outputSection = document.getElementById('outputSection');
+      const scoreNumber = document.getElementById('scoreNumber');
+      const scoreBarFill = document.getElementById('scoreBarFill');
+      const scoreSummary = document.getElementById('scoreSummary');
+      const priorityList = document.getElementById('priorityList');
+      const toolLinks = document.getElementById('toolLinks');
+      const reportPreview = document.getElementById('reportPreview');
+      const toast = document.getElementById('toast');
+
+      const siteUrlInput = document.getElementById('siteUrl');
+      const checkboxes = {
+        llms: { id: 'c-llms', label: 'llms.txt — AI-readable site summary file', priority: 'high', tool: '/llms-txt-generator/' },
+        robots: { id: 'c-robots', label: 'robots.txt — Crawler access control file', priority: 'low', tool: null },
+        sitemap: { id: 'c-sitemap', label: 'sitemap.xml — XML sitemap for crawlers', priority: 'medium', tool: null },
+        schema: { id: 'c-schema', label: 'Structured data / schema markup (JSON-LD)', priority: 'medium', tool: '/faq-schema-generator/' },
+        faq: { id: 'c-faq', label: 'FAQ content + FAQPage JSON-LD', priority: 'low', tool: '/faq-schema-generator/' },
+        entity: { id: 'c-entity', label: 'Organization or entity schema', priority: 'medium', tool: '/faq-schema-generator/' },
+        'ai-search-allow': { id: 'c-ai-search-allow', label: 'AI search crawlers allowed (OAI-SearchBot, Claude-SearchBot, PerplexityBot)', priority: 'high', tool: '/ai-robots-txt-generator/' },
+        'training-block': { id: 'c-training-block', label: 'AI training crawlers blocked (GPTBot, ClaudeBot) — if intentional', priority: 'low', tool: '/ai-robots-txt-generator/' },
+        title: { id: 'c-title', label: 'Unique title + meta description on every page', priority: 'high', tool: null },
+        og: { id: 'c-og', label: 'Open Graph tags (og:title, og:description)', priority: 'low', tool: null },
+        canonical: { id: 'c-canonical', label: 'Canonical URLs set correctly', priority: 'medium', tool: null },
+      };
+
+      const toolCardData = [
+        { href: '/llms-txt-generator/', title: 'LLMs.txt Generator', desc: 'Create an AI-readable llms.txt file' },
+        { href: '/llms-txt-validator/', title: 'LLMs.txt Validator', desc: 'Validate your llms.txt file' },
+        { href: '/ai-robots-txt-generator/', title: 'AI Robots.txt Generator', desc: 'Generate AI crawler policies' },
+        { href: '/faq-schema-generator/', title: 'FAQ Schema Generator', desc: 'Create FAQPage JSON-LD' },
+        { href: '/ai-search-visibility-score/', title: 'AI Visibility Score', desc: 'Estimate your AI search visibility' },
+      ];
+
+      function showToast(m) { toast.textContent = m; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500); }
+
+      function getScore() {
+        const total = Object.keys(checkboxes).length;
+        let passed = 0;
+        Object.keys(checkboxes).forEach(k => {
+          if (document.getElementById(checkboxes[k].id).checked) passed++;
+        });
+        return { passed, total, score: Math.round((passed / total) * 100) };
+      }
+
+      function getMissing() {
+        const missing = [];
+        Object.keys(checkboxes).forEach(k => {
+          if (!document.getElementById(checkboxes[k].id).checked) {
+            missing.push({ key: k, ...checkboxes[k] });
+          }
+        });
+        return missing;
+      }
+
+      function getTools(siteUrl) {
+        const missing = getMissing();
+        const tools = new Set();
+        missing.forEach(m => { if (m.tool) tools.add(m.tool); });
+        return Array.from(tools);
+      }
+
+      function runCheck() {
+        const siteUrl = siteUrlInput.value.trim();
+        if (!siteUrl) { showToast('Please enter a website URL'); return; }
+        try { new URL(siteUrl); } catch { showToast('Please enter a valid URL'); return; }
+
+        const { score, passed, total } = getScore();
+        const missing = getMissing();
+
+        // Score display
+        scoreNumber.textContent = score + '%';
+        scoreNumber.className = 'score-number ' + (score >= 80 ? 'score-high' : score >= 60 ? 'score-medium' : 'score-low');
+        scoreBarFill.style.width = score + '%';
+        scoreBarFill.style.background = score >= 80 ? 'var(--success)' : score >= 60 ? 'var(--warning)' : 'var(--danger)';
+        scoreSummary.textContent = `${passed} of ${total} checks passed. ` +
+          (score >= 80 ? 'Your site has strong AI search foundations.' :
+           score >= 60 ? 'Your site has basic AI search foundations. Review missing items below.' :
+           'Your site needs significant work for AI search readiness.');
+
+        // Priority list
+        const priorityOrder = { high: 0, medium: 1, low: 2 };
+        missing.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+        priorityList.innerHTML = missing.map(m => `
+          <li>
+            <span class="priority-badge priority-${m.priority}">${m.priority}</span>
+            <span>${m.label}</span>
+            ${m.tool ? ` <a href="${m.tool}" style="color:var(--primary);font-size:0.8rem;">Fix →</a>` : ''}
+          </li>
+        `).join('');
+
+        // Tool cards
+        const relevantTools = getTools(siteUrl);
+        toolLinks.innerHTML = toolCardData.map(t => `
+          <a href="${t.href}" class="tool-link-card">
+            <h4>${t.title}</h4>
+            <p>${t.desc}</p>
+          </a>
+        `).join('');
+
+        // Report
+        const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        const reportLines = [
+          `AI SEARCH READINESS AUDIT REPORT`,
+          `Generated: ${date}`,
+          `Site: ${siteUrl}`,
+          ``,
+          `SCORE: ${score}% (${passed}/${total} checks passed)`,
+          ``,
+          `SUMMARY:`,
+          score >= 80 ? '  ✓ Strong AI search readiness — most foundations are in place.' :
+          score >= 60 ? '  ⚠ Basic AI search readiness — some items need attention.' :
+          '  ✗ Low AI search readiness — significant gaps need to be addressed.',
+          ``,
+          `MISSING ITEMS (by priority):`,
+          ...missing.map(m => `  [${m.priority.toUpperCase()}] ${m.label}`),
+          ``,
+          `RECOMMENDED ACTIONS:`,
+          ...missing.filter(m => m.tool).map((m, i) => `  ${i + 1}. ${m.label} → ${siteUrl}${m.tool}`),
+          missing.filter(m => m.tool).length === 0 ? '  (no specific tool recommendations)' : '',
+          ``,
+          `DISCLAIMER: This audit reflects best practices for AI search readiness. ` +
+          `A high score does not guarantee search rankings, AI citations, or AI visibility. ` +
+          `Results are based on self-reported information and do not constitute professional SEO advice.`,
+        ].filter(l => l !== '').join('\n');
+
+        reportPreview.textContent = reportLines;
+        outputSection.classList.add('visible');
+        outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function loadSample() {
+        siteUrlInput.value = 'https://techdocspro.com';
+        Object.keys(checkboxes).forEach(k => {
+          document.getElementById(checkboxes[k].id).checked = false;
+        });
+        // Partial readiness sample
+        const sample = ['robots', 'sitemap', 'title', 'og', 'canonical'];
+        sample.forEach(k => { document.getElementById(checkboxes[k].id).checked = true; });
+        showToast('Sample loaded');
+      }
+
+      function clearForm() {
+        siteUrlInput.value = '';
+        Object.keys(checkboxes).forEach(k => { document.getElementById(checkboxes[k].id).checked = false; });
+        outputSection.classList.remove('visible');
+        showToast('Cleared');
+      }
+
+      async function copyReport() {
+        try { await navigator.clipboard.writeText(reportPreview.textContent); showToast('Report copied!'); }
+        catch { showToast('Failed to copy'); }
+      }
+
+      function downloadReport() {
+        const blob = new Blob([reportPreview.textContent], { type: 'text/plain' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = 'ai-search-readiness-report.txt'; document.body.appendChild(a); a.click();
+        document.body.removeChild(a); URL.revokeObjectURL(a.href);
+        showToast('Report downloaded!');
+      }
+
+      runBtn.addEventListener('click', runCheck);
+      sampleBtn.addEventListener('click', loadSample);
+      clearBtn.addEventListener('click', clearForm);
+      copyBtn.addEventListener('click', copyReport);
+      downloadBtn.addEventListener('click', downloadReport);
+    })();
+  </script>
+</body>
+</html>

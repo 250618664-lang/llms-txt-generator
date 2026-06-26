@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Readiness Report Template — Free Downloadable Audit Template</title>
+  <meta name="description" content="Free AI search readiness report template. Fill in the editable fields, copy or download your completed audit report as a text file.">
+  <meta name="keywords" content="AI search readiness report template, AI SEO audit template, website audit report template, AI visibility report">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-search-readiness-report-template/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+
+  <meta property="og:title" content="AI Search Readiness Report Template — Free Downloadable Audit Template">
+  <meta property="og:description" content="Download a free AI search readiness report template. Fill in the fields and download your completed audit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/ai-search-readiness-report-template/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "AI Search Readiness Report Template — Free Downloadable Audit Template",
+    "description": "A free, editable AI search readiness report template for auditing websites.",
+    "url": "https://webtoolkitai.com/ai-search-readiness-report-template/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do I use the AI Search Readiness Report Template?", "acceptedAnswer": { "@type": "Answer", "text": "Fill in the website name, URL, audit date, and scores for each category. Add your findings and notes. Then copy or download the completed report." } },
+      { "@type": "Question", "name": "Is this report template free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The template is free to use for personal and commercial purposes. There is no license restriction — treat it as public domain." } },
+      { "@type": "Question", "name": "Can I use this for client audits?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. This template is suitable for agency use when auditing client websites for AI search readiness. Fill in the fields and deliver the report as a plain text or PDF document." } }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb; --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8; --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; --mono: 'Monaco', 'Menlo', 'Consolas', monospace; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .form-grid { display: grid; gap: 14px; margin: 14px 0; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    label { font-size: 0.8rem; font-weight: 600; }
+    input, textarea, select {
+      padding: 9px 11px; border: 1px solid var(--border); border-radius: var(--radius);
+      font: inherit; background: white; width: 100%; font-size: 0.9rem;
+    }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    textarea { resize: vertical; min-height: 60px; font-family: var(--mono); font-size: 0.8rem; }
+
+    .report-preview {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; font-family: var(--mono); font-size: 0.8rem;
+      white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
+      line-height: 1.7; margin: 14px 0;
+    }
+
+    .score-row { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 10px; align-items: center; font-size: 0.875rem; }
+    .score-row label { font-size: 0.8rem; }
+    .score-row select { font-size: 0.85rem; padding: 6px 8px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>AI Search Readiness Report Template</h1>
+    <p>Fill in the fields below to create a copyable and downloadable AI search readiness audit report</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+      <a href="/ai-search-readiness-checker/">AI Readiness</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>Fill In Your Audit Details</h2>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Website Name</label>
+            <input type="text" id="siteName" placeholder="TechDocsPro" value="">
+          </div>
+          <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="siteUrl" placeholder="https://example.com" value="">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Auditor Name</label>
+            <input type="text" id="auditor" placeholder="Your Name / Agency" value="">
+          </div>
+          <div class="form-group">
+            <label>Audit Date</label>
+            <input type="date" id="auditDate" value="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Overall Readiness Score (Self-assessed, 0–100)</label>
+          <input type="number" id="overallScore" placeholder="e.g. 65" min="0" max="100" value="">
+        </div>
+
+        <div class="score-row">
+          <div class="form-group">
+            <label>llms.txt Status</label>
+            <select id="s-llms"><option value="">— Select —</option><option value="Pass">Pass — Exists and complete</option><option value="Partial">Partial — Exists but needs improvement</option><option value="Fail">Fail — Missing or empty</option></select>
+          </div>
+          <div></div>
+          <div class="form-group">
+            <label>robots.txt Status</label>
+            <select id="s-robots"><option value="">— Select —</option><option value="Pass">Pass — Intentional AI policy</option><option value="Partial">Partial — Exists, needs review</option><option value="Fail">Fail — Missing or blocking needed crawlers</option></select>
+          </div>
+        </div>
+        <div class="score-row">
+          <div class="form-group">
+            <label>sitemap.xml Status</label>
+            <select id="s-sitemap"><option value="">— Select —</option><option value="Pass">Pass — Exists and submitted</option><option value="Partial">Partial — Exists, not submitted</option><option value="Fail">Fail — Missing</option></select>
+          </div>
+          <div></div>
+          <div class="form-group">
+            <label>Structured Data Status</label>
+            <select id="s-schema"><option value="">— Select —</option><option value="Pass">Pass — Comprehensive schema</option><option value="Partial">Partial — Some schema present</option><option value="Fail">Fail — No structured data</option></select>
+          </div>
+        </div>
+        <div class="score-row">
+          <div class="form-group">
+            <label>FAQ Schema Status</label>
+            <select id="s-faq"><option value="">— Select —</option><option value="Pass">Pass — FAQ + FAQPage JSON-LD</option><option value="Partial">Partial — FAQ without schema</option><option value="Fail">Fail — No FAQ content</option></select>
+          </div>
+          <div></div>
+          <div class="form-group">
+            <label>AI Crawler Policy</label>
+            <select id="s-crawler"><option value="">— Select —</option><option value="Pass">Pass — Intentional policy set</option><option value="Partial">Partial — Some policies defined</option><option value="Fail">Fail — No AI crawler policy</option></select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Key Findings</label>
+          <textarea id="findings" placeholder="List your main findings here — what is working, what needs attention..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Recommended Next Steps</label>
+          <textarea id="nextSteps" placeholder="List the top 3–5 actions to improve AI search readiness..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea id="notes" placeholder="Any other observations, client-specific context, or notes..."></textarea>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate Report</button>
+        <button type="button" class="btn btn-secondary" id="copyBtn">Copy Report</button>
+        <button type="button" class="btn btn-secondary" id="downloadBtn">Download Report</button>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+      <div id="reportSection" style="display:none;">
+        <h3 style="font-size:1rem;margin:16px 0 10px;">Preview</h3>
+        <pre class="report-preview" id="reportPreview"></pre>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About This Template</h2>
+      <p>This report template is designed for auditing websites for AI search readiness. Fill in the fields, generate the report, and copy or download it for your records or client delivery.</p>
+      <ul>
+        <li><strong>Client audits</strong> — Use for agency work when presenting AI search readiness findings to clients.</li>
+        <li><strong>Internal audits</strong> — Use for your own website quarterly reviews.</li>
+        <li><strong>Documentation</strong> — Keep a copy of each audit to track improvement over time.</li>
+      </ul>
+      <div class="disclaimer"><strong>⚠️ This is an audit template.</strong> The report reflects your self-assessed inputs. It does not constitute professional SEO advice. AI search visibility depends on many factors beyond what this template covers.</div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/ai-search-readiness-checker/">AI Readiness Checker</a> ·
+        <a href="/ai-search-readiness-checklist/">AI Readiness Checklist</a> ·
+        <a href="/ai-search-visibility-score/">AI Visibility Score</a> ·
+        <a href="/how-to-improve-ai-search-visibility/">How to Improve AI Visibility</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a> · <a href="/ai-search-readiness-checker/">AI Readiness</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const generateBtn = document.getElementById('generateBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const reportSection = document.getElementById('reportSection');
+      const reportPreview = document.getElementById('reportPreview');
+      const toast = document.getElementById('toast');
+
+      function showToast(m) { toast.textContent = m; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500); }
+
+      function sel(id) { return document.getElementById(id).value || 'Not specified'; }
+      function inp(id) { return document.getElementById(id).value || ''; }
+
+      function generate() {
+        const date = inp('auditDate') || new Date().toISOString().split('T')[0];
+        const report = [
+          `═══════════════════════════════════════════════`,
+          `       AI SEARCH READINESS AUDIT REPORT`,
+          `═══════════════════════════════════════════════`,
+          ``,
+          `Website: ${inp('siteName') || 'Not specified'}`,
+          `URL: ${inp('siteUrl') || 'Not specified'}`,
+          `Auditor: ${inp('auditor') || 'Not specified'}`,
+          `Date: ${date}`,
+          ``,
+          `───────────────────────────────────────────────`,
+          `OVERALL READINESS SCORE: ${inp('overallScore') || 'Not scored'} / 100`,
+          `───────────────────────────────────────────────`,
+          ``,
+          `INDIVIDUAL SCORES`,
+          ``,
+          `  llms.txt:         ${sel('s-llms')}`,
+          `  robots.txt:       ${sel('s-robots')}`,
+          `  sitemap.xml:      ${sel('s-sitemap')}`,
+          `  Structured Data:  ${sel('s-schema')}`,
+          `  FAQ Schema:       ${sel('s-faq')}`,
+          `  AI Crawler Policy: ${sel('s-crawler')}`,
+          ``,
+          `───────────────────────────────────────────────`,
+          `KEY FINDINGS`,
+          `───────────────────────────────────────────────`,
+          inp('findings') || '  (none recorded)',
+          ``,
+          `───────────────────────────────────────────────`,
+          `RECOMMENDED NEXT STEPS`,
+          `───────────────────────────────────────────────`,
+          inp('nextSteps') || '  (none recorded)',
+          ``,
+          `───────────────────────────────────────────────`,
+          `ADDITIONAL NOTES`,
+          `───────────────────────────────────────────────`,
+          inp('notes') || '  (none recorded)',
+          ``,
+          `═══════════════════════════════════════════════`,
+          `DISCLAIMER`,
+          `This audit reflects best-effort self-assessment.`,
+          `A high readiness score does not guarantee AI search`,
+          `visibility, citations, or ranking improvements.`,
+          `Results do not constitute professional SEO advice.`,
+          `═══════════════════════════════════════════════`,
+          ``,
+          `Generated by WebToolkitAI — https://webtoolkitai.com`,
+        ].join('\n');
+
+        reportPreview.textContent = report;
+        reportSection.style.display = 'block';
+        reportSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      async function copyReport() {
+        if (!reportPreview.textContent) { showToast('Generate the report first'); return; }
+        try { await navigator.clipboard.writeText(reportPreview.textContent); showToast('Report copied!'); }
+        catch { showToast('Failed to copy'); }
+      }
+
+      function downloadReport() {
+        if (!reportPreview.textContent) { showToast('Generate the report first'); return; }
+        const blob = new Blob([reportPreview.textContent], { type: 'text/plain' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = `ai-search-readiness-report-${inp('siteName') || 'audit'}.txt`;
+        document.body.appendChild(a); a.click();
+        document.body.removeChild(a); URL.revokeObjectURL(a.href);
+        showToast('Report downloaded!');
+      }
+
+      function clearForm() {
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+          if (el.type === 'checkbox' || el.type === 'radio') el.checked = false;
+          else el.value = '';
+        });
+        reportSection.style.display = 'none';
+        reportPreview.textContent = '';
+        showToast('Form cleared');
+      }
+
+      generateBtn.addEventListener('click', generate);
+      copyBtn.addEventListener('click', copyReport);
+      downloadBtn.addEventListener('click', downloadReport);
+      clearBtn.addEventListener('click', clearForm);
+
+      // Set default date to today
+      document.getElementById('auditDate').value = new Date().toISOString().split('T')[0];
+    })();
+  </script>
+</body>
+</html>

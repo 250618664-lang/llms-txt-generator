@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Visibility Score — Estimate Your Website's AI Search Presence</title>
+  <meta name="description" content="Free AI search visibility score estimator. Answer a few questions to estimate your website's AI search readiness score with improvement suggestions.">
+  <meta name="keywords" content="AI search visibility score, website AI visibility, AI SEO score, AI search presence, AI readiness estimator">
+  <link rel="canonical" href="https://webtoolkitai.com/ai-search-visibility-score/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+  <meta property="og:title" content="AI Search Visibility Score — Estimate Your Website's AI Search Presence">
+  <meta property="og:description" content="Get an AI search visibility score for your website with actionable improvement suggestions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtoolkitai.com/ai-search-visibility-score/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Search Visibility Score",
+    "description": "Free online estimator that gives an AI search visibility score based on key website factors",
+    "url": "https://webtoolkitai.com/ai-search-visibility-score/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the AI Search Visibility Score?", "acceptedAnswer": { "@type": "Answer", "text": "An estimate of how well your website is set up for AI search visibility based on key technical and content factors. It is not a Google ranking score." } },
+      { "@type": "Question", "name": "Is the score accurate?", "acceptedAnswer": { "@type": "Answer", "text": "The score is an estimate based on your inputs. It does not access your actual site. Real AI visibility depends on content quality, relevance, and many other factors beyond what can be measured here." } },
+      { "@type": "Question", "name": "Does a high score mean I will appear in AI search results?", "acceptedAnswer": { "@type": "Answer", "text": "No. The score reflects your technical setup. AI search results depend on content quality, relevance, authority, and many other signals. A high score is a foundation, not a guarantee." } }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --surface: #ffffff; --border: #e5e7eb; --text: #1f2937; --muted: #6b7280; --primary: #2563eb; --primary-hover: #1d4ed8; --success: #059669; --warning: #b45309; --danger: #dc2626; --radius: 8px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 860px; margin: 0 auto; padding: 16px; }
+    header { text-align: center; padding: 32px 16px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .site-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .site-nav a { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    .content-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .content-section h2 { font-size: 1.25rem; margin-bottom: 16px; }
+    .content-section p, .content-section li { color: var(--muted); }
+    .content-section ul { padding-left: 20px; margin: 8px 0 12px; }
+    .content-section li { margin-bottom: 6px; }
+
+    .score-widget { text-align: center; padding: 24px; background: var(--bg); border-radius: var(--radius); margin: 16px 0; }
+    .score-number { font-size: 4rem; font-weight: 800; line-height: 1; }
+    .score-label { font-size: 1rem; color: var(--muted); margin-top: 6px; }
+    .score-bar { height: 10px; background: var(--border); border-radius: 5px; margin: 14px 0; overflow: hidden; }
+    .score-bar-fill { height: 100%; border-radius: 5px; transition: width 0.6s ease; }
+    .score-tier { font-size: 1.1rem; font-weight: 700; margin-top: 8px; }
+    .score-low { color: var(--danger); }
+    .score-medium { color: var(--warning); }
+    .score-high { color: var(--success); }
+
+    .question-list { display: grid; gap: 14px; margin: 14px 0; }
+    .question-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; background: var(--bg); }
+    .question-item h4 { font-size: 0.9rem; margin-bottom: 10px; }
+    .answer-options { display: flex; gap: 8px; flex-wrap: wrap; }
+    .answer-btn { padding: 6px 14px; border: 2px solid var(--border); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--muted); font-family: inherit; transition: border-color 0.15s, background 0.15s; }
+    .answer-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .answer-btn.selected { border-color: var(--primary); background: #eff6ff; color: var(--primary); }
+    .answer-btn[data-score="0"] { border-color: var(--danger); color: var(--danger); }
+    .answer-btn[data-score="0"].selected { background: #fee2e2; }
+    .answer-btn[data-score="1"].selected { background: #fef3c7; color: var(--warning); border-color: var(--warning); }
+    .answer-btn[data-score="2"].selected { background: #d1fae5; color: var(--success); border-color: var(--success); }
+
+    .suggestions { margin-top: 14px; padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    .suggestions h3 { font-size: 0.95rem; margin-bottom: 10px; }
+    .suggestion-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; font-size: 0.875rem; border-bottom: 1px solid var(--border); }
+    .suggestion-item:last-child { border-bottom: none; }
+    .suggestion-item .sug-icon { flex-shrink: 0; }
+    .suggestion-item .sug-text { color: var(--muted); }
+
+    .disclaimer { background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius); padding: 12px 16px; font-size: 0.875rem; color: #92400e; margin: 14px 0; }
+    .disclaimer strong { color: #78350f; }
+    .related-links { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+    .related-links a { color: var(--primary); font-weight: 600; }
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: var(--radius); font-size: 0.95rem; opacity: 0; transition: transform 0.3s, opacity 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    @media (max-width: 640px) { .content-section { padding: 18px; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E4EP66Y0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1E4EP66Y0Q');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>AI Search Visibility Score</h1>
+    <p>Get an estimated AI search visibility score and improvement suggestions for your website</p>
+    <nav class="site-nav" aria-label="WebToolkitAI tools">
+      <a href="/">LLMs.txt Generator</a>
+      <a href="/llms-txt-validator/">LLMs.txt Validator</a>
+      <a href="/ai-robots-txt-generator/">AI Robots.txt</a>
+      <a href="/faq-schema-generator/">FAQ Schema</a>
+      <a href="/ai-search-readiness-checker/">AI Readiness</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>Estimate Your AI Search Visibility</h2>
+      <p>Answer the questions below to get an estimated AI search visibility score. Select the answer that best describes your current situation.</p>
+
+      <div class="question-list" id="questionList">
+        <div class="question-item" data-max="2">
+          <h4>1. Does your website have an llms.txt file?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q1" data-score="0">No llms.txt</button>
+            <button type="button" class="answer-btn" data-q="q1" data-score="1">Heard of it / not sure</button>
+            <button type="button" class="answer-btn" data-q="q1" data-score="2">Yes, it exists</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>2. How are your AI crawler policies configured?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q2" data-score="0">Never checked robots.txt</button>
+            <button type="button" class="answer-btn" data-q="q2" data-score="1">Have robots.txt, unsure about AI bots</button>
+            <button type="button" class="answer-btn" data-q="q2" data-score="2">Intentional AI crawler policy</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>3. Do your pages have structured data / schema markup?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q3" data-score="0">No structured data at all</button>
+            <button type="button" class="answer-btn" data-q="q3" data-score="1">Some structured data (local business, product, or article)</button>
+            <button type="button" class="answer-btn" data-q="q3" data-score="2">Yes, comprehensive schema coverage</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>4. Does your site have FAQ content with FAQPage JSON-LD?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q4" data-score="0">No FAQ content</button>
+            <button type="button" class="answer-btn" data-q="q4" data-score="1">FAQ content but no schema</button>
+            <button type="button" class="answer-btn" data-q="q4" data-score="2">FAQ content with FAQPage JSON-LD</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>5. How is your sitemap configured?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q5" data-score="0">No sitemap</button>
+            <button type="button" class="answer-btn" data-q="q5" data-score="1">Basic sitemap, may not be submitted</button>
+            <button type="button" class="answer-btn" data-q="q5" data-score="2">sitemap.xml submitted to GSC/Bing</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>6. Do your pages have unique title tags and meta descriptions?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q6" data-score="0">Many pages missing or duplicate</button>
+            <button type="button" class="answer-btn" data-q="q6" data-score="1">Most pages have unique tags</button>
+            <button type="button" class="answer-btn" data-q="q6" data-score="2">All pages optimized</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>7. Does your content require login or payment to access?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q7" data-score="0">Most content is behind paywall/login</button>
+            <button type="button" class="answer-btn" data-q="q7" data-score="1">Some key content is gated</button>
+            <button type="button" class="answer-btn" data-q="q7" data-score="2">Core content is freely accessible</button>
+          </div>
+        </div>
+        <div class="question-item" data-max="2">
+          <h4>8. How would you describe your content's authority?</h4>
+          <div class="answer-options">
+            <button type="button" class="answer-btn" data-q="q8" data-score="0">New site, few or no backlinks</button>
+            <button type="button" class="answer-btn" data-q="q8" data-score="1">Some backlinks, moderate authority</button>
+            <button type="button" class="answer-btn" data-q="q8" data-score="2">Strong backlink profile, recognized authority</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="score-widget" id="scoreWidget" style="display:none;">
+        <div class="score-number" id="scoreNumber">0</div>
+        <div class="score-label">AI Search Visibility Score</div>
+        <div class="score-bar"><div class="score-bar-fill" id="scoreBarFill" style="width:0%"></div></div>
+        <div class="score-tier" id="scoreTier"></div>
+      </div>
+
+      <div class="suggestions" id="suggestionsWidget" style="display:none;">
+        <h3>Improvement Suggestions</h3>
+        <div id="suggestionsList"></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About AI Search Visibility Scores</h2>
+      <p>AI search visibility is an estimate of how likely your website is to be referenced in AI-generated responses. Unlike traditional SEO scores, it depends on both technical setup and content authority.</p>
+      <ul>
+        <li><strong>Technical setup</strong> — llms.txt, robots.txt, sitemap.xml, structured data, and crawler policies are the foundational elements.</li>
+        <li><strong>Content accessibility</strong> — AI systems can only reference content they can access. Paywalled or JavaScript-heavy content is harder to use.</li>
+        <li><strong>Content authority</strong> — Backlinks, citations, and domain authority still matter in AI search — AI systems prefer authoritative sources.</li>
+      </ul>
+      <div class="disclaimer"><strong>⚠️ This is an estimate.</strong> The score reflects your self-reported inputs. It does not guarantee AI citations, search rankings, or visibility. AI search results depend on content quality and relevance, not just technical setup.</div>
+      <div class="related-links">
+        <strong>Related Tools:</strong>
+        <a href="/ai-search-readiness-checker/">AI Readiness Checker</a> ·
+        <a href="/ai-search-readiness-checklist/">AI Readiness Checklist</a> ·
+        <a href="/llms-txt-generator/">LLMs.txt Generator</a> ·
+        <a href="/ai-robots-txt-generator/">AI Robots.txt Generator</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WebToolkitAI. <a href="/">LLMs.txt Generator</a> · <a href="/llms-txt-validator/">LLMs.txt Validator</a> · <a href="/ai-robots-txt-generator/">AI Robots.txt</a> · <a href="/faq-schema-generator/">FAQ Schema</a> · <a href="/ai-search-readiness-checker/">AI Readiness</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      const answers = {};
+      const maxPerQuestion = 2;
+      const suggestions = [
+        { q: 'q1', score: 0, text: 'Create an llms.txt file to help AI systems understand your site structure.', href: '/llms-txt-generator/' },
+        { q: 'q2', score: 0, text: 'Review your robots.txt and set an intentional AI crawler policy.', href: '/ai-robots-txt-generator/' },
+        { q: 'q2', score: 1, text: 'Review your AI crawler policies in robots.txt — allow search crawlers, block training crawlers intentionally.', href: '/ai-robots-txt-generator/' },
+        { q: 'q3', score: 0, text: 'Add structured data to your key pages using JSON-LD (FAQPage, WebSite, Organization, Product, or Article schema).', href: '/faq-schema-generator/' },
+        { q: 'q3', score: 1, text: 'Expand structured data coverage — add schema to all key page types.', href: '/faq-schema-generator/' },
+        { q: 'q4', score: 0, text: 'Add a FAQ section to your key pages with FAQPage JSON-LD markup.', href: '/faq-schema-generator/' },
+        { q: 'q5', score: 0, text: 'Create and submit a sitemap.xml to Google Search Console and Bing Webmaster Tools.', href: null },
+        { q: 'q6', score: 0, text: 'Audit your title tags and meta descriptions — ensure every page has unique, descriptive content.', href: null },
+        { q: 'q7', score: 0, text: 'Consider making core content freely accessible to improve AI crawlability and reference likelihood.', href: null },
+        { q: 'q8', score: 0, text: 'Build content authority through quality content, backlinks, and genuine expertise in your niche.', href: null },
+      ];
+
+      function showToast(m) { toast.textContent = m; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500); }
+
+      document.querySelectorAll('.answer-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const q = btn.dataset.q;
+          document.querySelectorAll(`[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          answers[q] = parseInt(btn.dataset.score);
+          updateScore();
+        });
+      });
+
+      function updateScore() {
+        const answered = Object.keys(answers).length;
+        if (answered < 3) return;
+
+        const total = Object.values(answers).reduce((a, b) => a + b, 0);
+        const max = Object.keys(answers).length * maxPerQuestion;
+        const score = Math.round((total / max) * 100);
+
+        document.getElementById('scoreWidget').style.display = 'block';
+        document.getElementById('scoreNumber').textContent = score + '/100';
+        document.getElementById('scoreBarFill').style.width = score + '%';
+
+        const tier = document.getElementById('scoreTier');
+        const bar = document.getElementById('scoreBarFill');
+
+        if (score >= 80) {
+          tier.textContent = 'Strong AI Search Foundations';
+          tier.className = 'score-tier score-high';
+          bar.style.background = 'var(--success)';
+        } else if (score >= 60) {
+          tier.textContent = 'Moderate AI Search Readiness — Room to Improve';
+          tier.className = 'score-tier score-medium';
+          bar.style.background = 'var(--warning)';
+        } else {
+          tier.textContent = 'Low AI Search Readiness — Significant Work Needed';
+          tier.className = 'score-tier score-low';
+          bar.style.background = 'var(--danger)';
+        }
+
+        const sugList = document.getElementById('suggestionsList');
+        const relevantSugs = suggestions.filter(s => {
+          const qScore = answers[s.q];
+          return qScore !== undefined && qScore <= s.score;
+        });
+        if (relevantSugs.length > 0) {
+          sugList.innerHTML = relevantSugs.map(s => `
+            <div class="suggestion-item">
+              <span class="sug-icon">→</span>
+              <span class="sug-text">${s.text}${s.href ? ` <a href="${s.href}" style="color:var(--primary);font-size:0.8rem;">Use tool →</a>` : ''}</span>
+            </div>
+          `).join('');
+          document.getElementById('suggestionsWidget').style.display = 'block';
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
